@@ -1,27 +1,27 @@
 {
   "posts": [
     {
-      "id": "7f7c3e35-7398-c5df-caea-69345eeac469",
+      "id": "18ea6c6f-49b0-0929-b359-ef0dc0c6274e",
       "title": "테스트1",
-      "content": "테스트입니다",
-      "isDone": true
+      "content": "테스트1입니다",
+      "isDone": false
     },
     {
-      "id": "f2060a0a-bd15-9f2e-8034-b3d16917f7fb",
+      "id": "0abc9ce5-4907-dae2-711a-77e4bcb27c77",
+      "title": "테스트2",
+      "content": "테스트2입니다",
+      "isDone": false
+    },
+    {
+      "id": "8adbfb10-ad26-f28a-631b-90a25e8b71cf",
       "title": "테스트3",
       "content": "테스트3입니다",
       "isDone": false
     },
     {
-      "id": "445164a0-3b00-dfc6-f3da-31cce19137da",
-      "title": "테스트5",
-      "content": "테스트5입니다",
-      "isDone": true
-    },
-    {
-      "id": "3d9efadf-f355-1f45-bd17-216826bf3014",
-      "title": "테스트6",
-      "content": "테스트6입니다.",
+      "id": "f96f3f06-c6ec-3214-7744-3eff4cf40272",
+      "title": "테스트4",
+      "content": "테스트4입니다",
       "isDone": false
     }
   ]

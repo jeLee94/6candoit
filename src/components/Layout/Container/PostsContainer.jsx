@@ -7,7 +7,7 @@ import uuid from 'react-uuid';
 import { useNavigate } from 'react-router-dom';
 import * as S from './PostsContainerStyle';
 
-const MainPage = () => {
+const PostsContainer = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -85,4 +85,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default PostsContainer;

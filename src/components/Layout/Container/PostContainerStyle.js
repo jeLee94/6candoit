@@ -19,12 +19,19 @@ export const ContentsWrap = styled.div`
   gap: 20px;
 `;
 
-export const TitleWrap = styled(ContentsWrap)`
+// export const TitleWrap = styled(ContentsWrap)`
+export const TitleWrap = styled.div`
   width: 80px;
   justify-content: center;
 `;
 
-export const ButtonWrap = styled(ContentsWrap)`
+export const ContentWrap = styled.div`
+  width: 80px;
+  justify-content: center;
+`;
+
+// export const ButtonWrap = styled(ContentsWrap)`
+export const ButtonWrap = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.5rem;

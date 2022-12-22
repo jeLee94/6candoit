@@ -15,6 +15,7 @@ import * as S from './PostContainerStyle';
 // } from '../../redux/modules/comments';
 
 const PostContainer = ({ post }) => {
+  // console.log(post);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   // const unawareValue = useSelector((state) => state.posts.posts);
@@ -30,7 +31,7 @@ const PostContainer = ({ post }) => {
     // event.preventDefault();
     // dispatch(__toggleStatusPost(post.id));
     dispatch(__togglePost(post));
-    // console.log(dispatch(togglePost(post.id))); //동기적으로는 구현완료
+    // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
 
   // const EditPost = () => {
@@ -43,7 +44,7 @@ const PostContainer = ({ post }) => {
     <S.CommentWrap>
       <S.ContentsWrap>
         <S.TitleWrap>{post.title}</S.TitleWrap>
-        <div>{post.content}</div>
+        <S.ContentWrap>{post.content}</S.ContentWrap>
         <S.ButtonWrap>
           <S.CusttomButton>
             <Link to={`/${post.id}`}>보기</Link>

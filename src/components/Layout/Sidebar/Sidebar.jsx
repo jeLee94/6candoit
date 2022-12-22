@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
-import PostContainer from '../Container/PostContainer.jsx';
+import PostsContainer from '../Container/PostsContainer';
 // import Todo from '../../Todo/Todo';
 
 export default function Sidebar() {
@@ -25,10 +25,10 @@ export default function Sidebar() {
             <div className='header'>
               <h2>My Todos</h2>
             </div>
-            <PostsContainer />
           </div>
         </div>
       </S.SideBar>
+      <PostsContainer />
     </>
   );
 }
