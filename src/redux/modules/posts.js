@@ -17,9 +17,10 @@ export const __addPost = createAsyncThunk(
   'posts/addPost',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.post('http://localhost:3003/posts', payload);
       const data = await axios.get('http://localhost:3003/posts');
+      // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -31,10 +32,28 @@ export const __deletePost = createAsyncThunk(
   'posts/deletePost',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.delete(`http://localhost:3003/posts/${payload}`);
       const data = await axios.get('http://localhost:3003/posts');
-      console.log(data.data);
+      // console.log(data.data);
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __togglePost = createAsyncThunk(
+  'posts/togglePost',
+  //   'posts/togglepost',
+  async (payload, thunkAPI) => {
+    try {
+      // console.log('비동기 toggle payload값:', payload);
+      await axios.patch(`http://localhost:3003/posts/${payload.id}`, {
+        isDone: !payload.isDone,
+      });
+      const data = await axios.get('http://localhost:3003/posts');
+      // console.log('toggle: server로부터 받은 응답', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -46,10 +65,10 @@ export const __updatePost = createAsyncThunk(
   'posts/updatePost',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.patch(`http://localhost:3003/posts/${payload.id}`, payload);
       const data = await axios.get('http://localhost:3003/posts');
-      console.log(data.data);
+      // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -71,16 +90,11 @@ export const __updatePost = createAsyncThunk(
 
 const initialState = {
   posts: [
-    {
-      id: 1,
-      title: '제목1',
-      content: '내용1',
-    },
-    {
-      id: 2,
-      title: '제목2',
-      content: '내용2',
-    },
+    // {
+    //   id: 1,
+    //   title: '제목1',
+    //   content: '내용1',
+    // },
   ],
   isLoading: false,
   error: null,
@@ -90,15 +104,15 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    addpost: (state, action) => {
+    addPost: (state, action) => {
       state.posts = [...state.posts, action.payload];
     },
 
-    deletepost: (state, action) => {
+    deletePost: (state, action) => {
       state.posts = state.posts.filter((posts) => posts.id !== action.payload);
     },
 
-    togglepost: (state, action) => {
+    togglePost: (state, action) => {
       let postlist = state.posts.slice();
       postlist.find((e) => e.id === action.payload).isDone = !postlist.find(
         (e) => e.id === action.payload
@@ -112,7 +126,7 @@ const postsSlice = createSlice({
         !postlist.find((e) => e.id === action.payload).displaytoggle;
       state.posts = postlist;
     },
-    updatepost: (state, action) => {
+    updatePost: (state, action) => {
       let postlist = state.posts.slice();
       console.log(action.payload);
       // postlist.find((e) => e.id === action.payload.id) =
@@ -157,6 +171,18 @@ const postsSlice = createSlice({
       state.error = action.payload;
     },
 
+    [__togglePost.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__togglePost.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.posts = action.payload;
+    },
+    [__togglePost.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+
     [__updatePost.pending]: (state) => {
       state.isLoading = true;
     },
@@ -171,6 +197,7 @@ const postsSlice = createSlice({
   },
 });
 
+console.log('postSlice.action:', postsSlice.actions);
 export const { addPost, deletePost, togglePost, updatePost, toggleDisplay } =
   postsSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.

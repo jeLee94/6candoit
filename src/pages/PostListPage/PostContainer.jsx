@@ -2,7 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { __deletePost, __updatePost } from '../../redux/modules/posts';
+import {
+  __deletePost,
+  __updatePost,
+  // togglePost,
+  __togglePost,
+} from '../../redux/modules/posts';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -11,45 +16,64 @@ import { __deletePost, __updatePost } from '../../redux/modules/posts';
 
 const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+  // const navigate = useNavigate();
+  // const unawareValue = useSelector((state) => state.posts.posts);
+  // console.log('store값', unawareValue);
   // const { comments } = useSelector((state) => state.comments);
 
   const DeletePost = () => {
     // dispatch(__deleteAllComment(post.id));
-
-    console.log(post.id);
     dispatch(__deletePost(post.id));
   };
 
-  const EditPost = () => {
-    navigate('/editform', {
-      state: post,
-    });
+  const togglePostHandler = () => {
+    // event.preventDefault();
+    // dispatch(__toggleStatusPost(post.id));
+    dispatch(__togglePost(post));
+    // console.log(dispatch(togglePost(post.id))); //동기적으로는 구현완료
   };
+
+  // const EditPost = () => {
+  //   navigate('/editform', {
+  //     state: post,
+  //   });
+  // };
 
   return (
     <CommentWrap>
       <ContentsWrap>
         <TitleWrap>{post.title}</TitleWrap>
         <div>{post.content}</div>
+        <ButtonWrap>
+          <CusttomButton>
+            <Link to={`/${post.id}`}>보기</Link>
+          </CusttomButton>
+          <CusttomButton onClick={DeletePost}>삭제</CusttomButton>
+          <CusttomButton onClick={togglePostHandler}>
+            {post.isDone ? '진행중' : '완료'}
+          </CusttomButton>
+        </ButtonWrap>
       </ContentsWrap>
-      <ButtonWrap>
-        <CusttomButton>
-          <Link to={`/${post.id}`}>보기</Link>
-        </CusttomButton>
-        <CusttomButton onClick={DeletePost}>삭제</CusttomButton>
-        <CusttomButton onClick={EditPost}>수정</CusttomButton>
-      </ButtonWrap>
     </CommentWrap>
   );
 };
+
+const CommentWrap = styled.div`
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #2a2a2a;
+`;
 
 const ContentsWrap = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 `;
 
@@ -58,17 +82,10 @@ const TitleWrap = styled(ContentsWrap)`
   justify-content: center;
 `;
 
-const ButtonWrap = styled(ContentsWrap)``;
-
-const CommentWrap = styled.div`
-  width: 100%;
-  height: 100px;
+const ButtonWrap = styled(ContentsWrap)`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-direction: row;
-  gap: 20px;
-  border-bottom: 1px solid #eee;
+  gap: 0.5rem;
 `;
 
 const CusttomButton = styled.button`
