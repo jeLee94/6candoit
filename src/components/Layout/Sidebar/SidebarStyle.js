@@ -12,6 +12,12 @@ export const SideBar = styled.div`
   overflow-x: hidden;
 `;
 
+export const SideWrapper = styled.div`
+  border-bottom: 1px solid var(--border-color);
+  padding: 2.25rem 0;
+  width: 9.0625rem;
+`;
+
 /* .side-title {
   font-size: 0.75rem;
   margin-bottom: 1.5rem;
@@ -23,11 +29,6 @@ export const SideBar = styled.div`
   flex-direction: column;
 }
 
-.side-wrapper {
-  border-bottom: 1px solid var(--border-color);
-  padding: 2.25rem 0;
-  width: 9.0625rem;
-}
 
 .wrapper {
   display: flex;

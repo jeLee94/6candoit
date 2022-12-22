@@ -65,10 +65,10 @@ export const __updatePost = createAsyncThunk(
   'posts/updatePost',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
+      console.log('update 페이로드: ', payload);
       await axios.patch(`http://localhost:3003/posts/${payload.id}`, payload);
       const data = await axios.get('http://localhost:3003/posts');
-      // console.log(data.data);
+      console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

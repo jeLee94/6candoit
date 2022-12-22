@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,6 +7,7 @@ import {
   // togglePost,
   __togglePost,
 } from '../../../redux/modules/posts';
+import * as S from './PostContainerStyle';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -40,59 +40,22 @@ const PostContainer = ({ post }) => {
   // };
 
   return (
-    <CommentWrap>
-      <ContentsWrap>
-        <TitleWrap>{post.title}</TitleWrap>
+    <S.CommentWrap>
+      <S.ContentsWrap>
+        <S.TitleWrap>{post.title}</S.TitleWrap>
         <div>{post.content}</div>
-        <ButtonWrap>
-          <CusttomButton>
+        <S.ButtonWrap>
+          <S.CusttomButton>
             <Link to={`/${post.id}`}>보기</Link>
-          </CusttomButton>
-          <CusttomButton onClick={DeletePost}>삭제</CusttomButton>
-          <CusttomButton onClick={togglePostHandler}>
+          </S.CusttomButton>
+          <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
+          <S.CusttomButton onClick={togglePostHandler}>
             {post.isDone ? '진행중' : '완료'}
-          </CusttomButton>
-        </ButtonWrap>
-      </ContentsWrap>
-    </CommentWrap>
+          </S.CusttomButton>
+        </S.ButtonWrap>
+      </S.ContentsWrap>
+    </S.CommentWrap>
   );
 };
-
-const CommentWrap = styled.div`
-  width: 200px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid #2a2a2a;
-`;
-
-const ContentsWrap = styled.div`
-  height: 100px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const TitleWrap = styled(ContentsWrap)`
-  width: 80px;
-  justify-content: center;
-`;
-
-const ButtonWrap = styled(ContentsWrap)`
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-`;
-
-const CusttomButton = styled.button`
-  width: 50px;
-  height: 30px;
-  cursor: pointer;
-  border: 1px solid #eee;
-`;
 
 export default PostContainer;
