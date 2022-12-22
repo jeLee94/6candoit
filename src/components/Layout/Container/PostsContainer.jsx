@@ -11,7 +11,7 @@ const PostsContainer = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [isDone, setIsDone] = useState('');
+  // const [isDone, setIsDone] = useState('');
   const navigate = useNavigate();
 
   const onSubmitHandler = (e) => {

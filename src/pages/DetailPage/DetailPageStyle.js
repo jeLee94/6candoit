@@ -30,7 +30,7 @@ export const ContentsWrap = styled.div`
 
 export const UserSection = styled.div`
   background-color: skyblue;
-  width: 100%;
+  width: 70%;
   height: 300px;
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@ export const UserSection = styled.div`
 
 export const TitleSection = styled.div`
   background-color: orange;
-  width: 100%;
+  width: 70%;
   height: 300px;
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@ export const TitleSection = styled.div`
 
 export const ContentSection = styled.div`
   background-color: yellow;
-  width: 100%;
+  width: 70%;
   height: 300px;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ export const ContentSection = styled.div`
 
 export const ButtonSection = styled.div`
   background-color: green;
-  width: 100%;
+  width: 70%;
   height: 300px;
   display: flex;
   align-items: center;
