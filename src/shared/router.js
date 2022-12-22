@@ -1,10 +1,11 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
 // import MainPage from '../components/Layout/Container/PostsContainer';
 // import MainPage from '../pages/PostListPage/PostsContainer';
-import MainPage from '../pages/MainPage/MainPage';
-import DetailPage from '../pages/DetailPage/DetailPage';
+import MainPage from "../pages/MainPage/MainPage";
+import DetailPage from "../pages/DetailPage/DetailPage";
+import CalendarPage from "../pages/CalendarPage/CalendarPage";
 
 const Wrap = styled.div`
   max-width: 96.25rem;
@@ -26,9 +27,9 @@ const Router = () => {
       {/* <Header></Header> */}
       <Wrap>
         <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/:id' element={<DetailPage />} />
-          {/* <Route path="/" element={<Main />} /> */}
+          <Route path="/" element={<MainPage />} />
+          <Route path="/Calendar" element={<CalendarPage />} />
+          <Route path="/:id" element={<DetailPage />} />
           {/* <Route path="/addform" element={<PostAddForm />} /> */}
         </Routes>
       </Wrap>

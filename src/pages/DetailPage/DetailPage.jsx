@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { SideBar } from '../../components/Layout/Sidebar/SidebarStyle';
-import CustomButton from '../../components/Tools/CustomButton';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { SideBar } from "../../components/Layout/Sidebar/SidebarStyle";
+import CustomButton from "../../components/Tools/CustomButton";
 import {
   __getPost,
   __deletePost,
   __updatePost,
-} from '../../redux/modules/posts';
-import * as S from './DetailPageStyle';
+} from "../../redux/modules/posts";
+import * as S from "./DetailPageStyle";
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
 // import { __getComment } from '../../../redux/modules/comments';
@@ -29,7 +29,7 @@ const DetailPage = () => {
   }, [dispatch]);
 
   const DeletePost = () => {
-    console.log('클릭!');
+    console.log("클릭!");
     // dispatch(__deleteAllComment(post.id));
     dispatch(__deletePost(post.id));
   };
