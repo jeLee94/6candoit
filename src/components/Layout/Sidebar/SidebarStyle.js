@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -10,6 +10,11 @@ export const SideBar = styled.div`
   transition-duration: 0.2s;
   overflow-y: auto;
   overflow-x: hidden;
+`;
+
+export const SideLogin = styled.div`
+  font-size: medium;
+  font-weight: bold;
 `;
 
 export const SideTitle = styled.div`
