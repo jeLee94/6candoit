@@ -1,27 +1,15 @@
 {
   "posts": [
     {
-      "id": "18ea6c6f-49b0-0929-b359-ef0dc0c6274e",
-      "title": "테스트1",
-      "content": "테스트1입니다",
+      "id": "a350e86a-6e31-edd6-c216-35e7aa0c74f1",
+      "title": "ㅇㅇㅇ",
+      "content": "ㅇㅇㅇ",
       "isDone": false
     },
     {
-      "id": "0abc9ce5-4907-dae2-711a-77e4bcb27c77",
-      "title": "테스트2",
-      "content": "테스트2입니다",
-      "isDone": false
-    },
-    {
-      "id": "8adbfb10-ad26-f28a-631b-90a25e8b71cf",
-      "title": "테스트3",
-      "content": "테스트3입니다",
-      "isDone": false
-    },
-    {
-      "id": "f96f3f06-c6ec-3214-7744-3eff4cf40272",
-      "title": "테스트4",
-      "content": "테스트4입니다",
+      "id": "295bb3f4-4d1c-14f3-040e-1bf8f8eda66e",
+      "title": "sddd",
+      "content": "ddd",
       "isDone": false
     }
   ]
