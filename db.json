@@ -1,47 +1,27 @@
 {
   "posts": [
     {
-      "id": "7a11afc3-d3a0-8112-1952-ba155ca4b39a",
-      "title": "asdv",
-      "content": "wevwev",
-      "isDone": false,
-      "7a11afc3-d3a0-8112-1952-ba155ca4b39a": ""
-    },
-    {
-      "id": "62a5f413-403b-2b29-6fe6-1415755818a8",
-      "title": "ave",
-      "content": "awevawew",
-      "isDone": true,
-      "62a5f413-403b-2b29-6fe6-1415755818a8": ""
-    },
-    {
-      "id": "a7ec79b1-883a-e36c-260e-4c8879aab2e1",
-      "title": "dawv",
-      "content": "aewvawev",
+      "id": "7f7c3e35-7398-c5df-caea-69345eeac469",
+      "title": "테스트1",
+      "content": "테스트입니다",
       "isDone": true
     },
     {
-      "id": "50b0c445-7389-dee1-4163-838125e1a565",
-      "title": "wevw",
-      "content": "wevwevwe",
-      "isDone": false
-    },
-    {
-      "id": "82bb6b88-2c3a-f670-396a-a9aa45859168",
-      "title": "wveve",
-      "content": "wevwevwe",
+      "id": "f2060a0a-bd15-9f2e-8034-b3d16917f7fb",
+      "title": "테스트3",
+      "content": "테스트3입니다",
       "isDone": true
     },
     {
-      "id": "394b4af2-6d3e-fc6e-146e-857726f86531",
-      "title": "wevw",
-      "content": "evwevwev",
+      "id": "445164a0-3b00-dfc6-f3da-31cce19137da",
+      "title": "테스트5",
+      "content": "테스트5입니다",
       "isDone": true
     },
     {
-      "id": "9a790a70-ae11-8bd2-e282-4303d708b65a",
-      "title": "wevwe",
-      "content": "aefaswdf",
+      "id": "3d9efadf-f355-1f45-bd17-216826bf3014",
+      "title": "테스트6",
+      "content": "테스트6입니다.",
       "isDone": false
     }
   ]

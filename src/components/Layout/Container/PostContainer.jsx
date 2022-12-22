@@ -7,7 +7,7 @@ import {
   __updatePost,
   // togglePost,
   __togglePost,
-} from '../../redux/modules/posts';
+} from '../../../redux/modules/posts';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -62,7 +62,7 @@ const CommentWrap = styled.div`
   width: 200px;
   height: 150px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;

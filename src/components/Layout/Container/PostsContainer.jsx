@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import PostContainer from './PostContainer';
-import CustomButton from '../../components/Tools/CustomButton';
+import CustomButton from '../../Tools/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { __addPost, __getPost } from '../../redux/modules/posts';
+import { __addPost, __getPost } from '../../../redux/modules/posts';
 import uuid from 'react-uuid';
 import { useNavigate } from 'react-router-dom';
+import * as S from './PostsContainerStyle';
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -39,12 +39,12 @@ const MainPage = () => {
   const { posts } = useSelector((state) => state.posts);
 
   return (
-    <CommentsWrap>
-      <AddWrap>
-        <Form onSubmit={onSubmitHandler}>
+    <S.CommentsWrap>
+      <S.AddWrap>
+        <S.Form onSubmit={onSubmitHandler}>
           <label>
             제목
-            <TitleInput
+            <S.TitleInput
               className='title'
               type='text'
               value={title}
@@ -56,7 +56,7 @@ const MainPage = () => {
 
           <label>
             내용
-            <ContentInput
+            <S.ContentInput
               type='text'
               value={content}
               onChange={(e) => {
@@ -65,81 +65,24 @@ const MainPage = () => {
             />
           </label>
           <CustomButton>추가</CustomButton>
-        </Form>
-      </AddWrap>
-      <DoingTodo>
+        </S.Form>
+      </S.AddWrap>
+      <S.DoingTodo>
         {posts
           .filter((post) => post.isDone === false)
           .map((post) => {
             return <PostContainer key={post.id} post={post}></PostContainer>;
           })}
-      </DoingTodo>
-      <DoneTodo>
+      </S.DoingTodo>
+      <S.DoneTodo>
         {posts
           .filter((post) => post.isDone === true)
           .map((post) => {
             return <PostContainer key={post.id} post={post}></PostContainer>;
           })}
-      </DoneTodo>
-    </CommentsWrap>
+      </S.DoneTodo>
+    </S.CommentsWrap>
   );
 };
 
 export default MainPage;
-
-const CommentsWrap = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-`;
-
-const AddWrap = styled.div`
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const TitleInput = styled.input`
-  border: 1px solid #eee;
-  margin-top: 50px;
-  height: 25px;
-  width: 100%;
-  border-radius: 12px;
-  outline: none;
-  padding: 0 10px;
-`;
-
-const ContentInput = styled.input`
-  border: 1px solid #eee;
-  margin-top: 50px;
-  height: 500px;
-  width: 100%;
-  border-radius: 12px;
-  outline: none;
-  padding: 0 10px;
-`;
-
-const DoingTodo = styled.div`
-  width: 35%;
-  max-height: 700px;
-  display: flex;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  overflow: auto;
-`;
-
-const DoneTodo = styled.div`
-  width: 35%;
-  max-height: 700px;
-  display: flex;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  overflow: auto;
-`;
