@@ -5,6 +5,26 @@ import styled from 'styled-components';
 // import MainPage from '../pages/PostListPage/PostsContainer';
 import MainPage from '../pages/MainPage/MainPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+
+const Router = () => {
+  return (
+    <BrowserRouter>
+      {/* <Header></Header> */}
+      <Wrap>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/:id' element={<DetailPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          {/* <Route path="/" element={<Main />} /> */}
+          {/* <Route path="/addform" element={<PostAddForm />} /> */}
+        </Routes>
+      </Wrap>
+    </BrowserRouter>
+  );
+};
+
+export default Router;
 
 const Wrap = styled.div`
   max-width: 96.25rem;
@@ -19,21 +39,3 @@ const Wrap = styled.div`
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   position: relative;
 `;
-
-const Router = () => {
-  return (
-    <BrowserRouter>
-      {/* <Header></Header> */}
-      <Wrap>
-        <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/:id' element={<DetailPage />} />
-          {/* <Route path="/" element={<Main />} /> */}
-          {/* <Route path="/addform" element={<PostAddForm />} /> */}
-        </Routes>
-      </Wrap>
-    </BrowserRouter>
-  );
-};
-
-export default Router;
