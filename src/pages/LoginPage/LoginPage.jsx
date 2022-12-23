@@ -5,15 +5,16 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux/';
+import { Link, useNavigate } from 'react-router-dom';
 import google from './google.png';
-import { Link } from 'react-router-dom';
 import * as S from './LoginPageStyle';
+import { __addUser, __deleteUser } from '../../redux/modules/userSlice';
 
 function LoginPage() {
-  //구글 회원가입, 로그인용 state
-  const [googleEmail, setGoogleEmail] = useState(null);
   //이메일 회원가입용 state
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
@@ -21,11 +22,12 @@ function LoginPage() {
   //로그인용 state
   const [LoginEmail, setLoginEmail] = useState('');
   const [LoginPassword, setLoginPassword] = useState('');
-  const [user, setUser] = useState('');
-
+  const [currentUser, setCurrentUser] = useState('');
   //회원가입, 로그인 토글용
   const [isRegistered, setIsRegistered] = useState(true);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   // Todo 회원가입 완료 시 alert 뜨고 3초 후에 로그인으로 넘어가도록 수정
   // Todo2 로그인 ↔ 회원가입 왔다갔다 할 때 input창 데이터 안지워지는 부분 수정
   // Todo3 메인, 디테일 페이지에서 로그인 정보 보여주기 세션?쿠키?
@@ -34,7 +36,6 @@ function LoginPage() {
   // 회원가입
   const handleRegister = async () => {
     try {
-      setErrorMsg(' ');
       const createdUser = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
@@ -42,8 +43,8 @@ function LoginPage() {
       );
       alert(`${createdUser.user.email}님 안녕하세요!`);
       setIsRegistered(!isRegistered); //로그인 창으로 돌아가기
-      setRegisterEmail('');
-      setRegisterPassword('');
+      setRegisterEmail(''); //state 초기화
+      setRegisterPassword(''); // state 초기화
     } catch (err) {
       switch (err.code) {
         case 'auth/weak-password':
@@ -74,7 +75,14 @@ function LoginPage() {
         LoginEmail,
         LoginPassword
       );
-      setUser(curUserInfo.user);
+      setCurrentUser(curUserInfo.user);
+      // console.log(curUserInfo.user);
+      dispatch(
+        __addUser({ id: curUserInfo.user.uid, email: curUserInfo.user.email })
+      );
+      console.log(curUserInfo.user.uid);
+      alert('로그인완료!');
+      navigate('/');
     } catch (err) {
       // setIsAppropriate(false);
       switch (err.code) {
@@ -98,20 +106,25 @@ function LoginPage() {
     }
   };
 
-  //로그아웃 추후 다른 페이지에서 사용 예정
-  const handleLogout = async () => {
-    setUser('');
-    //세션 or 쿠기 삭제
-    await signOut(auth);
-  };
+  // //로그아웃 추후 다른 페이지에서 사용 예정
+  // const handleLogout = async () => {
+  //   setCurrentUser('');
+  //   //세션 or 쿠기 삭제
+
+  //   dispatch(__deleteUser(currentUser.uid));
+  //   await signOut(auth);
+  // };
 
   //구글 로그인
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
     signInWithPopup(auth, provider) // popup을 이용한 signup
       .then((data) => {
-        setGoogleEmail(data.user); // user data 설정
+        setCurrentUser(data.user);
+        dispatch(__addUser({ id: currentUser.uid, email: currentUser.email })); // user data 설정
+        console.log(currentUser);
         alert('로그인 완료!');
+
         // console.log(data); // console로 들어온 데이터 표시
       })
       .catch((err) => {
