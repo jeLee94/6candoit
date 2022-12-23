@@ -22,15 +22,6 @@ export default function Sidebar() {
           </S.SideMenu>
         </S.SideWrapper>
       </S.SideBar>
-
-      <S.Wrapper>
-        <S.MainContainer>
-          <S.Header>
-            <h2>My Todos</h2>
-          </S.Header>
-          <PostsContainer />
-        </S.MainContainer>
-      </S.Wrapper>
     </>
   );
 }
