@@ -53,7 +53,6 @@ const PostsContainer = () => {
               }}
             />
           </label>
-
           <label>
             내용
             <S.ContentInput
@@ -64,7 +63,11 @@ const PostsContainer = () => {
               }}
             />
           </label>
-          <CustomButton>추가</CustomButton>
+          <S.AddTodoBtn
+            disabled={title === '' || content === '' ? true : false}
+          >
+            추가
+          </S.AddTodoBtn>
         </S.Form>
       </S.AddWrap>
       <S.DoingTodo>

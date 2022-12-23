@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { SideBar } from '../../components/Layout/Sidebar/SidebarStyle';
 import CustomButton from '../../components/Tools/CustomButton';
 import {
@@ -15,6 +15,7 @@ import * as S from './DetailPageStyle';
 
 const DetailPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
   // console.log('post 값: ', posts);
   const param = useParams();
@@ -30,9 +31,11 @@ const DetailPage = () => {
   }, [dispatch]);
 
   const DeletePost = () => {
-    // console.log('클릭!');
-    // dispatch(__deleteAllComment(post.id));
     dispatch(__deletePost(post.id));
+    navigate('/');
+    // navigate('/', {
+    //   state: post,
+    // });
   };
 
   const changeTitle = (event) => {
@@ -45,12 +48,8 @@ const DetailPage = () => {
 
   const updateTodoHandler = (event) => {
     event.preventDefault();
-    // console.log('클릭');
     setEdit(!edit);
-
-    // dispatch(__updatePost(post));
-    // if (title.length !== 0 && content.length !== 0) {
-    // }
+    dispatch(__updatePost(post));
   };
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const DetailPage = () => {
     // console.log('posts: ', posts);
     setTitle(post.title);
     setContent(post.content);
-    console.log(post.title, post.content);
+    // console.log(post.title, post.content);
   }, [posts]);
 
   return (
@@ -101,29 +100,27 @@ const DetailPage = () => {
             )}
           </S.ContentSection>
           <S.ButtonSection>
-            {edit ? (
-              <button form='editInput' onClick={updateTodoHandler}>
+            {edit && (
+              <S.EditBtn
+                id='edit-complete'
+                form='editInput'
+                onClick={updateTodoHandler}
+                disabled={title === '' || content === '' ? true : false}
+              >
                 수정완료
-              </button>
-            ) : (
-              <button onClick={updateTodoHandler}>수정</button>
+              </S.EditBtn>
             )}
-            <CustomButton onClick={DeletePost}>삭제</CustomButton>
-          </S.ButtonSection>
-
-          <div className='button-layout'>
-            <button
+            <S.EditBtn
               onClick={() => {
-                if (title && content) {
-                  setEdit(!edit);
-                }
+                setEdit(!edit);
               }}
             >
               {edit ? '수정취소' : '수정'}
-            </button>
-          </div>
+            </S.EditBtn>
+            <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
+          </S.ButtonSection>
 
-          <button>댓글작성</button>
+          <S.EditBtn>댓글작성</S.EditBtn>
           <Link to={`/`}>
             <span>돌아가기</span>
           </Link>

@@ -71,3 +71,11 @@ export const DoneTodo = styled.div`
   overflow: hidden;
   position: relative;
 `;
+
+export const AddTodoBtn = styled.button`
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+`;
