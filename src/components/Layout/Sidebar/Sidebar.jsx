@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import * as S from './SidebarStyle.js';
-import Ellipse from './Ellipse.png';
-import PostsContainer from '../Container/PostsContainer';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import * as S from "./SidebarStyle.js";
+import Ellipse from "./Ellipse.png";
 
 // import Todo from '../../Todo/Todo';
 export default function Sidebar() {
@@ -17,16 +16,16 @@ export default function Sidebar() {
         <S.SideWrapper>
           <S.AppLogo src={Ellipse} />
           <S.SideLogin>
-            <Link to='/login'>Login</Link>
+            <Link to="/login">Login</Link>
           </S.SideLogin>
           <S.SideTitle>MENU</S.SideTitle>
           <S.SideMenu>
-            {location.pathname !== '/' && (
-              <Link to='/'>
+            {location.pathname !== "/" && (
+              <Link to="/">
                 <span>Main</span>
               </Link>
             )}
-            <Link to='/Calendar'>
+            <Link to="/Calendar">
               <span>Calendar</span>
             </Link>
           </S.SideMenu>
