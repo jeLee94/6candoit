@@ -30,39 +30,53 @@ export const ContentsWrap = styled.div`
 `;
 
 export const UserSection = styled.div`
-  background-color: skyblue;
   width: 70%;
-  height: 300px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
+  border-radius: 0.5rem;
   gap: 20px;
 `;
 
 export const TitleSection = styled.div`
-  background-color: orange;
   width: 70%;
-  height: 300px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
+  border-radius: 0.5rem;
   gap: 20px;
 `;
 
 export const ContentSection = styled.div`
-  background-color: yellow;
   width: 70%;
-  height: 300px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  gap: 20px;
+`;
+
+export const CommentSection = styled.div`
+  width: 70%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 0.5rem;
   gap: 20px;
 `;
 
 export const ButtonSection = styled.div`
   /* background-color: green; */
   width: 70%;
-  height: 300px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;

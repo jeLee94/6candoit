@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { SideBar } from '../../components/Layout/Sidebar/SidebarStyle';
+import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 import CustomButton from '../../components/Tools/CustomButton';
 import {
   __getPost,
@@ -35,9 +35,6 @@ const DetailPage = () => {
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
     navigate('/');
-    // navigate('/', {
-    //   state: post,
-    // });
   };
 
   const changeTitle = (event) => {
@@ -71,7 +68,7 @@ const DetailPage = () => {
 
   return (
     <>
-      <SideBar />
+      <Sidebar />
       <S.PostpageWrap>
         <S.PostWrap>
           {/* {post?.title} */}
@@ -104,8 +101,6 @@ const DetailPage = () => {
             ) : (
               post?.content
             )}
-          </S.ContentSection>
-          <S.ButtonSection>
             {edit && (
               <S.EditBtn
                 id='edit-complete'
@@ -124,8 +119,9 @@ const DetailPage = () => {
               {edit ? '수정취소' : '수정'}
             </S.EditBtn>
             <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
-          </S.ButtonSection>
-
+          </S.ContentSection>
+          {/* <S.ButtonSection></S.ButtonSection> */}
+          <S.CommentSection>댓글이 보여지는 영역</S.CommentSection>
           <S.EditBtn
             onClick={() => {
               setCommentWindow(!commentWindow);
@@ -144,9 +140,6 @@ const DetailPage = () => {
               <button>등록</button>
             </div>
           )}
-          <Link to={`/`}>
-            <span>돌아가기</span>
-          </Link>
         </S.PostWrap>
         {/* <CommentAddForm post_id={post?.id}></CommentAddForm> */}
         {/* <CommentsContainer post_id={post?.id}></CommentsContainer> */}

@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
 import PostsContainer from '../Container/PostsContainer';
 
 // import Todo from '../../Todo/Todo';
-
 export default function Sidebar() {
+  const location = useLocation();
+  // console.log('sidebar에서', location.pathname);
+
   return (
     <>
       <S.SideBar>
@@ -19,8 +21,13 @@ export default function Sidebar() {
           </S.SideLogin>
           <S.SideTitle>MENU</S.SideTitle>
           <S.SideMenu>
-            <Link to='/'>
-              <span>Main</span>
+            {location.pathname !== '/' && (
+              <Link to='/'>
+                <span>Main</span>
+              </Link>
+            )}
+            <Link to='/Calendar'>
+              <span>Calendar</span>
             </Link>
           </S.SideMenu>
         </S.SideWrapper>
