@@ -197,7 +197,7 @@ const postsSlice = createSlice({
   },
 });
 
-console.log('postSlice.action:', postsSlice.actions);
+// console.log('postSlice.action:', postsSlice.actions);
 export const { addPost, deletePost, togglePost, updatePost, toggleDisplay } =
   postsSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.

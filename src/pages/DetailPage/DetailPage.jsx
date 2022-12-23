@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { SideBar } from "../../components/Layout/Sidebar/SidebarStyle";
-import CustomButton from "../../components/Tools/CustomButton";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import Sidebar from '../../components/Layout/Sidebar/Sidebar';
+import CustomButton from '../../components/Tools/CustomButton';
 import {
   __getPost,
   __deletePost,
   __updatePost,
-} from "../../redux/modules/posts";
-import * as S from "./DetailPageStyle";
+} from '../../redux/modules/posts';
+import * as S from './DetailPageStyle';
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
 // import { __getComment } from '../../../redux/modules/comments';
 
 const DetailPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
+  // console.log('post 값: ', posts);
   const param = useParams();
   const post = posts.find((post) => post.id === param.id);
 
-  // const [title, setTitle] = useState(post.title);
-  // const [content, setContent] = useState(post.content);
-  // const [appendElement, setAppendElement] = useState(false);
+  const [title, setTitle] = useState(post?.title);
+  const [content, setContent] = useState(post?.content);
+  const [edit, setEdit] = useState(false);
+  const [commentWindow, setCommentWindow] = useState(false);
+  const [comment, setComment] = useState('');
 
   useEffect(() => {
     // dispatch(__getComment());
@@ -29,82 +33,113 @@ const DetailPage = () => {
   }, [dispatch]);
 
   const DeletePost = () => {
-    console.log("클릭!");
-    // dispatch(__deleteAllComment(post.id));
     dispatch(__deletePost(post.id));
+    navigate('/');
   };
 
-  // const changeTitle = (event) => {
-  //   setTitle(event.target.value);
-  // };
+  const changeTitle = (event) => {
+    setTitle(event.target.value);
+  };
 
-  // const changeContent = (event) => {
-  //   setContent(event.target.value);
-  // };
+  const changeContent = (event) => {
+    setContent(event.target.value);
+  };
 
-  // const updateTodoHandler = (event) => {
-  //   event.preventDefault();
-  //   post.title = title;
-  //   post.content = content;
-  //   if (title.length !== 0 && content.length !== 0) {
-  //     setAppendElement(!appendElement);
-  //     dispatch(__updatePost(post));
-  //   }
-  // };
+  const updateTodoHandler = (event) => {
+    event.preventDefault();
+    setEdit(!edit);
+    dispatch(__updatePost(post));
+  };
+
+  useEffect(() => {
+    if (posts.length < 1) {
+      return;
+    }
+    const post = posts.find((post) => post.id === param.id);
+    // console.log('posts: ', posts);
+    setTitle(post.title);
+    setContent(post.content);
+    // console.log(post.title, post.content);
+  }, [posts]);
+
+  const changeComment = (event) => {
+    setComment(event.target.value);
+  };
 
   return (
     <>
-      <SideBar />
+      <Sidebar />
       <S.PostpageWrap>
         <S.PostWrap>
+          {/* {post?.title} */}
+          {/* {post?.content} */}
           <S.UserSection>{post?.id}</S.UserSection>
-          <S.TitleSection>{post?.title}</S.TitleSection>
-          <S.ContentSection>{post?.content}</S.ContentSection>
-          <S.ButtonSection>
-            <CustomButton>수정</CustomButton>
-            <CustomButton onClick={DeletePost}>삭제</CustomButton>
-          </S.ButtonSection>
-          {/* {appendElement ? (
-            <form id='editInput' onSubmit={updateTodoHandler}>
-              <input
-                id='title-input2'
-                value={title}
-                placeholder='제목을 입력해주세요'
-                onChange={changeTitle}
-              />
-              <input
-                id='content-input2'
-                value={content}
-                placeholder='내용을 입력해주세요'
-                onChange={changeContent}
-              />
-              <button form='editInput' onClick={updateTodoHandler}>
+          <S.TitleSection>
+            {edit ? (
+              <form id='editInput' onSubmit={updateTodoHandler}>
+                <input
+                  id='title-input2'
+                  value={title}
+                  placeholder='제목을 입력해주세요'
+                  onChange={changeTitle}
+                />
+              </form>
+            ) : (
+              post?.title
+            )}
+          </S.TitleSection>
+          <S.ContentSection>
+            {edit ? (
+              <form id='editInput' onSubmit={updateTodoHandler}>
+                <input
+                  id='content-input2'
+                  value={content}
+                  placeholder='내용을 입력해주세요'
+                  onChange={changeContent}
+                />
+              </form>
+            ) : (
+              post?.content
+            )}
+            {edit && (
+              <S.EditBtn
+                id='edit-complete'
+                form='editInput'
+                onClick={updateTodoHandler}
+                disabled={title === '' || content === '' ? true : false}
+              >
                 수정완료
-              </button>
-            </form>
-          ) : (
-            <div>
-              <div className='card-title'>{post.title}</div>
-              <p>{post.content}</p>
-            </div>
-          )} */}
-
-          {/* <div className='button-layout'>
-            <button
+              </S.EditBtn>
+            )}
+            <S.EditBtn
               onClick={() => {
-                if (title && content) {
-                  setAppendElement(!appendElement);
-                }
+                setEdit(!edit);
               }}
             >
-              {appendElement ? '수정취소' : '수정'}
-            </button>
-          </div> */}
-
-          <button>댓글작성</button>
-          <Link to={`/`}>
-            <span>돌아가기</span>
-          </Link>
+              {edit ? '수정취소' : '수정'}
+            </S.EditBtn>
+            <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
+          </S.ContentSection>
+          {/* <S.ButtonSection></S.ButtonSection> */}
+          <S.CommentSection>댓글이 보여지는 영역</S.CommentSection>
+          <S.EditBtn
+            onClick={() => {
+              setCommentWindow(!commentWindow);
+            }}
+          >
+            댓글작성
+          </S.EditBtn>
+          {commentWindow && (
+            <div>
+              <input
+                id='comment-input'
+                value={comment}
+                placeholder='댓글 내용을 입력해주세요'
+                onChange={changeComment}
+              ></input>
+              <button>등록</button>
+            </div>
+          )}
         </S.PostWrap>
         {/* <CommentAddForm post_id={post?.id}></CommentAddForm> */}
         {/* <CommentsContainer post_id={post?.id}></CommentsContainer> */}

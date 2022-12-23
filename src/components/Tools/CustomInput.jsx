@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CustomInput = () => {
-  return <Input></Input>;
+const CustomInput = (props) => {
+  return <Input>{props.children}</Input>;
 };
 
 export default CustomInput;

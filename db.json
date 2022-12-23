@@ -1,15 +1,9 @@
 {
   "posts": [
     {
-      "id": "a350e86a-6e31-edd6-c216-35e7aa0c74f1",
-      "title": "ㅇㅇㅇ",
-      "content": "ㅇㅇㅇ",
-      "isDone": false
-    },
-    {
-      "id": "295bb3f4-4d1c-14f3-040e-1bf8f8eda66e",
-      "title": "sddd",
-      "content": "ddd",
+      "id": "8c0e8a3b-3f29-764d-6d20-463fa12db109",
+      "title": "테스트입니다",
+      "content": "테스트내용입니다",
       "isDone": false
     }
   ]

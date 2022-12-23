@@ -11,7 +11,7 @@ const PostsContainer = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [isDone, setIsDone] = useState('');
+  // const [isDone, setIsDone] = useState('');
   const navigate = useNavigate();
 
   const onSubmitHandler = (e) => {
@@ -53,7 +53,6 @@ const PostsContainer = () => {
               }}
             />
           </label>
-
           <label>
             내용
             <S.ContentInput
@@ -64,7 +63,11 @@ const PostsContainer = () => {
               }}
             />
           </label>
-          <CustomButton>추가</CustomButton>
+          <S.AddTodoBtn
+            disabled={title === '' || content === '' ? true : false}
+          >
+            추가
+          </S.AddTodoBtn>
         </S.Form>
       </S.AddWrap>
       <S.DoingTodo>
