@@ -6,9 +6,10 @@ export const CommentsWrap = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 `;
 
 export const TitleInput = styled.input`
@@ -36,7 +37,7 @@ export const AddWrap = styled.div`
   width: 35%;
   height: 31.25rem;
   padding: 1.875rem;
-  border-radius: 1.25rem;
+  border-radius: 0.7rem;
   align-self: stretch;
   overflow: hidden;
   position: relative;
@@ -51,10 +52,12 @@ export const DoingTodo = styled.div`
   width: 35%;
   height: 31.25rem;
   padding: 1.875rem;
-  border-radius: 1.25rem;
+  border-radius: 0.7rem;
   align-self: stretch;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: auto;
   position: relative;
+  font-size: 1.5rem;
 `;
 
 export const DoneTodo = styled.div`
@@ -66,10 +69,12 @@ export const DoneTodo = styled.div`
   width: 35%;
   height: 31.25rem;
   padding: 1.875rem;
-  border-radius: 1.25rem;
+  border-radius: 0.7rem;
   align-self: stretch;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: auto;
   position: relative;
+  font-size: 1.5rem;
 `;
 
 export const AddTodoBtn = styled.button`
@@ -78,4 +83,5 @@ export const AddTodoBtn = styled.button`
   cursor: pointer;
   border: 1px solid black;
   border-radius: 0.3rem;
+  /* font-size: 0.5rem; */
 `;
