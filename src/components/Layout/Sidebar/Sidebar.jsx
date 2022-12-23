@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
 import { auth } from '../../../firebase.js';
 
+
 export default function Sidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -49,12 +50,12 @@ export default function Sidebar() {
           </S.SideLogin>
           <S.SideTitle>MENU</S.SideTitle>
           <S.SideMenu>
-            {location.pathname !== '/' && (
-              <Link to='/'>
+            {location.pathname !== "/" && (
+              <Link to="/">
                 <span>Main</span>
               </Link>
             )}
-            <Link to='/Calendar'>
+            <Link to="/Calendar">
               <span>Calendar</span>
             </Link>
           </S.SideMenu>

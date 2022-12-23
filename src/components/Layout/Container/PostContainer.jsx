@@ -35,7 +35,7 @@ const PostContainer = ({ post }) => {
     <S.CommentWrap>
       <S.ContentsWrap>
         <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
-        <S.UserNameWrap>{post.userName}</S.UserNameWrap>
+        {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
         <S.TitleWrap>{post.title}</S.TitleWrap>
         <S.ContentWrap>{post.content}</S.ContentWrap>
         <S.ButtonWrap>

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
 import dayjs from 'dayjs';
+import { auth, storage } from '../../../firebase';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ const PostsContainer = () => {
     dispatch(__getPost());
   }, [dispatch]);
 
-  // console.log();
+  // console.log(auth.currentUser?.photoURL);
 
   return (
     <S.CommentsWrap>
