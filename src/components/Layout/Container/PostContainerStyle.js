@@ -22,6 +22,13 @@ export const ContentsWrap = styled.div`
   gap: 10px;
 `;
 
+export const CreatedAtWrap = styled.div`
+  width: 90%;
+  font-size: 0.5rem;
+  /* color: grey; */
+  justify-content: center;
+`;
+
 export const UserNameWrap = styled.div`
   width: 90%;
   font-size: 1rem;

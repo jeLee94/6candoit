@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PostContainer from './PostContainer';
-import CustomButton from '../../Tools/CustomButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { __addPost, __getPost } from '../../../redux/modules/posts';
-import uuid from 'react-uuid';
 import { useNavigate } from 'react-router-dom';
+import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
+import dayjs from 'dayjs';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -25,10 +25,13 @@ const PostsContainer = () => {
     e.preventDefault();
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
 
+    console.log(dayjs('').fromNow);
+
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
             userName: user[0].email.split('@')[0],
+            created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
             id: uuid(),
             title,
             content,

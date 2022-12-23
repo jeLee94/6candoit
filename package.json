@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react-is": "^17.0.3",
     "axios": "^1.2.1",
+    "dayjs": "^1.11.7",
     "eslint-config-react-app": "^7.0.1",
     "firebase": "^9.15.0",
     "firebase-tools": "^11.19.0",

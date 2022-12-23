@@ -8,6 +8,8 @@ import {
   __togglePost,
 } from '../../../redux/modules/posts';
 import * as S from './PostContainerStyle';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -16,6 +18,8 @@ import * as S from './PostContainerStyle';
 
 const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
+  dayjs.extend(relativeTime);
+  const createdTime = dayjs(post.created_at).fromNow();
 
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
@@ -30,6 +34,7 @@ const PostContainer = ({ post }) => {
   return (
     <S.CommentWrap>
       <S.ContentsWrap>
+        <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
         <S.UserNameWrap>{post.userName}</S.UserNameWrap>
         <S.TitleWrap>{post.title}</S.TitleWrap>
         <S.ContentWrap>{post.content}</S.ContentWrap>
