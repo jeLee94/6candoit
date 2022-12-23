@@ -1,12 +1,6 @@
 {
   "posts": [
     {
-      "id": "8c0e8a3b-3f29-764d-6d20-463fa12db109",
-      "title": "테스트입니다",
-      "content": "테스트내용입니다",
-      "isDone": false
-    },
-    {
       "id": "90510a7a-bc6e-8a38-36ff-cfa938503c42",
       "title": "테스트2",
       "content": "테스트2입니다",
@@ -26,8 +20,8 @@
     },
     {
       "id": "844ddb3c-1c4b-af3e-6bcc-85b83eda780d",
-      "title": "가나다",
-      "content": "라마바",
+      "title": "ㄴㅇㅍㅇㄴ",
+      "content": "ㅁㄴㅇ",
       "isDone": true
     },
     {
