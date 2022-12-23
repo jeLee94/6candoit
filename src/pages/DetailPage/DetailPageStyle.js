@@ -1,5 +1,5 @@
-import { Children } from 'react';
-import styled from 'styled-components';
+import { Children } from "react";
+import styled from "styled-components";
 
 export const PostpageWrap = styled.div`
   width: 100%;
@@ -99,3 +99,25 @@ export const EditBtn = styled.button`
 //     if()
 //   return <EditCompleteBtn disabled={disabled}>수정완료</EditCompleteBtn>;
 // };
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1.875rem;
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 3.125rem 4.375rem;
+  flex-grow: 1;
+  overflow: auto;
+  background-color: #f6f8fb;
+`;
