@@ -49,7 +49,6 @@ export const Register = styled.div`
   justify-content: center;
   align-items: center;
   display: ${({ isRegistered }) => {
-    console.log(isRegistered);
     return isRegistered ? 'none' : 'flex';
   }};
 `;
