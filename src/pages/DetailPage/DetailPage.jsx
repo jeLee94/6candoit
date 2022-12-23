@@ -24,6 +24,8 @@ const DetailPage = () => {
   const [title, setTitle] = useState(post?.title);
   const [content, setContent] = useState(post?.content);
   const [edit, setEdit] = useState(false);
+  const [commentWindow, setCommentWindow] = useState(false);
+  const [comment, setComment] = useState('');
 
   useEffect(() => {
     // dispatch(__getComment());
@@ -62,6 +64,10 @@ const DetailPage = () => {
     setContent(post.content);
     // console.log(post.title, post.content);
   }, [posts]);
+
+  const changeComment = (event) => {
+    setComment(event.target.value);
+  };
 
   return (
     <>
@@ -120,7 +126,24 @@ const DetailPage = () => {
             <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
           </S.ButtonSection>
 
-          <S.EditBtn>댓글작성</S.EditBtn>
+          <S.EditBtn
+            onClick={() => {
+              setCommentWindow(!commentWindow);
+            }}
+          >
+            댓글작성
+          </S.EditBtn>
+          {commentWindow && (
+            <div>
+              <input
+                id='comment-input'
+                value={comment}
+                placeholder='댓글 내용을 입력해주세요'
+                onChange={changeComment}
+              ></input>
+              <button>등록</button>
+            </div>
+          )}
           <Link to={`/`}>
             <span>돌아가기</span>
           </Link>
