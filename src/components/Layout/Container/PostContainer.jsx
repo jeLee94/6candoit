@@ -15,30 +15,17 @@ import * as S from './PostContainerStyle';
 // } from '../../redux/modules/comments';
 
 const PostContainer = ({ post }) => {
-  // console.log(post);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const unawareValue = useSelector((state) => state.posts.posts);
-  // console.log('store값', unawareValue);
-  // const { comments } = useSelector((state) => state.comments);
 
   const DeletePost = () => {
-    // dispatch(__deleteAllComment(post.id));
     dispatch(__deletePost(post.id));
   };
 
   const togglePostHandler = () => {
     // event.preventDefault();
-    // dispatch(__toggleStatusPost(post.id));
     dispatch(__togglePost(post));
     // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
-
-  // const EditPost = () => {
-  //   navigate('/editform', {
-  //     state: post,
-  //   });
-  // };
 
   return (
     <S.CommentWrap>
@@ -47,7 +34,7 @@ const PostContainer = ({ post }) => {
         <S.ContentWrap>{post.content}</S.ContentWrap>
         <S.ButtonWrap>
           <S.CusttomButton>
-            <Link to={`/${post.id}`}>보기</Link>
+            <Link to={`/${post.id}`}>상세보기</Link>
           </S.CusttomButton>
           <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
           <S.CusttomButton onClick={togglePostHandler}>

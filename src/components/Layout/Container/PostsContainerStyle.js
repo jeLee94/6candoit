@@ -12,18 +12,26 @@ export const Form = styled.form`
   gap: 1rem;
 `;
 
-export const TitleInput = styled.input`
+export const UserInput = styled.input`
   border: 1px solid #eee;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 0.3rem;
   outline: none;
   padding: 0 10px;
 `;
 
-export const ContentInput = styled.input`
+export const TitleInput = styled.input`
   border: 1px solid #eee;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 0.3rem;
+  outline: none;
+  padding: 0 10px;
+`;
+
+export const ContentInput = styled.textarea`
+  border: 1px solid #eee;
+  width: 100%;
+  border-radius: 0.3rem;
   outline: none;
   padding: 0 10px;
 `;

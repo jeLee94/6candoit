@@ -9,6 +9,7 @@ import * as S from './PostsContainerStyle';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
+  const [user, setUser] = useState('anonymous');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   // const [isDone, setIsDone] = useState('');
@@ -43,6 +44,17 @@ const PostsContainer = () => {
       <S.AddWrap>
         <S.Form onSubmit={onSubmitHandler}>
           <label>
+            작성자
+            <S.UserInput
+              className='user-name'
+              type='text'
+              value={user}
+              onChange={(e) => {
+                setUser(e.target.value);
+              }}
+            />
+          </label>
+          <label>
             제목
             <S.TitleInput
               className='title'
@@ -61,7 +73,7 @@ const PostsContainer = () => {
               onChange={(e) => {
                 setContent(e.target.value);
               }}
-            />
+            ></S.ContentInput>
           </label>
           <S.AddTodoBtn
             disabled={title === '' || content === '' ? true : false}

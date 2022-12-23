@@ -39,7 +39,7 @@ export const ContentWrap = styled.div`
 export const ButtonWrap = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 0.2rem;
 `;
 
 export const CusttomButton = styled.button`

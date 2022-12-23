@@ -27,9 +27,8 @@ const DetailPage = () => {
   const [commentWindow, setCommentWindow] = useState(false);
   const [comment, setComment] = useState('');
 
-  console.log('post: ', post);
-  console.log('title:', title, 'content:', content);
-  // console.log('post', post);
+  // console.log('post: ', post);
+  // console.log('title:', title, 'content:', content);
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
     navigate('/');
@@ -101,12 +100,12 @@ const DetailPage = () => {
           <S.ContentSection>
             {edit ? (
               <form id='editInput' onSubmit={updateTodoHandler}>
-                <input
+                <textarea
                   id='content-input2'
                   value={content}
                   placeholder='내용을 입력해주세요'
                   onChange={changeContent}
-                />
+                ></textarea>
               </form>
             ) : (
               post?.content
