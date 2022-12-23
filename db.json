@@ -2,33 +2,33 @@
   "posts": [
     {
       "id": "3f79eedc-fbef-2d89-b7d4-d8b4f02698a7",
-      "title": "123",
-      "content": "123",
+      "title": "",
+      "content": "",
       "isDone": false,
-      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33"
+      "userId": ""
     },
     {
       "id": "cb4866f3-b7aa-b8cb-04cc-3d2c97682271",
-      "title": "제목ㅁ마ㅣㄴ우피ㅏㄴㅇㅁ",
-      "content": "ㅁㄴㅇㅍㅁㄴㅇㅍ",
+      "title": "",
+      "content": "",
       "isDone": false
     },
     {
       "id": "844ddb3c-1c4b-af3e-6bcc-85b83eda780d",
-      "title": "ㄴㅇㅍㅇㄴ",
-      "content": "ㅁㄴㅇ",
+      "title": "",
+      "content": "",
       "isDone": true
     },
     {
       "id": "e44440de-91c2-77e1-5f08-0e4f41429ab7",
-      "title": "안녕",
-      "content": "하세요",
+      "title": "",
+      "content": "",
       "isDone": true
     },
     {
       "id": "ee4b7692-182d-8039-be8e-ee90c582d0cc",
-      "title": "dfds",
-      "content": "dfds",
+      "title": "",
+      "content": "",
       "isDone": false
     }
   ],
