@@ -12,21 +12,30 @@ const PostsContainer = () => {
   const [user, setUser] = useState('anonymous');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+
   // const [isDone, setIsDone] = useState('');
+
   const navigate = useNavigate();
 
+  const { posts } = useSelector((state) => state.posts);
+  const { user } = useSelector((state) => state.user);
+
+  //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
 
-    let NewData = {
-      id: uuid(),
-      title,
-      content,
-      isDone: false,
-    };
-
-    dispatch(__addPost(NewData));
+    user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
+      ? dispatch(
+          __addPost({
+            id: uuid(),
+            title,
+            content,
+            isDone: false,
+            userId: user[0].id,
+          })
+        )
+      : alert('로그인해주세요');
     setTitle('');
     setContent('');
 
@@ -36,8 +45,6 @@ const PostsContainer = () => {
   useEffect(() => {
     dispatch(__getPost());
   }, [dispatch]);
-
-  const { posts } = useSelector((state) => state.posts);
 
   return (
     <S.CommentsWrap>
@@ -82,21 +89,39 @@ const PostsContainer = () => {
           </S.AddTodoBtn>
         </S.Form>
       </S.AddWrap>
+
       <S.DoingTodo>
         <div>Doing</div>
-        {posts
-          .filter((post) => post.isDone === false)
-          .map((post) => {
-            return <PostContainer key={post.id} post={post}></PostContainer>;
-          })}
+        {user.length > 0 && ( //로그인 했을 때만 보이도록
+          <div>
+            {posts
+              .filter(
+                (post) => user[0].id === post.userId && post.isDone === false
+              )
+              .map((post) => {
+                return (
+                  <PostContainer key={post.id} post={post}></PostContainer>
+                );
+              })}
+          </div>
+        )}
       </S.DoingTodo>
+
       <S.DoneTodo>
         <div>Done</div>
-        {posts
-          .filter((post) => post.isDone === true)
-          .map((post) => {
-            return <PostContainer key={post.id} post={post}></PostContainer>;
-          })}
+        {user.length > 0 && ( //로그인 했을 때만 보이도록
+          <div>
+            {posts
+              .filter(
+                (post) => user[0].id === post.userId && post.isDone === true
+              )
+              .map((post) => {
+                return (
+                  <PostContainer key={post.id} post={post}></PostContainer>
+                );
+              })}
+          </div>
+        )}
       </S.DoneTodo>
     </S.CommentsWrap>
   );

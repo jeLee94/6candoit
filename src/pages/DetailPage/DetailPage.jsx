@@ -30,6 +30,9 @@ const DetailPage = () => {
   // console.log('post: ', post);
   // console.log('title:', title, 'content:', content);
   const DeletePost = () => {
+    console.log('클릭!');
+    // dispatch(__deleteAllComment(post.id));
+
     dispatch(__deletePost(post.id));
     navigate('/');
   };

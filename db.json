@@ -1,34 +1,19 @@
 {
   "posts": [
     {
-      "id": "90510a7a-bc6e-8a38-36ff-cfa938503c42",
-      "title": "테스트2",
-      "content": "테스트2입니다",
-      "isDone": true
+      "id": "3f79eedc-fbef-2d89-b7d4-d8b4f02698a7",
+      "title": "123",
+      "content": "123",
+      "isDone": false,
+      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33"
     },
     {
-      "id": "d12c5cf1-07cd-fdab-30d4-11d03a804a6c",
-      "title": "테스트3asdv",
-      "content": "테스형세상이왜이래",
-      "isDone": true
-    },
-    {
-      "id": "cb4866f3-b7aa-b8cb-04cc-3d2c97682271",
-      "title": "제목ㅁ마ㅣㄴ우피ㅏㄴㅇㅁ",
-      "content": "ㅁㄴㅇㅍㅁㄴㅇㅍ",
-      "isDone": true
-    },
-    {
-      "id": "844ddb3c-1c4b-af3e-6bcc-85b83eda780d",
-      "title": "ㄴㅇㅍㅇㄴ",
-      "content": "ㅁㄴㅇ",
-      "isDone": true
-    },
-    {
-      "id": "e44440de-91c2-77e1-5f08-0e4f41429ab7",
-      "title": "안녕",
-      "content": "하세요",
-      "isDone": true
+      "id": "6654fe28-e6e5-eb9a-7b3e-4dbd26dfc5ae",
+      "title": "123",
+      "content": "123",
+      "isDone": false,
+      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33"
     }
-  ]
+  ],
+  "user": []
 }
