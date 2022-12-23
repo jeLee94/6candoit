@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
 export const CommentWrap = styled.div`
-  width: 200px;
-  height: 150px;
+  background-color: #6ca9ff;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 8rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   gap: 20px;
-  border: 1px solid #2a2a2a;
+  /* border: 1px solid #2a2a2a; */
+  border-radius: 0.7rem;
 `;
 
 export const ContentsWrap = styled.div`
@@ -16,17 +19,19 @@ export const ContentsWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `;
 
 // export const TitleWrap = styled(ContentsWrap)`
 export const TitleWrap = styled.div`
-  width: 80px;
+  width: 90%;
+  font-size: 1rem;
   justify-content: center;
 `;
 
 export const ContentWrap = styled.div`
-  width: 80px;
+  width: 90%;
+  font-size: 0.7rem;
   justify-content: center;
 `;
 
@@ -38,8 +43,10 @@ export const ButtonWrap = styled.div`
 `;
 
 export const CusttomButton = styled.button`
-  width: 50px;
-  height: 30px;
+  width: 3rem;
+  height: 1.5rem;
   cursor: pointer;
   border: 1px solid #eee;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
 `;

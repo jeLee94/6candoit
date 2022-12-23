@@ -71,6 +71,7 @@ const PostsContainer = () => {
         </S.Form>
       </S.AddWrap>
       <S.DoingTodo>
+        <div>Doing</div>
         {posts
           .filter((post) => post.isDone === false)
           .map((post) => {
@@ -78,6 +79,7 @@ const PostsContainer = () => {
           })}
       </S.DoingTodo>
       <S.DoneTodo>
+        <div>Done</div>
         {posts
           .filter((post) => post.isDone === true)
           .map((post) => {

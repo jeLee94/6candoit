@@ -47,20 +47,26 @@ const DetailPage = () => {
 
   const updateTodoHandler = (event) => {
     event.preventDefault();
+
+    let EditedPost = {
+      id: post.id,
+      title,
+      content,
+      isDone: post.isDone,
+    };
+
     setEdit(!edit);
-    dispatch(__updatePost(post));
+    dispatch(__updatePost(EditedPost));
   };
 
   useEffect(() => {
     if (posts.length < 1) {
       return;
     }
-    const post = posts.find((post) => post.id === param.id);
-    // console.log('posts: ', posts);
-    setTitle(post.title);
-    setContent(post.content);
-    // console.log(post.title, post.content);
-  }, [posts]);
+    // const post = posts.find((post) => post.id === param.id);
+    setTitle(title);
+    setContent(content);
+  }, [post]);
 
   const changeComment = (event) => {
     setComment(event.target.value);
@@ -79,7 +85,7 @@ const DetailPage = () => {
               <form id='editInput' onSubmit={updateTodoHandler}>
                 <input
                   id='title-input2'
-                  value={title}
+                  value={title || post.title}
                   placeholder='제목을 입력해주세요'
                   onChange={changeTitle}
                 />
@@ -93,7 +99,7 @@ const DetailPage = () => {
               <form id='editInput' onSubmit={updateTodoHandler}>
                 <input
                   id='content-input2'
-                  value={content}
+                  value={content || post.content}
                   placeholder='내용을 입력해주세요'
                   onChange={changeContent}
                 />
@@ -106,7 +112,7 @@ const DetailPage = () => {
                 id='edit-complete'
                 form='editInput'
                 onClick={updateTodoHandler}
-                disabled={title === '' || content === '' ? true : false}
+                disabled={post.title === '' || content === '' ? true : false}
               >
                 수정완료
               </S.EditBtn>
