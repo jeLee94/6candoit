@@ -9,7 +9,7 @@ import * as S from './PostsContainerStyle';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
-  const [user, setUser] = useState('anonymous');
+  // const [user, setUser] = useState('anonymous');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
@@ -28,6 +28,7 @@ const PostsContainer = () => {
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
+            userName: user[0].email.split('@')[0],
             id: uuid(),
             title,
             content,
@@ -46,21 +47,13 @@ const PostsContainer = () => {
     dispatch(__getPost());
   }, [dispatch]);
 
+  // console.log();
+
   return (
     <S.CommentsWrap>
       <S.AddWrap>
         <S.Form onSubmit={onSubmitHandler}>
-          <label>
-            작성자
-            <S.UserInput
-              className='user-name'
-              type='text'
-              value={user}
-              onChange={(e) => {
-                setUser(e.target.value);
-              }}
-            />
-          </label>
+          {/* {userName} */}
           <label>
             제목
             <S.TitleInput

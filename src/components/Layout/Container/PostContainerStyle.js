@@ -22,6 +22,12 @@ export const ContentsWrap = styled.div`
   gap: 10px;
 `;
 
+export const UserNameWrap = styled.div`
+  width: 90%;
+  font-size: 1rem;
+  justify-content: center;
+`;
+
 // export const TitleWrap = styled(ContentsWrap)`
 export const TitleWrap = styled.div`
   width: 90%;

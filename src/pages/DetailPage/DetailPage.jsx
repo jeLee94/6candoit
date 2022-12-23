@@ -85,7 +85,7 @@ const DetailPage = () => {
         <S.PostWrap>
           {/* {post?.title} */}
           {/* {post?.content} */}
-          <S.UserSection>{post?.id}</S.UserSection>
+          <S.UserSection>{post.userName}</S.UserSection>
           <S.TitleSection>
             {edit ? (
               <form id='editInput' onSubmit={updateTodoHandler}>

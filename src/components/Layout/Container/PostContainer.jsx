@@ -30,6 +30,7 @@ const PostContainer = ({ post }) => {
   return (
     <S.CommentWrap>
       <S.ContentsWrap>
+        <S.UserNameWrap>{post.userName}</S.UserNameWrap>
         <S.TitleWrap>{post.title}</S.TitleWrap>
         <S.ContentWrap>{post.content}</S.ContentWrap>
         <S.ButtonWrap>
