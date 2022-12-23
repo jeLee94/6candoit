@@ -21,28 +21,18 @@ const DetailPage = () => {
   const param = useParams();
   const post = posts.find((post) => post.id === param.id);
 
-  const [title, setTitle] = useState(post?.title);
-  const [content, setContent] = useState(post?.content);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const [edit, setEdit] = useState(false);
   const [commentWindow, setCommentWindow] = useState(false);
   const [comment, setComment] = useState('');
 
-  useEffect(() => {
-    // dispatch(__getComment());
-    dispatch(__getPost());
-  }, [dispatch]);
-
+  console.log('post: ', post);
+  console.log('title:', title, 'content:', content);
+  // console.log('post', post);
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
     navigate('/');
-  };
-
-  const changeTitle = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const changeContent = (event) => {
-    setContent(event.target.value);
   };
 
   const updateTodoHandler = (event) => {
@@ -59,18 +49,32 @@ const DetailPage = () => {
     dispatch(__updatePost(EditedPost));
   };
 
+  const changeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const changeContent = (event) => {
+    setContent(event.target.value);
+  };
+
+  const changeComment = (event) => {
+    setComment(event.target.value);
+  };
+
+  useEffect(() => {
+    // console.log('ㅇㅇㅇ');
+    // dispatch(__getComment());
+    dispatch(__getPost());
+  }, [dispatch]);
+
   useEffect(() => {
     if (posts.length < 1) {
       return;
     }
     // const post = posts.find((post) => post.id === param.id);
-    setTitle(title);
-    setContent(content);
+    setTitle(post.title);
+    setContent(post.content);
   }, [post]);
-
-  const changeComment = (event) => {
-    setComment(event.target.value);
-  };
 
   return (
     <>
@@ -85,7 +89,7 @@ const DetailPage = () => {
               <form id='editInput' onSubmit={updateTodoHandler}>
                 <input
                   id='title-input2'
-                  value={title || post.title}
+                  value={title}
                   placeholder='제목을 입력해주세요'
                   onChange={changeTitle}
                 />
@@ -99,7 +103,7 @@ const DetailPage = () => {
               <form id='editInput' onSubmit={updateTodoHandler}>
                 <input
                   id='content-input2'
-                  value={content || post.content}
+                  value={content}
                   placeholder='내용을 입력해주세요'
                   onChange={changeContent}
                 />
@@ -112,7 +116,7 @@ const DetailPage = () => {
                 id='edit-complete'
                 form='editInput'
                 onClick={updateTodoHandler}
-                disabled={post.title === '' || content === '' ? true : false}
+                disabled={title === '' || content === '' ? true : false}
               >
                 수정완료
               </S.EditBtn>
