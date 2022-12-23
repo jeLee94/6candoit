@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { SideBar } from '../../components/Layout/Sidebar/SidebarStyle';
 import CustomButton from '../../components/Tools/CustomButton';
-// import CustomInput from '../../components/Tools/CustomInput';
 import {
   __getPost,
   __deletePost,

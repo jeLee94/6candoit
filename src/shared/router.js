@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import MainPage from '../pages/MainPage/MainPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
+import CalendarPage from '../pages/CalendarPage/CalendarPage';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
           <Route path='/' element={<MainPage />} />
           <Route path='/:id' element={<DetailPage />} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/Calendar' element={<CalendarPage />} />
           {/* <Route path="/" element={<Main />} /> */}
           {/* <Route path="/addform" element={<PostAddForm />} /> */}
         </Routes>
