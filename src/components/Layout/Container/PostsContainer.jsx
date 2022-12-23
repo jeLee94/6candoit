@@ -25,8 +25,6 @@ const PostsContainer = () => {
     e.preventDefault();
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
 
-    console.log(dayjs('').fromNow);
-
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
