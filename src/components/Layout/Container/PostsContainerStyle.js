@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommentsWrap = styled.div`
   display: flex;
@@ -31,50 +31,59 @@ export const ContentInput = styled.input`
 export const AddWrap = styled.div`
   margin: 0.625rem;
   background-size: 80%;
-  background-color: #3a8bfe;
+  background: linear-gradient(to bottom right, #3a8bfe, #2bddff);
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 31.25rem;
+  height: 600px;
   padding: 1.875rem;
-  border-radius: 0.7rem;
+  border-radius: 20px;
   align-self: stretch;
   overflow: hidden;
   position: relative;
+  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
 `;
 
 export const DoingTodo = styled.div`
   margin: 0.625rem;
   background-size: 80%;
-  background-color: #3a8bfe;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 31.25rem;
+  height: 600px;
   padding: 1.875rem;
-  border-radius: 0.7rem;
+  border-radius: 20px;
   align-self: stretch;
   /* overflow: hidden; */
   overflow: auto;
   position: relative;
   font-size: 1.5rem;
+  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
 `;
 
 export const DoneTodo = styled.div`
   margin: 0.625rem;
   background-size: 80%;
-  background-color: #3a8bfe;
+  background-color: #eff2f7;
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 31.25rem;
+  height: 600px;
   padding: 1.875rem;
-  border-radius: 0.7rem;
+  border-radius: 20px;
   align-self: stretch;
   /* overflow: hidden; */
   overflow: auto;
   position: relative;
   font-size: 1.5rem;
+  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
 `;
 
 export const AddTodoBtn = styled.button`
@@ -84,4 +93,19 @@ export const AddTodoBtn = styled.button`
   border: 1px solid black;
   border-radius: 0.3rem;
   /* font-size: 0.5rem; */
+`;
+
+export const DoneTitle = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #696969;
+`;
+
+export const WriteTitle = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: white;
+  text-shadow: 2px 2px 2px #1a5ab5;
 `;

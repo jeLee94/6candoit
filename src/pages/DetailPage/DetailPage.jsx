@@ -9,6 +9,12 @@ import {
   __deletePost,
   __updatePost,
 } from "../../redux/modules/posts";
+import {
+  __getComment,
+  __addComment,
+  __deleteComment,
+  __updateComment,
+} from "../../redux/modules/commentSlice";
 import * as S from "./DetailPageStyle";
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
@@ -32,7 +38,7 @@ const DetailPage = () => {
   console.log("title:", title, "content:", content);
   // console.log('post', post);
   const DeletePost = () => {
-    console.log('클릭!');
+    console.log("클릭!");
     // dispatch(__deleteAllComment(post.id));
 
     dispatch(__deletePost(post.id));

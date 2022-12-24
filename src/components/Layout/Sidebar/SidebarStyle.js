@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -30,7 +30,7 @@ export const SideMenu = styled.div`
 
 export const SideWrapper = styled.div`
   border-bottom: 1px solid var(--border-color);
-  padding: 2.25rem 0;
+  padding: 50px 30px;
   width: 9.0625rem;
 `;
 
