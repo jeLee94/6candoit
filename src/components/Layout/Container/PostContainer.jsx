@@ -20,7 +20,6 @@ const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
   dayjs.extend(relativeTime);
   const createdTime = dayjs(post.created_at).fromNow();
-
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
   };
@@ -35,7 +34,8 @@ const PostContainer = ({ post }) => {
     <S.CommentWrap>
       <S.ContentsWrap>
         <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
-        {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
+        <S.UserImgView src={post?.imgUrl} />
+        <S.UserNameWrap>{post.userName}</S.UserNameWrap>
         <S.TitleWrap>{post.title}</S.TitleWrap>
         <S.ContentWrap>{post.content}</S.ContentWrap>
         <S.ButtonWrap>

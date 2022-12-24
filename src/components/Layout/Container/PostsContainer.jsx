@@ -1,25 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import PostContainer from './PostContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { __addPost, __getPost } from '../../../redux/modules/posts';
+import {
+  __addPost,
+  __getPost,
+  __updatePost,
+} from '../../../redux/modules/posts';
 import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
 import dayjs from 'dayjs';
-import { auth, storage } from '../../../firebase';
+import blankProfile from '../../../images/blankProfile.webp';
+import { v4 as uuidv4 } from 'uuid';
+import { auth, imgStorage } from '../../../firebase';
+import { ref, uploadString, getDownloadURL } from 'firebase/storage';
+// import {
+//   doc,
+//   addDoc,
+//   updateDoc,
+//   deleteDoc,
+//   collection,
+//   orderBy,
+//   query,
+//   getDocs,
+//   runTransaction,
+// } from 'firebase/firestore';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
-  // const [user, setUser] = useState('anonymous');
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-
-  // const [isDone, setIsDone] = useState('');
-
   const navigate = useNavigate();
-
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.user);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [attachment, setAttachment] = useState();
+  const [imgUrl, setImgUrl] = useState(blankProfile);
+  let imgDownloadUrl = '';
+  // const [imgUploaded, setImgUploaded] = useState(false);
+  // const [user, setUser] = useState('anonymous');
+  const defaultProfileImg = {
+    width: '3rem',
+    height: '3rem',
+    borderRadius: '50%',
+  };
+
+  const fileChange = (event) => {
+    // setImgUploaded(!imgUploaded);
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent) => {
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
+      const imgDataUrl = finishedEvent.currentTarget.result;
+      localStorage.setItem('imgDataUrl', imgDataUrl);
+    };
+  };
+  const clearImgClick = () => {
+    setAttachment(null);
+  };
+
+  const storeImg = async (event) => {
+    event.preventDefault();
+    // const { uid, photoURL, displayName } = auth.currentUser;
+    if (attachment !== '') {
+      const imgRef = ref(
+        imgStorage,
+        `${auth.currentUser.uid}/post_images/${uuidv4()}`
+      );
+      const imgDataUrl = localStorage.getItem('imgDataUrl');
+      const response = await uploadString(imgRef, imgDataUrl, 'data_url');
+      imgDownloadUrl = await getDownloadURL(response.ref);
+      // console.log(imgDownloadUrl);
+    }
+  };
+
+  // console.log('imgUrl값은?', imgUrl);
 
   //task 추가 버튼
   const onSubmitHandler = (e) => {
@@ -36,9 +97,11 @@ const PostsContainer = () => {
             content,
             isDone: false,
             userId: user[0].id,
+            imgUrl: imgDownloadUrl || '',
           })
         )
       : alert('로그인해주세요');
+
     setTitle('');
     setContent('');
 
@@ -49,11 +112,35 @@ const PostsContainer = () => {
     dispatch(__getPost());
   }, [dispatch]);
 
+  // console.log('posts: ', posts);
+  useEffect(() => {
+    if (posts.length < 1) {
+      return;
+    }
+    posts.map((post) => setImgUrl(post.imgUrl));
+  }, [posts]);
+
   // console.log(auth.currentUser?.photoURL);
 
   return (
     <S.CommentsWrap>
       <S.AddWrap>
+        <label htmlFor='imgInput'>
+          <S.ProfileImg
+            id='profileView'
+            src={blankProfile}
+            style={defaultProfileImg}
+          />
+        </label>
+        <S.ProfileImgInput
+          id='imgInput'
+          type='file'
+          accept='image/*'
+          onChange={fileChange}
+        />
+        {attachment && <S.ProfileImg src={attachment} />}
+        <button onClick={storeImg}>스토리지</button>
+        <button onClick={clearImgClick}>Clear Img</button>
         <S.Form onSubmit={onSubmitHandler}>
           {/* {userName} */}
           <label>

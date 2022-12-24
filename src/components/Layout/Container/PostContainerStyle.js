@@ -29,6 +29,13 @@ export const CreatedAtWrap = styled.div`
   justify-content: center;
 `;
 
+export const UserImgView = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  justify-content: center;
+`;
+
 export const UserNameWrap = styled.div`
   width: 90%;
   font-size: 1rem;

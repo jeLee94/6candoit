@@ -93,3 +93,14 @@ export const AddTodoBtn = styled.button`
   border-radius: 0.3rem;
   /* font-size: 0.5rem; */
 `;
+
+export const ProfileImg = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+export const ProfileImgInput = styled.input`
+  display: none;
+`;

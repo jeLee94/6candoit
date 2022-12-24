@@ -1,26 +1,12 @@
 {
   "posts": [
     {
-      "id": "3f79eedc-fbef-2d89-b7d4-d8b4f02698a7",
-      "title": "123",
-      "content": "123",
-      "isDone": false,
-      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33"
-    },
-    {
-      "id": "6654fe28-e6e5-eb9a-7b3e-4dbd26dfc5ae",
-      "title": "123",
-      "content": "123",
-      "isDone": false,
-      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33"
-    },
-    {
       "userName": "jhye",
       "created_at": "2022.12.23 20:53:52",
       "id": "c064d0e2-da76-e225-14f7-2a9859d51439",
       "title": "테스트",
       "content": "안녕하십니까",
-      "isDone": true,
+      "isDone": false,
       "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2"
     },
     {
@@ -29,7 +15,7 @@
       "id": "037bd749-6d74-814c-f42b-21929c4bbd7d",
       "title": "테스트2",
       "content": "테스트2입니다ssss",
-      "isDone": true,
+      "isDone": false,
       "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2"
     },
     {
@@ -38,8 +24,9 @@
       "id": "bc63bfec-bc50-4a14-10bb-e20c3af50a6e",
       "title": "두둥탁",
       "content": "안녕",
-      "isDone": false,
-      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2"
+      "isDone": true,
+      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
+      "imgUrl": "blankProfile"
     }
   ],
   "user": [
