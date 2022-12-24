@@ -17,7 +17,7 @@ export const TitleInput = styled.input`
   width: 100%;
   border-radius: 12px;
   outline: none;
-  padding: 0 10px;
+  padding: 5px 10px;
 `;
 
 export const ContentInput = styled.input`
@@ -25,7 +25,7 @@ export const ContentInput = styled.input`
   width: 100%;
   border-radius: 12px;
   outline: none;
-  padding: 0 10px;
+  padding: 5px 10px;
 `;
 
 export const AddWrap = styled.div`

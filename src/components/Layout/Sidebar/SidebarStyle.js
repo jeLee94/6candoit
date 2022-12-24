@@ -18,8 +18,8 @@ export const SideLogin = styled.div`
 `;
 
 export const SideTitle = styled.div`
-  font-size: 0.75rem;
-  margin-bottom: 1.5rem;
+  font-size: 18px;
+  margin-bottom: 2rem;
   margin-top: 100px;
 `;
 
