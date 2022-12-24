@@ -29,4 +29,8 @@ export const MainContainer = styled.div`
   flex-grow: 1;
   overflow: auto;
   background-color: #f6f8fb;
+  .fc-button-primary {
+    background-color: #3a8bfe;
+    border-color: #3a8bfe;
+  }
 `;

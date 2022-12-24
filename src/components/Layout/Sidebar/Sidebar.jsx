@@ -1,13 +1,12 @@
-import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import * as S from './SidebarStyle.js';
-import Ellipse from './Ellipse.png';
-import { signOut } from 'firebase/auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
-import { auth } from '../../../firebase.js';
-
+import React from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import * as S from "./SidebarStyle.js";
+import Ellipse from "./Ellipse.png";
+import { signOut } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { __getUser, __deleteUser } from "../../../redux/modules/userSlice.js";
+import { auth } from "../../../firebase.js";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -23,7 +22,7 @@ export default function Sidebar() {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
     // dispatch(__getUser());
-    navigate('/');
+    navigate("/");
     await signOut(auth);
   };
 
@@ -39,7 +38,7 @@ export default function Sidebar() {
             {user.length === 0 ? (
               <div>
                 <div>환영합니다!</div>
-                <Link to='/login'>Login</Link>
+                <Link to="/login">Login</Link>
               </div>
             ) : (
               <div>
