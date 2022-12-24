@@ -35,9 +35,10 @@ const PostsContainer = () => {
   const [content, setContent] = useState('');
   const [attachment, setAttachment] = useState();
   const [imgUrl, setImgUrl] = useState(blankProfile);
-  let imgDownloadUrl = '';
+  const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
   // const [imgUploaded, setImgUploaded] = useState(false);
   // const [user, setUser] = useState('anonymous');
+  console.log('2', imgDownloadUrl);
   const defaultProfileImg = {
     width: '3rem',
     height: '3rem',
@@ -63,6 +64,9 @@ const PostsContainer = () => {
   };
   const clearImgClick = () => {
     setAttachment(null);
+    setImagDownloadUrl(null);
+    console.log(imgDownloadUrl);
+    // imgDownloadUrl = await getDownloadURL(null);
   };
 
   const storeImg = async (event) => {
@@ -75,8 +79,9 @@ const PostsContainer = () => {
       );
       const imgDataUrl = localStorage.getItem('imgDataUrl');
       const response = await uploadString(imgRef, imgDataUrl, 'data_url');
-      imgDownloadUrl = await getDownloadURL(response.ref);
-      // console.log(imgDownloadUrl);
+      const tempUrl = await getDownloadURL(response.ref);
+      setImagDownloadUrl(tempUrl);
+      console.log('1', imgDownloadUrl);
     }
   };
 
@@ -97,7 +102,7 @@ const PostsContainer = () => {
             content,
             isDone: false,
             userId: user[0].id,
-            imgUrl: imgDownloadUrl || '',
+            imgUrl: imgDownloadUrl ?? blankProfile,
           })
         )
       : alert('로그인해주세요');
