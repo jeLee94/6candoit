@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
 import dayjs from 'dayjs';
-import blankProfile from '../../../images/blankProfile.webp';
+import { blankProfile } from '../../../images/blankProfile.webp';
 import { v4 as uuidv4 } from 'uuid';
 import { auth, imgStorage } from '../../../firebase';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
@@ -35,9 +35,11 @@ const PostsContainer = () => {
   const [content, setContent] = useState('');
   const [attachment, setAttachment] = useState();
   const [imgUrl, setImgUrl] = useState(blankProfile);
-  let imgDownloadUrl = '';
+  const [imgDownloadUrl, setImgDownloadUrl] = useState(null);
   // const [imgUploaded, setImgUploaded] = useState(false);
   // const [user, setUser] = useState('anonymous');
+
+  console.log('imgUrl: ', imgUrl);
   const defaultProfileImg = {
     width: '3rem',
     height: '3rem',
@@ -63,6 +65,7 @@ const PostsContainer = () => {
   };
   const clearImgClick = () => {
     setAttachment(null);
+    setImgDownloadUrl(null);
   };
 
   const storeImg = async (event) => {
@@ -76,16 +79,13 @@ const PostsContainer = () => {
       const imgDataUrl = localStorage.getItem('imgDataUrl');
       const response = await uploadString(imgRef, imgDataUrl, 'data_url');
       imgDownloadUrl = await getDownloadURL(response.ref);
-      // console.log(imgDownloadUrl);
     }
   };
-
-  // console.log('imgUrl값은?', imgUrl);
-
   //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
+    // console.log('imgUrl값은?', imgUrl);
 
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
@@ -97,7 +97,7 @@ const PostsContainer = () => {
             content,
             isDone: false,
             userId: user[0].id,
-            imgUrl: imgDownloadUrl || '',
+            imgUrl: imgDownloadUrl || blankProfile,
           })
         )
       : alert('로그인해주세요');
