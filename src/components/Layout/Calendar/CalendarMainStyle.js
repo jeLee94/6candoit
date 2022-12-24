@@ -34,3 +34,36 @@ export const MainContainer = styled.div`
     border-color: #3a8bfe;
   }
 `;
+
+export const StyleWrapper = styled.div`
+  .fc-day {
+    padding: 15px;
+  }
+
+  .fc-day-sun a {
+    color: red;
+  }
+
+  .fc-day-sat a {
+    color: blue;
+  }
+
+  .fc .fc-daygrid-day-number {
+    padding: 0px;
+    position: relative;
+  }
+
+  .fc-h-event {
+    padding: 5px;
+  }
+
+  .fc td {
+    background: ;
+  }
+
+  .fc-col-header {
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
+`;

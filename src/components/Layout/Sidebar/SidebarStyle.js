@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -18,8 +18,8 @@ export const SideLogin = styled.div`
 `;
 
 export const SideTitle = styled.div`
-  font-size: 0.75rem;
-  margin-bottom: 1.5rem;
+  font-size: 18px;
+  margin-bottom: 2rem;
   margin-top: 100px;
 `;
 
@@ -30,7 +30,7 @@ export const SideMenu = styled.div`
 
 export const SideWrapper = styled.div`
   border-bottom: 1px solid var(--border-color);
-  padding: 2.25rem 0;
+  padding: 50px 30px;
   width: 9.0625rem;
 `;
 

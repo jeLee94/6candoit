@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import PostContainer from './PostContainer';
-import CustomButton from '../../Tools/CustomButton';
-import { useDispatch, useSelector } from 'react-redux';
-import { __addPost, __getPost } from '../../../redux/modules/posts';
-import uuid from 'react-uuid';
-import { useNavigate } from 'react-router-dom';
-import * as S from './PostsContainerStyle';
+import React, { useState, useEffect } from "react";
+import PostContainer from "./PostContainer";
+import CustomButton from "../../Tools/CustomButton";
+import { useDispatch, useSelector } from "react-redux";
+import { __addPost, __getPost } from "../../../redux/modules/posts";
+import uuid from "react-uuid";
+import { useNavigate } from "react-router-dom";
+import * as S from "./PostsContainerStyle";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   // const [isDone, setIsDone] = useState('');
 
@@ -22,7 +22,7 @@ const PostsContainer = () => {
   //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
+    if (title === "" || content === "") return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
 
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
@@ -34,11 +34,11 @@ const PostsContainer = () => {
             userId: user[0].id,
           })
         )
-      : alert('로그인해주세요');
-    setTitle('');
-    setContent('');
+      : alert("로그인해주세요");
+    setTitle("");
+    setContent("");
 
-    navigate('/');
+    navigate("/");
   };
 
   useEffect(() => {
@@ -48,12 +48,13 @@ const PostsContainer = () => {
   return (
     <S.CommentsWrap>
       <S.AddWrap>
+        <S.WriteTitle>Write down what to do</S.WriteTitle>
         <S.Form onSubmit={onSubmitHandler}>
           <label>
             제목
             <S.TitleInput
-              className='title'
-              type='text'
+              className="title"
+              type="text"
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -63,7 +64,7 @@ const PostsContainer = () => {
           <label>
             내용
             <S.ContentInput
-              type='text'
+              type="text"
               value={content}
               onChange={(e) => {
                 setContent(e.target.value);
@@ -71,7 +72,7 @@ const PostsContainer = () => {
             />
           </label>
           <S.AddTodoBtn
-            disabled={title === '' || content === '' ? true : false}
+            disabled={title === "" || content === "" ? true : false}
           >
             추가
           </S.AddTodoBtn>
@@ -79,7 +80,7 @@ const PostsContainer = () => {
       </S.AddWrap>
 
       <S.DoingTodo>
-        <div>Doing</div>
+        <S.DoneTitle>Doing</S.DoneTitle>
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts
@@ -96,7 +97,7 @@ const PostsContainer = () => {
       </S.DoingTodo>
 
       <S.DoneTodo>
-        <div>Done</div>
+        <S.DoneTitle>Done</S.DoneTitle>
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts
