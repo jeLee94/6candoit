@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as S from "./TodoStyle";
 import PostsContainer from "../Container/PostsContainer";
 
