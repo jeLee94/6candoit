@@ -12,7 +12,6 @@ import { updateProfile } from 'firebase/auth';
 
 function MyPage() {
   const [attachment, setAttachment] = useState();
-  const [isRegistered, setIsRegistered] = useState(true);
   const [nickName, setNickName] = useState('');
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
@@ -82,14 +81,13 @@ function MyPage() {
       <S.Align>
         <S.Box>
           <h2>마이페이지</h2>
-
           <S.Form
             onSubmit={(e) => {
               e.preventDefault();
               storeImg();
             }}
           >
-            {user.length > 0 && (
+            {auth.currentUser && (
               <S.Align style={{ gap: 10 }}>
                 <div>
                   {!attachment && (

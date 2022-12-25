@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
 import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
 import { auth } from '../../../firebase.js';
 import CustomButton from '../../Tools/CustomButton.jsx';
@@ -30,8 +29,6 @@ export default function Sidebar() {
   return (
     <>
       <S.SideBar>
-        {/* S.SideBar 처럼 다른 태그들도 styled-component로 변경 부탁드립니다! */}
-        {/* styled-component 이름은 PascalCase 형태로 부탁드려요! */}
         <div
           style={{
             width: '100%',
@@ -55,14 +52,18 @@ export default function Sidebar() {
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
-                  <Link to={'/mypage'} style={{ textAlign: 'center' }}>
-                    {auth.currentUser !== null ? (
-                      <S.AppLogo src={auth.currentUser.photoURL} />
-                    ) : (
-                      <S.AppLogo src={Ellipse} />
-                    )}
-                    <div>{auth.currentUser.displayName || user[0].email}님</div>
-                  </Link>
+                  {user.PhotoURL !== null ? (
+                    <S.AppLogo src={auth.currentUser?.photoURL} />
+                  ) : (
+                    <S.AppLogo src={Ellipse} />
+                  )}
+                  <div>
+                    <Link to={'/mypage'}>
+                      {auth.currentUser?.displayName || user[0].email}
+                    </Link>
+                    님
+                  </div>
+
                   <CustomButton onClick={handleLogout}>로그아웃</CustomButton>
                 </S.ProfileDetail>
               )}
