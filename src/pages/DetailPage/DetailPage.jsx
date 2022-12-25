@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import Sidebar from '../../components/Layout/Sidebar/Sidebar';
-
-import CustomButton from '../../components/Tools/CustomButton';
+// import Sidebar from '../../components/Layout/Sidebar/Sidebar';
+import uuid from 'react-uuid';
+// import CustomButton from '../../components/Tools/CustomButton';
 import {
   __getPost,
   __deletePost,
   __updatePost,
 } from '../../redux/modules/posts';
+import { __addComment, __getComment } from '../../redux/modules/comments';
+import dayjs from 'dayjs';
 import * as S from './DetailPageStyle';
+import CommentContainer from '../../components/Layout/Container/CommentContainer';
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
 // import { __getComment } from '../../../redux/modules/comments';
@@ -18,22 +21,19 @@ const DetailPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
+  const comments = useSelector((state) => state?.comments);
+  const { user } = useSelector((state) => state.user);
   // console.log('post 값: ', posts);
   const param = useParams();
   const post = posts.find((post) => post.id === param.id);
-
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [edit, setEdit] = useState(false);
+  const [commentContent, setCommentContent] = useState('');
   const [commentWindow, setCommentWindow] = useState(false);
   const [comment, setComment] = useState('');
 
-  // console.log('post: ', post);
-  // console.log('title:', title, 'content:', content);
   const DeletePost = () => {
-    console.log('클릭!');
-    // dispatch(__deleteAllComment(post.id));
-
     dispatch(__deletePost(post.id));
     navigate('/');
   };
@@ -64,10 +64,46 @@ const DetailPage = () => {
     setComment(event.target.value);
   };
 
+  console.log('댓글: ', comments);
+  //task 추가 버튼
+  const onCommentSubmitHandler = (e) => {
+    console.log('댓글등록 클릭!');
+    e.preventDefault();
+    if (commentContent === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
+    // console.log('imgUrl값은?', imgUrl);
+
+    user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
+      ? dispatch(
+          __addComment({
+            // userName: user[0].email.split('@')[0],
+            created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
+            id: uuid(),
+            commentContent,
+            // imgUrl: imgDownloadUrl ?? blankProfile,
+          })
+        )
+      : alert('로그인해주세요');
+
+    setCommentContent('');
+    // navigate('/');
+  };
+
+  useEffect(() => {
+    dispatch(__getPost());
+  }, [dispatch]);
+
+  // console.log('posts: ', posts);
+  // useEffect(() => {
+  //   if (comments.length < 1) {
+  //     return;
+  //   }
+  //   setCommentContent(comment);
+  // }, [comments]);
+
   useEffect(() => {
     // console.log('ㅇㅇㅇ');
     // dispatch(__getComment());
-    dispatch(__getPost());
+    dispatch(__getComment());
   }, [dispatch]);
 
   useEffect(() => {
@@ -90,7 +126,6 @@ const DetailPage = () => {
             <S.PostWrap>
               {/* {post?.title} */}
               {/* {post?.content} */}
-              <S.UserSection>{post.userName}</S.UserSection>
               <S.TitleSection>
                 {edit ? (
                   <form id='editInput' onSubmit={updateTodoHandler}>
@@ -138,7 +173,21 @@ const DetailPage = () => {
                 <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
               </S.ContentSection>
               {/* <S.ButtonSection></S.ButtonSection> */}
-              <S.CommentSection>댓글이 보여지는 영역</S.CommentSection>
+              <S.CommentSection>
+                댓글이 보여지는 영역
+                {/* {user.length > 0 && ( //로그인 했을 때만 보이도록
+                  <div>
+                    {comments.map((comment) => {
+                      return (
+                        <CommentContainer
+                          key={comment.id}
+                          comment={comment}
+                        ></CommentContainer>
+                      );
+                    })}
+                  </div>
+                )} */}
+              </S.CommentSection>
               <S.EditBtn
                 onClick={() => {
                   setCommentWindow(!commentWindow);
@@ -149,7 +198,7 @@ const DetailPage = () => {
               <Link to='/'>
                 <span>메인으로</span>
               </Link>
-              {commentWindow && (
+              {/* {commentWindow && (
                 <div>
                   <input
                     id='comment-input'
@@ -157,9 +206,9 @@ const DetailPage = () => {
                     placeholder='댓글 내용을 입력해주세요'
                     onChange={changeComment}
                   ></input>
-                  <button>등록</button>
+                  <button onClick={onCommentSubmitHandler}>등록</button>
                 </div>
-              )}
+              )} */}
             </S.PostWrap>
             {/* <CommentAddForm post_id={post?.id}></CommentAddForm> */}
             {/* <CommentsContainer post_id={post?.id}></CommentsContainer> */}

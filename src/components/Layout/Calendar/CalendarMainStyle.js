@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const dot = styled.div`
   height: 0.5rem;
@@ -29,4 +29,37 @@ export const MainContainer = styled.div`
   flex-grow: 1;
   overflow: auto;
   background-color: #f6f8fb;
+`;
+
+export const StyleWrapper = styled.div`
+  .fc-day {
+    padding: 15px;
+  }
+
+  .fc-day-sun a {
+    color: red;
+  }
+
+  .fc-day-sat a {
+    color: blue;
+  }
+
+  .fc .fc-daygrid-day-number {
+    padding: 0px;
+    position: relative;
+  }
+
+  .fc-h-event {
+    padding: 5px;
+  }
+
+  .fc td {
+    /* background:; */
+  }
+
+  .fc-col-header {
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
 `;

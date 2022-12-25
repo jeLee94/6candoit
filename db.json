@@ -6,7 +6,7 @@
       "id": "c064d0e2-da76-e225-14f7-2a9859d51439",
       "title": "테스트",
       "content": "안녕하십니까",
-      "isDone": false,
+      "isDone": true,
       "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2"
     },
     {
@@ -24,19 +24,9 @@
       "id": "bc63bfec-bc50-4a14-10bb-e20c3af50a6e",
       "title": "두둥탁",
       "content": "안녕",
-      "isDone": true,
-      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
-      "imgUrl": "blankProfile"
-    },
-    {
-      "userName": "jhye",
-      "created_at": "2022.12.24 17:15:43",
-      "id": "3b8c70af-9a63-3238-e37d-66bf3555ff17",
-      "title": "123",
-      "content": "123",
       "isDone": false,
       "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
-      "imgUrl": ""
+      "imgUrl": "blankProfile"
     },
     {
       "userName": "jhye",
@@ -53,7 +43,7 @@
       "created_at": "2022.12.24 17:34:23",
       "id": "0cf02c46-1d91-197c-183a-1263dad7f06e",
       "title": "asdvasdvas",
-      "content": "asdvasdv",
+      "content": "asdvasdvasdvvv",
       "isDone": false,
       "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
       "imgUrl": ""
@@ -64,5 +54,6 @@
       "id": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
       "email": "jhye@test.com"
     }
-  ]
+  ],
+  "comment": []
 }

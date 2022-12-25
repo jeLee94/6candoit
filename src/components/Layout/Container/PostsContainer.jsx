@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
 import dayjs from 'dayjs';
-import { blankProfile } from '../../../images/blankProfile.webp';
+import blankProfile from '../../../images/blankProfile.webp';
 import { v4 as uuidv4 } from 'uuid';
 import { auth, imgStorage } from '../../../firebase';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
@@ -38,7 +38,7 @@ const PostsContainer = () => {
   const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
   // const [imgUploaded, setImgUploaded] = useState(false);
   // const [user, setUser] = useState('anonymous');
-  console.log('2', imgDownloadUrl);
+  // console.log('2', imgDownloadUrl);
   const defaultProfileImg = {
     width: '3rem',
     height: '3rem',
@@ -128,6 +128,7 @@ const PostsContainer = () => {
   return (
     <S.CommentsWrap>
       <S.AddWrap>
+        <S.WriteTitle>Write down what to do</S.WriteTitle>
         <label htmlFor='imgInput'>
           <S.ProfileImg
             id='profileView'
@@ -165,7 +166,7 @@ const PostsContainer = () => {
               onChange={(e) => {
                 setContent(e.target.value);
               }}
-            ></S.ContentInput>
+            />
           </label>
           <S.AddTodoBtn
             disabled={title === '' || content === '' ? true : false}
