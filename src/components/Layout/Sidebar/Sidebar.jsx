@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
 import { signOut } from 'firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
 import { auth } from '../../../firebase.js';
 import CustomButton from '../../Tools/CustomButton.jsx';
@@ -54,13 +53,13 @@ export default function Sidebar() {
               ) : (
                 <S.ProfileDetail>
                   {user.PhotoURL !== null ? (
-                    <S.AppLogo src={auth.currentUser.photoURL} />
+                    <S.AppLogo src={auth.currentUser?.photoURL} />
                   ) : (
                     <S.AppLogo src={Ellipse} />
                   )}
                   <div>
                     <Link to={'/mypage'}>
-                      {auth.currentUser.displayName || user[0].email}
+                      {auth.currentUser?.displayName || user[0].email}
                     </Link>
                     님
                   </div>

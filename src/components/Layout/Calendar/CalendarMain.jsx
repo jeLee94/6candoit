@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from '@fullcalendar/react';
 import * as S from './CalendarMainStyle';
+import { useSelector } from 'react-redux';
 import dayGridPlugin from '@fullcalendar/daygrid';
-
+import { __getPost } from '../../../redux/modules/posts';
+import { useDispatch } from 'react-redux';
 // import Sidebar from '../Sidebar/Sidebar';
 
 function CalendarMain() {
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.posts);
   const [value, onChange] = useState(new Date());
+
+  useEffect(() => {
+    dispatch(__getPost());
+  }, [dispatch]);
+
+  const calendarEvents = posts.map((post) => {
+    return {
+      title: post.title,
+      date: post.created_at.split(' ')[0].split('.').join('-'),
+    };
+  });
 
   return (
     <>
@@ -17,13 +32,9 @@ function CalendarMain() {
           </S.Header>
           <S.StyleWrapper>
             <Calendar
-
-              defaultView="dayGridMonth"
+              defaultView='dayGridMonth'
               plugins={[dayGridPlugin]}
-              events={[
-                { title: "event 1", date: "2022-12-01" },
-
-              ]}
+              events={calendarEvents}
             />
           </S.StyleWrapper>
         </S.MainContainer>
