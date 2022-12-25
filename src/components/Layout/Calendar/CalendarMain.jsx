@@ -17,11 +17,12 @@ function CalendarMain() {
           </S.Header>
           <S.StyleWrapper>
             <Calendar
-              defaultView='dayGridMonth'
+
+              defaultView="dayGridMonth"
               plugins={[dayGridPlugin]}
               events={[
-                { title: 'event 1', date: '2022-12-01' },
-                { title: 'event 2', date: '2022-12-02' },
+                { title: "event 1", date: "2022-12-01" },
+
               ]}
             />
           </S.StyleWrapper>

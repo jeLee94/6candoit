@@ -48,8 +48,10 @@ const PostsContainer = () => {
   //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
+
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
+
 
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
@@ -69,6 +71,7 @@ const PostsContainer = () => {
     setTitle('');
     setContent('');
     navigate('/');
+
   };
 
   useEffect(() => {
@@ -90,13 +93,14 @@ const PostsContainer = () => {
       <S.AddWrap>
         <S.WriteTitle>Write down what to do</S.WriteTitle>
 
+
         <S.Form onSubmit={onSubmitHandler}>
           {/* {userName} */}
           <label>
             제목
             <S.TitleInput
-              className='title'
-              type='text'
+              className="title"
+              type="text"
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -115,14 +119,16 @@ const PostsContainer = () => {
               }}
             />
           </label>
+
           <S.AddBtn disabled={title === '' || content === '' ? true : false}>
+
             추가
           </S.AddBtn>
         </S.Form>
       </S.AddWrap>
 
       <S.DoingTodo>
-        <div>Doing</div>
+        <S.DoneTitle>Doing</S.DoneTitle>
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts
@@ -139,7 +145,7 @@ const PostsContainer = () => {
       </S.DoingTodo>
 
       <S.DoneTodo>
-        <div>Done</div>
+        <S.DoneTitle>Done</S.DoneTitle>
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts

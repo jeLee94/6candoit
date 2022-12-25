@@ -8,11 +8,13 @@ import {
   __getPost,
   __deletePost,
   __updatePost,
+
 } from '../../redux/modules/posts';
 import { __addComment, __getComment } from '../../redux/modules/comments';
 import dayjs from 'dayjs';
 import * as S from './DetailPageStyle';
 import CommentContainer from '../../components/Layout/Container/CommentContainer';
+
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
 // import { __getComment } from '../../../redux/modules/comments';

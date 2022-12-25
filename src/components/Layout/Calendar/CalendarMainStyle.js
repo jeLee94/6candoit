@@ -53,10 +53,6 @@ export const StyleWrapper = styled.div`
     padding: 5px;
   }
 
-  .fc td {
-    /* background:; */
-  }
-
   .fc-col-header {
     padding: 20px;
     background-color: white;

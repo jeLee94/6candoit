@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import * as S from './TodoStyle';
 import { useSelector } from 'react-redux';
 import PostsContainer from '../Container/PostsContainer';
+
 
 export default function Todo() {
   const { user } = useSelector((state) => state.user);

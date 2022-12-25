@@ -30,7 +30,7 @@ export const ContentsWrap = styled.div`
 `;
 
 export const UserSection = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100px;
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommentsWrap = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const TitleInput = styled.input`
   height: 2rem;
   border-radius: 0.3rem;
   outline: none;
-  padding: 0 10px;
+  padding: 5px 10px;
 `;
 
 export const ContentInput = styled.textarea`
@@ -26,7 +26,7 @@ export const ContentInput = styled.textarea`
   width: 100%;
   border-radius: 0.3rem;
   outline: none;
-  padding: 0 10px;
+  padding: 5px 10px;
 `;
 
 export const AddWrap = styled.div`
@@ -96,6 +96,7 @@ export const AddBtn = styled.button`
   margin: 0 auto 0 auto;
   /* font-size: 0.5rem; */
 `;
+
 
 export const ProfileImg = styled.img`
   width: 3rem;
