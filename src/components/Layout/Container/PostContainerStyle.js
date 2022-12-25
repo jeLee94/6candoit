@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 
 export const CommentWrap = styled.div`
-  background-color: #6ca9ff;
   margin-bottom: 1rem;
   width: 100%;
-  height: 8rem;
+  height: 6rem;
   display: flex;
   justify-content: center;
   /* align-items: center; */
   flex-direction: column;
   gap: 20px;
   /* border: 1px solid #2a2a2a; */
-  border-radius: 0.7rem;
+  border-bottom: 1.5px solid #dcdcdc;
 `;
 
 export const ContentsWrap = styled.div`
-  height: 100px;
+  height: 300px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -59,7 +58,7 @@ export const ContentWrap = styled.div`
 export const ButtonWrap = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 0.2rem;
+  gap: 0.3rem;
 `;
 
 export const CusttomButton = styled.button`
