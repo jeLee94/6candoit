@@ -17,7 +17,7 @@ export const __addUser = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.post(`http://localhost:3003/user`, payload);
 
       const data = await axios.get('http://localhost:3003/user');
@@ -33,7 +33,7 @@ export const __deleteUser = createAsyncThunk(
   'user/deleteUser',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.delete(`http://localhost:3003/user/${payload[0].id}`);
       const data = await axios.get('http://localhost:3003/user');
       // console.log(data.data);
@@ -44,7 +44,7 @@ export const __deleteUser = createAsyncThunk(
   }
 );
 export const __updateUser = createAsyncThunk(
-  'posts/updatePost',
+  'user/updateUser',
   async (payload, thunkAPI) => {
     try {
       // console.log('update 페이로드: ', payload);

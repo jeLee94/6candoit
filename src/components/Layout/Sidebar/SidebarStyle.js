@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -18,14 +18,16 @@ export const SideLogin = styled.div`
 `;
 
 export const SideTitle = styled.div`
-  font-size: 0.75rem;
-  margin: 1.5rem 0 1.5rem;
+  font-size: 1rem;
+  margin: 1.5rem 0 1.5rem 1rem;
 `;
 
 export const SideMenu = styled.div`
   display: flex;
   flex-direction: column;
   width: 9.0625rem;
+  margin-left: 1rem;
+  font-size: 1.4rem;
 `;
 
 export const SideWrapper = styled.div`
@@ -53,7 +55,7 @@ export const ProfileDetail = styled.div`
 export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  margin: 80px 0 0 10px;
 `;
 
 export const Header = styled.div`

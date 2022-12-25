@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const AppLogo = styled.img`
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  margin: 50px auto 10px auto;
-`;
+// export const AppLogo = styled.img`
+//   width: 200px;
+//   height: 200px;
+//   overflow: hidden;
+//   margin: 50px auto 10px auto;
+// `;
 
 export const Outer = styled.div`
   width: 40rem;
@@ -59,9 +59,9 @@ export const Register = styled.div`
 `;
 
 export const ProfileImg = styled.img`
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100%;
   cursor: pointer;
 `;
 

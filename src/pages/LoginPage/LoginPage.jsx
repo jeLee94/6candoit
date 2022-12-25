@@ -1,4 +1,4 @@
-import { auth } from '../../firebase';
+import { auth, imgStorage } from '../../firebase';
 
 import {
   GoogleAuthProvider,
@@ -6,12 +6,17 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux/';
 import { Link, useNavigate } from 'react-router-dom';
-import google from './google.png';
+import googleLogin from '../../images/googleLogin.png';
+import googleLoginHover from '../../images/googleLoginHover.png';
 import * as S from './LoginPageStyle';
 import { __addUser } from '../../redux/modules/userSlice';
+import {
+  __addUserList,
+  __getUserList,
+} from '../../redux/modules/allUserListSlice';
 
 function LoginPage() {
   //이메일 회원가입용 state
@@ -21,9 +26,11 @@ function LoginPage() {
   //로그인용 state
   const [LoginEmail, setLoginEmail] = useState('');
   const [LoginPassword, setLoginPassword] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
+
   //회원가입, 로그인 토글용
   const [isRegistered, setIsRegistered] = useState(true);
+  //구글 로그인 이미지 변환용
+  const [isHover, setIsHover] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +38,9 @@ function LoginPage() {
   // Todo2 로그인 ↔ 회원가입 왔다갔다 할 때 input창 데이터 안지워지는 부분 수정
   // Todo3 메인, 디테일 페이지에서 로그인 정보 보여주기 세션?쿠키?
   // Todo4 마이페이지 구현(닉네임 수정)
-
+  // useEffect(() => {
+  //   dispatch(__getUserList());
+  // }, [dispatch]);
   // 회원가입
   const handleRegister = async () => {
     try {
@@ -40,7 +49,12 @@ function LoginPage() {
         registerEmail,
         registerPassword
       );
-
+      dispatch(
+        __addUserList({
+          id: createdUser.user.uid,
+          email: createdUser.user.email,
+        })
+      ); // user data 설정
       alert(`${createdUser.user.email}님 안녕하세요!`);
       setIsRegistered(!isRegistered); //로그인 창으로 돌아가기
       setRegisterEmail(''); //state 초기화
@@ -76,13 +90,13 @@ function LoginPage() {
         LoginEmail,
         LoginPassword
       );
-      setCurrentUser(curUserInfo.user);
-      // console.log(curUserInfo.user);
+
       dispatch(
         __addUser({
           id: curUserInfo.user.uid,
           email: curUserInfo.user.email,
-          photoURL: auth.currentUser.photoURL,
+          photoURL: curUserInfo.user.photoURL ?? null,
+          displayName: curUserInfo.user.displayName ?? null,
         })
       );
       console.log(curUserInfo.user.uid);
@@ -116,10 +130,15 @@ function LoginPage() {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
     signInWithPopup(auth, provider) // popup을 이용한 signup
       .then((data) => {
-        setCurrentUser(data.user);
-        dispatch(__addUser({ id: currentUser.uid, email: currentUser.email })); // user data 설정
-        console.log(currentUser);
+        dispatch(__addUser({ id: data.user.uid, email: data.user.email })); // user data 설정
+        dispatch(
+          __addUserList({
+            id: data.user.uid,
+            email: data.user.email,
+          })
+        );
         alert('로그인 완료!');
+        navigate('/');
       })
       .catch((err) => {
         // console.log(err);s
@@ -202,12 +221,16 @@ function LoginPage() {
           {/* <button onClick={handleRegister}>회원가입</button> */}
         </S.Register>
       </S.Align>
-      <S.Login isRegistered={isRegistered}>
+      <S.Login
+        isRegistered={isRegistered}
+        onMouseOver={() => setIsHover(true)}
+        onMouseOut={() => setIsHover(false)}
+      >
         <img
-          src={google}
+          src={isHover ? googleLoginHover : googleLogin}
           onClick={handleGoogleLogin}
           alt='google logo'
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', width: '25%', marginTop: '20px' }}
         />
       </S.Login>
     </S.Outer>

@@ -25,7 +25,7 @@ export default function Sidebar() {
     navigate('/');
     await signOut(auth);
   };
-  console.log(auth.currentUser);
+  console.log(user[0].photoURL);
   return (
     <>
       <S.SideBar>
@@ -52,8 +52,8 @@ export default function Sidebar() {
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
-                  {user.PhotoURL !== null ? (
-                    <S.AppLogo src={auth.currentUser?.photoURL} />
+                  {user[0].PhotoURL !== null ? (
+                    <S.AppLogo src={auth.currentUser.photoURL} />
                   ) : (
                     <S.AppLogo src={Ellipse} />
                   )}

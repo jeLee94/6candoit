@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from './BoardHeaderStyle';
-
+import { useSelector } from 'react-redux';
 import PostsContainer from '../Container/PostsContainer';
-import { auth } from '../../../firebase';
 import { Link } from 'react-router-dom';
-
+import { auth } from '../../../firebase';
 export default function BoardHeader() {
-  const userName = auth.currentUser
-    ? auth.currentUser.displayName ?? auth.currentUser.email
-    : 'Visitor';
+  const { user } = useSelector((state) => state.user);
 
   return (
     <>
@@ -16,10 +13,15 @@ export default function BoardHeader() {
         <S.MainContainer>
           <S.Header>
             <h2>
-              {userName}
+              {user.length > 0
+                ? auth.currentUser?.displayName || user[0].email
+                : 'Visitor'}
               님의 Board
             </h2>
-            <h2>{/* <Link to={'/'}>+ Board에 초대하기</Link> */}</h2>
+
+            <h2>
+              <Link to={'/invite'}>+ Board에 초대하기</Link>
+            </h2>
           </S.Header>
           <PostsContainer />
         </S.MainContainer>
