@@ -40,14 +40,12 @@ export const Align = styled.div`
   align-items: center;
 `;
 
-export const Login = styled.div`
+export const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: ${({ isRegistered }) => {
-    return isRegistered ? 'flex' : 'none';
-  }};
+  display: flex;
 `;
 
 export const Register = styled.div`
@@ -58,4 +56,15 @@ export const Register = styled.div`
   display: ${({ isRegistered }) => {
     return isRegistered ? 'none' : 'flex';
   }};
+`;
+
+export const ProfileImg = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+export const ProfileImgInput = styled.input`
+  display: none;
 `;

@@ -1,30 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PostContainer from './PostContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  __addPost,
-  __getPost,
-  __updatePost,
-} from '../../../redux/modules/posts';
+import { __addPost, __getPost } from '../../../redux/modules/posts';
 import { useNavigate } from 'react-router-dom';
 import uuid from 'react-uuid';
 import * as S from './PostsContainerStyle';
 import dayjs from 'dayjs';
 import blankProfile from '../../../images/blankProfile.webp';
-import { v4 as uuidv4 } from 'uuid';
-import { auth, imgStorage } from '../../../firebase';
-import { ref, uploadString, getDownloadURL } from 'firebase/storage';
-// import {
-//   doc,
-//   addDoc,
-//   updateDoc,
-//   deleteDoc,
-//   collection,
-//   orderBy,
-//   query,
-//   getDocs,
-//   runTransaction,
-// } from 'firebase/firestore';
+import { auth } from '../../../firebase';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -33,17 +16,11 @@ const PostsContainer = () => {
   const { user } = useSelector((state) => state.user);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [attachment, setAttachment] = useState();
   const [imgUrl, setImgUrl] = useState(blankProfile);
   const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
   // const [imgUploaded, setImgUploaded] = useState(false);
   // const [user, setUser] = useState('anonymous');
   // console.log('2', imgDownloadUrl);
-  const defaultProfileImg = {
-    width: '3rem',
-    height: '3rem',
-    borderRadius: '50%',
-  };
 
   //task 추가 버튼
   const onSubmitHandler = (e) => {
@@ -52,11 +29,12 @@ const PostsContainer = () => {
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
 
-
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
-            userName: user[0].email.split('@')[0],
+            userName: auth.currentUser
+              ? auth.currentUser.displayName
+              : user[0].email.split('@')[0],
             created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
             id: uuid(),
             title,
@@ -71,7 +49,6 @@ const PostsContainer = () => {
     setTitle('');
     setContent('');
     navigate('/');
-
   };
 
   useEffect(() => {
@@ -93,14 +70,13 @@ const PostsContainer = () => {
       <S.AddWrap>
         <S.WriteTitle>Write down what to do</S.WriteTitle>
 
-
         <S.Form onSubmit={onSubmitHandler}>
           {/* {userName} */}
           <label>
             제목
             <S.TitleInput
-              className="title"
-              type="text"
+              className='title'
+              type='text'
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -121,7 +97,6 @@ const PostsContainer = () => {
           </label>
 
           <S.AddBtn disabled={title === '' || content === '' ? true : false}>
-
             추가
           </S.AddBtn>
         </S.Form>
@@ -129,6 +104,9 @@ const PostsContainer = () => {
 
       <S.DoingTodo>
         <S.DoneTitle>Doing</S.DoneTitle>
+
+        {/* <div style={{ marginBottom: 10 }}>Doing</div> */}
+
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts
@@ -145,7 +123,10 @@ const PostsContainer = () => {
       </S.DoingTodo>
 
       <S.DoneTodo>
-        <S.DoneTitle>Done</S.DoneTitle>
+        {/* <S.DoneTitle>Done</S.DoneTitle> */}
+
+        <div style={{ marginBottom: 10 }}>Done</div>
+
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
@@ -63,6 +63,7 @@ export default function Sidebar() {
                     </Link>
                     님
                   </div>
+
                   <CustomButton onClick={handleLogout}>로그아웃</CustomButton>
                 </S.ProfileDetail>
               )}

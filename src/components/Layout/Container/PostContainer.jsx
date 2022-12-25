@@ -31,24 +31,36 @@ const PostContainer = ({ post }) => {
   };
 
   return (
-    <S.CommentWrap>
-      <S.ContentsWrap>
-        <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
-        {/* <S.UserImgView src={post?.imgUrl} /> */}
-        {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
-        <S.TitleWrap>{post.title}</S.TitleWrap>
-        <S.ContentWrap>{post.content}</S.ContentWrap>
+    <S.BoxWrap>
+      <Link
+        to={`/${post.id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
+        <S.ContentsWrap>
+          <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
+          {/* <S.UserImgView src={post?.imgUrl} /> */}
+          {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
+          <S.TitleWrap>
+            {post.title.length > 20
+              ? post.title.substr(0, 20) + '...'
+              : post.title}
+          </S.TitleWrap>
+          <S.ContentWrap>
+            {post.content.length > 25
+              ? post.content.substr(0, 25) + '...'
+              : post.content}
+          </S.ContentWrap>
+        </S.ContentsWrap>
+      </Link>
+      <S.ContentWrap>
         <S.ButtonWrap>
-          <S.CusttomButton>
-            <Link to={`/${post.id}`}>상세보기</Link>
-          </S.CusttomButton>
           <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
           <S.CusttomButton onClick={togglePostHandler}>
             {post.isDone ? '진행중' : '완료'}
           </S.CusttomButton>
         </S.ButtonWrap>
-      </S.ContentsWrap>
-    </S.CommentWrap>
+      </S.ContentWrap>
+    </S.BoxWrap>
   );
 };
 

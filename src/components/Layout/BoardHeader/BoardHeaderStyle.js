@@ -11,6 +11,7 @@ export const Header = styled.div`
   align-items: center;
   flex-shrink: 0;
   padding: 1.875rem;
+  justify-content: space-between;
 `;
 
 export const MainContainer = styled.div`

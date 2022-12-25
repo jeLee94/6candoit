@@ -82,6 +82,7 @@ function LoginPage() {
         __addUser({
           id: curUserInfo.user.uid,
           email: curUserInfo.user.email,
+          photoURL: auth.currentUser.photoURL,
         })
       );
       console.log(curUserInfo.user.uid);
@@ -110,15 +111,6 @@ function LoginPage() {
     }
   };
 
-  // //로그아웃 추후 다른 페이지에서 사용 예정
-  // const handleLogout = async () => {
-  //   setCurrentUser('');
-  //   //세션 or 쿠기 삭제
-
-  //   dispatch(__deleteUser(currentUser.uid));
-  //   await signOut(auth);
-  // };
-
   //구글 로그인
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
@@ -128,11 +120,9 @@ function LoginPage() {
         dispatch(__addUser({ id: currentUser.uid, email: currentUser.email })); // user data 설정
         console.log(currentUser);
         alert('로그인 완료!');
-
-        // console.log(data); // console로 들어온 데이터 표시
       })
       .catch((err) => {
-        // console.log(err);
+        // console.log(err);s
       });
   };
 

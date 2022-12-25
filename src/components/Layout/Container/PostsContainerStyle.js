@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CommentsWrap = styled.div`
   display: flex;
@@ -13,20 +13,20 @@ export const Form = styled.form`
 `;
 
 export const TitleInput = styled.input`
-  border: 1px solid #eee;
+  border: 0.0625rem solid #eee;
   width: 100%;
   height: 2rem;
   border-radius: 0.3rem;
   outline: none;
-  padding: 5px 10px;
+  padding: 0.3125rem 0.625rem;
 `;
 
 export const ContentInput = styled.textarea`
-  border: 1px solid #eee;
+  border: 0.0625rem solid #eee;
   width: 100%;
   border-radius: 0.3rem;
   outline: none;
-  padding: 5px 10px;
+  padding: 0.3125rem 0.625rem;
 `;
 
 export const AddWrap = styled.div`
@@ -36,15 +36,15 @@ export const AddWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 600px;
+  height: 37.5rem;
   padding: 1.875rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   align-self: stretch;
   overflow: hidden;
   position: relative;
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const DoingTodo = styled.div`
@@ -54,17 +54,17 @@ export const DoingTodo = styled.div`
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 600px;
+  height: 37.5rem;
   padding: 1.875rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   align-self: stretch;
   /* overflow: hidden; */
   overflow: auto;
   position: relative;
   font-size: 1.5rem;
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const DoneTodo = styled.div`
@@ -74,29 +74,28 @@ export const DoneTodo = styled.div`
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 600px;
+  height: 37.5rem;
   padding: 1.875rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   align-self: stretch;
   /* overflow: hidden; */
   overflow: auto;
   position: relative;
   font-size: 1.5rem;
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const AddBtn = styled.button`
-  width: 80px;
-  height: 30px;
+  width: 5rem;
+  height: 1.875rem;
   cursor: pointer;
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   border-radius: 0.3rem;
   margin: 0 auto 0 auto;
   /* font-size: 0.5rem; */
 `;
-
 
 export const ProfileImg = styled.img`
   width: 3rem;
@@ -110,16 +109,16 @@ export const ProfileImgInput = styled.input`
 `;
 
 export const DoneTitle = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 1.875rem;
   color: #696969;
 `;
 
 export const WriteTitle = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
   color: white;
-  text-shadow: 2px 2px 2px #1a5ab5;
+  text-shadow: 0.125rem 0.125rem 0.125rem #1a5ab5;
 `;

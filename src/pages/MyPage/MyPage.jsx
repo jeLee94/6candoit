@@ -1,29 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux/';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { auth, imgStorage } from '../../firebase';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 // import google from './google.png';
 import * as S from './MyPageStyle';
-import * as P from '../../components/Layout/Container/PostsContainerStyle';
-import {
-  __getUser,
-  __addUser,
-  __deleteUser,
-  __updateUser,
-} from '../../redux/modules/userSlice';
+import { __getUser, __updateUser } from '../../redux/modules/userSlice';
 import blankProfile from '../../images/blankProfile.webp';
 import { updateProfile } from 'firebase/auth';
 
 function MyPage() {
-  //이메일 회원가입용 state
   const [attachment, setAttachment] = useState();
-  //회원가입, 로그인 토글용
-  const [isRegistered, setIsRegistered] = useState(true);
   const [nickName, setNickName] = useState('');
-
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
@@ -75,7 +64,7 @@ function MyPage() {
       let EditedUser = {
         id: user[0].id,
         email: user[0].email,
-        photoURL: profileURL,
+        photoURL: tempUrl,
       };
       dispatch(__updateUser(EditedUser));
       await updateProfile(auth.currentUser, {
@@ -90,26 +79,20 @@ function MyPage() {
     <S.Outer>
       <Link to={'/'}>돌아가기</Link>
       <S.Align>
-        {/* 로그인영역 isRegistered => styled 컴포넌트에 props 전달 */}
-        <S.Login isRegistered={isRegistered}>
-          {!isRegistered && <h2>로그인</h2>}
-          {/* <h2>로그인</h2> */}
+        <S.Box>
+          <h2>마이페이지</h2>
           <S.Form
             onSubmit={(e) => {
               e.preventDefault();
               storeImg();
             }}
-
-            // handleLogin();
-            // e.target[0].value = ''; //제출시 input창 초기화
-            // e.target[1].value = ''; //제출시 input창 초기화
           >
-            {user.length > 0 && (
+            {auth.currentUser && (
               <S.Align style={{ gap: 10 }}>
                 <div>
                   {!attachment && (
                     <label htmlFor='imgInput'>
-                      <P.ProfileImg
+                      <S.ProfileImg
                         id='profileView'
                         src={auth.currentUser.photoURL || blankProfile}
                       />
@@ -117,21 +100,20 @@ function MyPage() {
                   )}
                 </div>
                 <label htmlFor='imgInput'></label>
-                <P.ProfileImgInput
+                <S.ProfileImgInput
                   id='imgInput'
                   type='file'
                   accept='image/*'
                   onChange={fileChange}
                   style={{ display: 'none' }}
                 />
-                {attachment && <P.ProfileImg src={attachment} />}
+                {attachment && <S.ProfileImg src={attachment} />}
                 <div>
                   <span>이메일 </span>
                   <S.Input
                     type='email'
                     placeholder={user[0].email}
                     disabled={true}
-                    // value={user[0].id}
                   />
                 </div>
                 <div>
@@ -146,7 +128,7 @@ function MyPage() {
               </S.Align>
             )}
           </S.Form>
-        </S.Login>
+        </S.Box>
       </S.Align>
     </S.Outer>
   );

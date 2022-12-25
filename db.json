@@ -1,30 +1,21 @@
 {
   "posts": [
     {
-      "userName": "jhye",
-      "created_at": "2022.12.25 18:32:45",
-      "id": "2fa21133-de79-1717-a25b-0ea7d902f747",
-      "title": "테스트2",
-      "content": "테스트",
-      "isDone": true,
-      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp"
-    },
-    {
-      "userName": "jhye",
-      "created_at": "2022.12.25 19:40:10",
-      "id": "08379552-db57-292b-5d1f-ea30050500af",
-      "title": "테스트1",
-      "content": "하하핳",
+      "userName": "123",
+      "created_at": "2022.12.25 20:34:36",
+      "id": "8deee53c-6434-9923-7cb6-422ab802663e",
+      "title": "123",
+      "content": "123",
       "isDone": false,
-      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
+      "userId": "5WQzicoXU8S8TAzQwiFhp73UgF33",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp"
     }
   ],
   "user": [
     {
-      "id": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
-      "email": "jhye@test.com"
+      "id": "5WQzicoXU8S8TAzQwiFhp73UgF33",
+      "email": "222@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/5WQzicoXU8S8TAzQwiFhp73UgF33%2FprofileUrl%2Fe96c3f29-6f9f-48fa-b8a3-78286cbb3931?alt=media&token=fe514e19-3b3f-4327-8c27-6644fb6934ca"
     }
   ],
   "comment": []

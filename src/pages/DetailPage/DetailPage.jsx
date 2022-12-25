@@ -8,12 +8,11 @@ import {
   __getPost,
   __deletePost,
   __updatePost,
-
 } from '../../redux/modules/posts';
 import { __addComment, __getComment } from '../../redux/modules/comments';
 import dayjs from 'dayjs';
 import * as S from './DetailPageStyle';
-import CommentContainer from '../../components/Layout/Container/CommentContainer';
+import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 
 // import CommentAddForm from './CommentAddForm';
 // import CommentsContainer from './CommentsContainer';
@@ -119,6 +118,7 @@ const DetailPage = () => {
 
   return (
     <>
+      <Sidebar />
       <S.Wrapper>
         <S.MainContainer>
           <S.Header>
@@ -146,6 +146,8 @@ const DetailPage = () => {
                 {edit ? (
                   <form id='editInput' onSubmit={updateTodoHandler}>
                     <textarea
+                      cols='40'
+                      rows='8'
                       id='content-input2'
                       value={content}
                       placeholder='내용을 입력해주세요'
@@ -155,6 +157,8 @@ const DetailPage = () => {
                 ) : (
                   post?.content
                 )}
+              </S.ContentSection>
+              <div style={{ gap: '10px' }}>
                 {edit && (
                   <S.EditBtn
                     id='edit-complete'
@@ -173,7 +177,7 @@ const DetailPage = () => {
                   {edit ? '수정취소' : '수정'}
                 </S.EditBtn>
                 <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
-              </S.ContentSection>
+              </div>
               {/* <S.ButtonSection></S.ButtonSection> */}
               <S.CommentSection>
                 댓글이 보여지는 영역
