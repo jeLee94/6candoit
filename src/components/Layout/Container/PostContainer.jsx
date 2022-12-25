@@ -8,6 +8,8 @@ import {
   __togglePost,
 } from '../../../redux/modules/posts';
 import * as S from './PostContainerStyle';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -15,47 +17,50 @@ import * as S from './PostContainerStyle';
 // } from '../../redux/modules/comments';
 
 const PostContainer = ({ post }) => {
-  // console.log(post);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const unawareValue = useSelector((state) => state.posts.posts);
-  // console.log('store값', unawareValue);
-  // const { comments } = useSelector((state) => state.comments);
-
+  dayjs.extend(relativeTime);
+  const createdTime = dayjs(post.created_at).fromNow();
   const DeletePost = () => {
-    // dispatch(__deleteAllComment(post.id));
     dispatch(__deletePost(post.id));
   };
 
   const togglePostHandler = () => {
     // event.preventDefault();
-    // dispatch(__toggleStatusPost(post.id));
     dispatch(__togglePost(post));
     // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
 
-  // const EditPost = () => {
-  //   navigate('/editform', {
-  //     state: post,
-  //   });
-  // };
-
   return (
-    <S.CommentWrap>
-      <S.ContentsWrap>
-        <S.TitleWrap>{post.title}</S.TitleWrap>
-        <S.ContentWrap>{post.content}</S.ContentWrap>
+    <S.BoxWrap>
+      <Link
+        to={`/${post.id}`}
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
+        <S.ContentsWrap>
+          <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
+          {/* <S.UserImgView src={post?.imgUrl} /> */}
+          {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
+          <S.TitleWrap>
+            {post.title.length > 20
+              ? post.title.substr(0, 20) + '...'
+              : post.title}
+          </S.TitleWrap>
+          <S.ContentWrap>
+            {post.content.length > 25
+              ? post.content.substr(0, 25) + '...'
+              : post.content}
+          </S.ContentWrap>
+        </S.ContentsWrap>
+      </Link>
+      <S.ContentWrap>
         <S.ButtonWrap>
-          <S.CusttomButton>
-            <Link to={`/${post.id}`}>보기</Link>
-          </S.CusttomButton>
           <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
           <S.CusttomButton onClick={togglePostHandler}>
             {post.isDone ? '진행중' : '완료'}
           </S.CusttomButton>
         </S.ButtonWrap>
-      </S.ContentsWrap>
-    </S.CommentWrap>
+      </S.ContentWrap>
+    </S.BoxWrap>
   );
 };
 

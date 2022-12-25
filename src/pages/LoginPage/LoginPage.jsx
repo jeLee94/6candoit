@@ -1,24 +1,23 @@
 import { auth } from '../../firebase';
+
 import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
 } from 'firebase/auth';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux/';
 import { Link, useNavigate } from 'react-router-dom';
 import google from './google.png';
 import * as S from './LoginPageStyle';
-import { __addUser, __deleteUser } from '../../redux/modules/userSlice';
+import { __addUser } from '../../redux/modules/userSlice';
 
 function LoginPage() {
   //이메일 회원가입용 state
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('　');
+  const [errorMsg, setErrorMsg] = useState('');
   //로그인용 state
   const [LoginEmail, setLoginEmail] = useState('');
   const [LoginPassword, setLoginPassword] = useState('');
@@ -41,11 +40,13 @@ function LoginPage() {
         registerEmail,
         registerPassword
       );
+
       alert(`${createdUser.user.email}님 안녕하세요!`);
       setIsRegistered(!isRegistered); //로그인 창으로 돌아가기
       setRegisterEmail(''); //state 초기화
       setRegisterPassword(''); // state 초기화
     } catch (err) {
+      console.log(err.code);
       switch (err.code) {
         case 'auth/weak-password':
           setErrorMsg('비밀번호는 6자리 이상이어야 합니다');
@@ -78,7 +79,11 @@ function LoginPage() {
       setCurrentUser(curUserInfo.user);
       // console.log(curUserInfo.user);
       dispatch(
-        __addUser({ id: curUserInfo.user.uid, email: curUserInfo.user.email })
+        __addUser({
+          id: curUserInfo.user.uid,
+          email: curUserInfo.user.email,
+          photoURL: auth.currentUser.photoURL,
+        })
       );
       console.log(curUserInfo.user.uid);
       alert('로그인완료!');
@@ -106,15 +111,6 @@ function LoginPage() {
     }
   };
 
-  // //로그아웃 추후 다른 페이지에서 사용 예정
-  // const handleLogout = async () => {
-  //   setCurrentUser('');
-  //   //세션 or 쿠기 삭제
-
-  //   dispatch(__deleteUser(currentUser.uid));
-  //   await signOut(auth);
-  // };
-
   //구글 로그인
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider(); // provider를 구글로 설정
@@ -124,11 +120,9 @@ function LoginPage() {
         dispatch(__addUser({ id: currentUser.uid, email: currentUser.email })); // user data 설정
         console.log(currentUser);
         alert('로그인 완료!');
-
-        // console.log(data); // console로 들어온 데이터 표시
       })
       .catch((err) => {
-        // console.log(err);
+        // console.log(err);s
       });
   };
 

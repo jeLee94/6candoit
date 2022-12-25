@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const dot = styled.div`
   height: 0.5rem;
@@ -51,10 +51,6 @@ export const StyleWrapper = styled.div`
 
   .fc-h-event {
     padding: 5px;
-  }
-
-  .fc td {
-    background: ;
   }
 
   .fc-col-header {
