@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import * as S from './SidebarStyle.js';
 import Ellipse from './Ellipse.png';
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
 import { auth } from '../../../firebase.js';
-
+import CustomButton from '../../Tools/CustomButton.jsx';
 
 export default function Sidebar() {
   const location = useLocation();
@@ -26,39 +26,66 @@ export default function Sidebar() {
     navigate('/');
     await signOut(auth);
   };
-
+  console.log(auth.currentUser);
   return (
     <>
       <S.SideBar>
         {/* S.SideBar 처럼 다른 태그들도 styled-component로 변경 부탁드립니다! */}
         {/* styled-component 이름은 PascalCase 형태로 부탁드려요! */}
+        <div
+          style={{
+            width: '100%',
+            height: '80px',
+            backgroundColor: 'black',
+            color: 'white',
+          }}
+        >
+          로고 영역
+        </div>
         <S.SideWrapper>
-          <S.AppLogo src={Ellipse} />
+          <S.ProfileWrapper>
+            {/* 이미지 받아오기 */}
 
-          <S.SideLogin>
-            {user.length === 0 ? (
-              <div>
-                <div>환영합니다!</div>
-                <Link to='/login'>Login</Link>
-              </div>
-            ) : (
-              <div>
-                <div>{user[0].email}님</div>
-                <button onClick={handleLogout}>로그아웃</button>
-              </div>
-            )}
-          </S.SideLogin>
-          <S.SideTitle>MENU</S.SideTitle>
-          <S.SideMenu>
-            {location.pathname !== "/" && (
-              <Link to="/">
-                <span>Main</span>
+            <S.SideLogin>
+              {user.length === 0 ? (
+                <S.ProfileDetail>
+                  <S.AppLogo src={Ellipse} />
+                  <div>환영합니다!</div>
+                  <Link to='/login'>Login</Link>
+                </S.ProfileDetail>
+              ) : (
+                <S.ProfileDetail>
+                  {user.PhotoURL !== null ? (
+                    <S.AppLogo src={auth.currentUser.photoURL} />
+                  ) : (
+                    <S.AppLogo src={Ellipse} />
+                  )}
+                  <div>
+                    <Link to={'/mypage'}>
+                      {auth.currentUser.displayName || user[0].email}
+                    </Link>
+                    님
+                  </div>
+                  <CustomButton onClick={handleLogout}>로그아웃</CustomButton>
+                </S.ProfileDetail>
+              )}
+            </S.SideLogin>
+          </S.ProfileWrapper>
+          <S.ContentsWrapper>
+            <hr />
+            <S.SideTitle>MENU</S.SideTitle>
+
+            <S.SideMenu>
+              {location.pathname !== '/' && (
+                <Link to='/'>
+                  <span>Main</span>
+                </Link>
+              )}
+              <Link to='/Calendar'>
+                <span>Calendar</span>
               </Link>
-            )}
-            <Link to="/Calendar">
-              <span>Calendar</span>
-            </Link>
-          </S.SideMenu>
+            </S.SideMenu>
+          </S.ContentsWrapper>
         </S.SideWrapper>
       </S.SideBar>
     </>

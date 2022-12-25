@@ -15,15 +15,16 @@ export const Form = styled.form`
 export const TitleInput = styled.input`
   border: 1px solid #eee;
   width: 100%;
-  border-radius: 12px;
+  height: 2rem;
+  border-radius: 0.3rem;
   outline: none;
   padding: 5px 10px;
 `;
 
-export const ContentInput = styled.input`
+export const ContentInput = styled.textarea`
   border: 1px solid #eee;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 0.3rem;
   outline: none;
   padding: 5px 10px;
 `;
@@ -86,13 +87,26 @@ export const DoneTodo = styled.div`
   -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
 `;
 
-export const AddTodoBtn = styled.button`
-  width: 50px;
+export const AddBtn = styled.button`
+  width: 80px;
   height: 30px;
   cursor: pointer;
   border: 1px solid black;
   border-radius: 0.3rem;
+  margin: 0 auto 0 auto;
   /* font-size: 0.5rem; */
+`;
+
+
+export const ProfileImg = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+export const ProfileImgInput = styled.input`
+  display: none;
 `;
 
 export const DoneTitle = styled.div`

@@ -14,11 +14,31 @@ export const CommentWrap = styled.div`
 `;
 
 export const ContentsWrap = styled.div`
-  height: 100px;
+  height: 300px;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 10px;
+`;
+
+export const CreatedAtWrap = styled.div`
+  width: 90%;
+  font-size: 0.5rem;
+  /* color: grey; */
+  justify-content: center;
+`;
+
+export const UserImgView = styled.img`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  justify-content: center;
+`;
+
+export const UserNameWrap = styled.div`
+  width: 90%;
+  font-size: 1rem;
+  justify-content: center;
 `;
 
 // export const TitleWrap = styled(ContentsWrap)`
@@ -38,7 +58,7 @@ export const ContentWrap = styled.div`
 export const ButtonWrap = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 0.3rem;
 `;
 
 export const CusttomButton = styled.button`

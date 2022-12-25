@@ -1,5 +1,5 @@
-import { Children } from "react";
-import styled from "styled-components";
+import { Children } from 'react';
+import styled from 'styled-components';
 
 export const PostpageWrap = styled.div`
   width: 100%;
