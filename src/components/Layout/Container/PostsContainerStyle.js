@@ -12,17 +12,10 @@ export const Form = styled.form`
   gap: 1rem;
 `;
 
-export const UserInput = styled.input`
-  border: 1px solid #eee;
-  width: 100%;
-  border-radius: 0.3rem;
-  outline: none;
-  padding: 0 10px;
-`;
-
 export const TitleInput = styled.input`
   border: 1px solid #eee;
   width: 100%;
+  height: 2rem;
   border-radius: 0.3rem;
   outline: none;
   padding: 0 10px;
@@ -94,12 +87,13 @@ export const DoneTodo = styled.div`
   -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
 `;
 
-export const AddTodoBtn = styled.button`
-  width: 50px;
+export const AddBtn = styled.button`
+  width: 80px;
   height: 30px;
   cursor: pointer;
   border: 1px solid black;
   border-radius: 0.3rem;
+  margin: 0 auto 0 auto;
   /* font-size: 0.5rem; */
 `;
 

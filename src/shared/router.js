@@ -7,6 +7,7 @@ import MainPage from '../pages/MainPage/MainPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import CalendarPage from '../pages/CalendarPage/CalendarPage';
+import MyPage from '../pages/MyPage/MyPage';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
           <Route path='/:id' element={<DetailPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/Calendar' element={<CalendarPage />} />
+          <Route path='/mypage' element={<MyPage />} />
           {/* <Route path="/" element={<Main />} /> */}
           {/* <Route path="/addform" element={<PostAddForm />} /> */}
         </Routes>

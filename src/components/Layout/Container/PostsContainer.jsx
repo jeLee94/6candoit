@@ -45,45 +45,6 @@ const PostsContainer = () => {
     borderRadius: '50%',
   };
 
-  const fileChange = (event) => {
-    // setImgUploaded(!imgUploaded);
-    const {
-      target: { files },
-    } = event;
-    const theFile = files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(theFile);
-    reader.onloadend = (finishedEvent) => {
-      const {
-        currentTarget: { result },
-      } = finishedEvent;
-      setAttachment(result);
-      const imgDataUrl = finishedEvent.currentTarget.result;
-      localStorage.setItem('imgDataUrl', imgDataUrl);
-    };
-  };
-  const clearImgClick = () => {
-    setAttachment(null);
-    setImagDownloadUrl(null);
-    console.log(imgDownloadUrl);
-    // imgDownloadUrl = await getDownloadURL(null);
-  };
-
-  const storeImg = async (event) => {
-    event.preventDefault();
-    // const { uid, photoURL, displayName } = auth.currentUser;
-    if (attachment !== '') {
-      const imgRef = ref(
-        imgStorage,
-        `${auth.currentUser.uid}/post_images/${uuidv4()}`
-      );
-      const imgDataUrl = localStorage.getItem('imgDataUrl');
-      const response = await uploadString(imgRef, imgDataUrl, 'data_url');
-      const tempUrl = await getDownloadURL(response.ref);
-      setImagDownloadUrl(tempUrl);
-      console.log('1', imgDownloadUrl);
-    }
-  };
   //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -107,7 +68,6 @@ const PostsContainer = () => {
 
     setTitle('');
     setContent('');
-
     navigate('/');
   };
 
@@ -129,22 +89,7 @@ const PostsContainer = () => {
     <S.CommentsWrap>
       <S.AddWrap>
         <S.WriteTitle>Write down what to do</S.WriteTitle>
-        <label htmlFor='imgInput'>
-          <S.ProfileImg
-            id='profileView'
-            src={blankProfile}
-            style={defaultProfileImg}
-          />
-        </label>
-        <S.ProfileImgInput
-          id='imgInput'
-          type='file'
-          accept='image/*'
-          onChange={fileChange}
-        />
-        {attachment && <S.ProfileImg src={attachment} />}
-        <button onClick={storeImg}>스토리지</button>
-        <button onClick={clearImgClick}>Clear Img</button>
+
         <S.Form onSubmit={onSubmitHandler}>
           {/* {userName} */}
           <label>
@@ -161,6 +106,8 @@ const PostsContainer = () => {
           <label>
             내용
             <S.ContentInput
+              cols='30'
+              rows='10'
               type='text'
               value={content}
               onChange={(e) => {
@@ -168,11 +115,9 @@ const PostsContainer = () => {
               }}
             />
           </label>
-          <S.AddTodoBtn
-            disabled={title === '' || content === '' ? true : false}
-          >
+          <S.AddBtn disabled={title === '' || content === '' ? true : false}>
             추가
-          </S.AddTodoBtn>
+          </S.AddBtn>
         </S.Form>
       </S.AddWrap>
 
