@@ -92,8 +92,8 @@ function MyPage() {
       <S.Align>
         {/* 로그인영역 isRegistered => styled 컴포넌트에 props 전달 */}
         <S.Login isRegistered={isRegistered}>
-          <h2>로그인</h2>
-
+          {!isRegistered && <h2>로그인</h2>}
+          {/* <h2>로그인</h2> */}
           <S.Form
             onSubmit={(e) => {
               e.preventDefault();

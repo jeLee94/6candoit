@@ -1,5 +1,21 @@
-  {
-  "posts": [],
-  "user": [],
+{
+  "posts": [
+    {
+      "userName": "jhye",
+      "created_at": "2022.12.25 18:32:45",
+      "id": "2fa21133-de79-1717-a25b-0ea7d902f747",
+      "title": "테스트입니다",
+      "content": "테스트",
+      "isDone": true,
+      "userId": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp"
+    }
+  ],
+  "user": [
+    {
+      "id": "NbXf1vvEPMX6VJwZyo392f5l9GK2",
+      "email": "jhye@test.com"
+    }
+  ],
   "comment": []
-  }
+}

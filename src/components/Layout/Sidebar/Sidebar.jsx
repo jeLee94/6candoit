@@ -30,8 +30,6 @@ export default function Sidebar() {
   return (
     <>
       <S.SideBar>
-        {/* S.SideBar 처럼 다른 태그들도 styled-component로 변경 부탁드립니다! */}
-        {/* styled-component 이름은 PascalCase 형태로 부탁드려요! */}
         <div
           style={{
             width: '100%',
