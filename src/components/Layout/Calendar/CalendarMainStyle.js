@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Calendar } from "@fullcalendar/react";
 
 export const dot = styled.div`
-  height: 0.5rem;
-  width: 0.5rem;
+  height: 8px;
+  width: 8px;
   background-color: #f87171;
   border-radius: 50%;
   display: flex;
-  margin-left: 0.0625rem;
+  margin-left: 1px;
 `;
 
 export const Wrapper = styled.div`
@@ -20,13 +20,13 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  padding: 1.875rem;
+  padding: 30px;
 `;
 
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 3.125rem 4.375rem;
+  padding: 50px 70px;
   flex-grow: 1;
   overflow: auto;
   background-color: #f6f8fb;
@@ -37,11 +37,15 @@ export const MainContainer = styled.div`
   .fc .fc-daygrid-day.fc-day-today {
     background-color: #c5dcff;
   }
+  .fc-daygrid-event {
+    border-radius: 3.125rem;
+    background-color: #3a8bfe;
+  }
 `;
 
 export const StyleWrapper = styled.div`
   .fc-day {
-    padding: 15px;
+    padding: 0.9375rem;
   }
 
   .fc-day-sun a {
@@ -53,16 +57,16 @@ export const StyleWrapper = styled.div`
   }
 
   .fc .fc-daygrid-day-number {
-    padding: 0px;
+    padding: 0rem;
     position: relative;
   }
 
   .fc-h-event {
-    padding: 5px;
+    padding: 0.3125rem;
   }
 
   .fc-col-header {
-    padding: 20px;
+    padding: 1.25rem;
     background-color: white;
     color: black;
   }
