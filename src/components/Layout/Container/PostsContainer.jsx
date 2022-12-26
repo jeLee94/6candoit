@@ -28,7 +28,7 @@ const PostsContainer = () => {
 
     if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
-
+    // console.log(user[0].invitedUid);
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
@@ -42,6 +42,7 @@ const PostsContainer = () => {
             isDone: false,
             userId: user[0].id,
             imgUrl: imgDownloadUrl ?? blankProfile,
+            invitedId: user[0].invitedUid ?? '',
           })
         )
       : alert('로그인해주세요');
@@ -111,7 +112,10 @@ const PostsContainer = () => {
           <div>
             {posts
               .filter(
-                (post) => user[0].id === post.userId && post.isDone === false
+                (post) =>
+                  (user[0].id === post.userId ||
+                    user[0].id === post.invitedId) &&
+                  post.isDone === false
               )
               .map((post) => {
                 return (
@@ -125,13 +129,16 @@ const PostsContainer = () => {
       <S.DoneTodo>
         {/* <S.DoneTitle>Done</S.DoneTitle> */}
 
-        <div style={{ marginBottom: 10 }}>Done</div>
+        <S.DoneTitle>Done</S.DoneTitle>
 
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts
               .filter(
-                (post) => user[0].id === post.userId && post.isDone === true
+                (post) =>
+                  (user[0].id === post.userId ||
+                    user[0].id === post.invitedId) &&
+                  post.isDone === true
               )
               .map((post) => {
                 return (

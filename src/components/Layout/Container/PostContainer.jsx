@@ -1,15 +1,14 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   __deletePost,
-  __updatePost,
   // togglePost,
   __togglePost,
-} from "../../../redux/modules/posts";
-import * as S from "./PostContainerStyle";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+} from '../../../redux/modules/posts';
+import * as S from './PostContainerStyle';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
@@ -34,7 +33,7 @@ const PostContainer = ({ post }) => {
     <S.BoxWrap>
       <Link
         to={`/${post.id}`}
-        style={{ textDecoration: "none", color: "black" }}
+        style={{ textDecoration: 'none', color: 'black' }}
       >
         <S.ContentsWrap>
           <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
@@ -42,12 +41,12 @@ const PostContainer = ({ post }) => {
           {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
           <S.TitleWrap>
             {post.title.length > 20
-              ? post.title.substr(0, 20) + "..."
+              ? post.title.substr(0, 20) + '...'
               : post.title}
           </S.TitleWrap>
           <S.ContentWrap>
             {post.content.length > 25
-              ? post.content.substr(0, 25) + "..."
+              ? post.content.substr(0, 25) + '...'
               : post.content}
           </S.ContentWrap>
         </S.ContentsWrap>
@@ -56,7 +55,7 @@ const PostContainer = ({ post }) => {
         <S.ButtonWrap>
           <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
           <S.CusttomButton onClick={togglePostHandler}>
-            {post.isDone ? "진행중" : "완료"}
+            {post.isDone ? '진행중' : '완료'}
           </S.CusttomButton>
         </S.ButtonWrap>
       </S.ContentWrap>
