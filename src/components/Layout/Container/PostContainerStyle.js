@@ -4,13 +4,12 @@ export const BoxWrap = styled.div`
   background-size: 100%;
   background: linear-gradient(to bottom right, #3a8bfe, #2bddff);
   margin-bottom: 1rem;
-  width: 100%;
+  padding: 10px;
   height: 9rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  border: 1.5px solid #dcdcdc;
   border-radius: 1rem;
   /* padding-top: 1.2rem; */
 `;
