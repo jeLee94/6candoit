@@ -93,6 +93,7 @@ const PostsContainer = () => {
               setContent(e.target.value);
             }}
           />
+
           <S.AddBtn disabled={title === '' || content === '' ? true : false}>
             추가
           </S.AddBtn>

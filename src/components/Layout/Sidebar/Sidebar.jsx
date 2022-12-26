@@ -17,7 +17,7 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
-  console.log(auth.currentUser);
+  // console.log(auth.currentUser);
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));

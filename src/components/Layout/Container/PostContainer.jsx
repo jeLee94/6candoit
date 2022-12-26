@@ -34,7 +34,7 @@ const PostContainer = ({ post }) => {
 
   const idList = allUserList.map((user) => user.id);
   const idx = idList.indexOf(user[0].invitedUid);
-  console.log(allUserList[idx]);
+  // console.log(allUserList[idx]);
   return (
     <S.BoxWrap>
       <Link
