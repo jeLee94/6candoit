@@ -47,7 +47,7 @@ export const __updateUser = createAsyncThunk(
   'user/updateUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
+      console.log('update 페이로드: ', payload);
       await axios.patch(`http://localhost:3003/user/${payload.id}`, payload);
       const data = await axios.get('http://localhost:3003/user');
       // console.log('update 이벤트의 서버 응답: ', data.data);

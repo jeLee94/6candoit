@@ -1,48 +1,60 @@
-// import { updateProfile } from 'firebase/auth';
-// import { getDownloadURL, ref, uploadString } from 'firebase/storage';
-// import { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { auth, imgStorage } from '../../firebase';
-// import { __updateUser } from '../../redux/modules/userSlice';
+//초대하기 버튼 눌러서 input에 email계정 입력 후 제출 버튼
+// db.json의 allUserList에 있는 계정인지 검증
+// 있다면 => 초대! posts(이전글, 이제쓸글), user(이제쓸글에 추가하기위해)에 dispatch
+// 없다면 => alert
 
-// function InvitePage() {
-//   const { user } = useSelector((state) => state.user);
-//   const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { auth } from '../../firebase';
+import {
+  __getUserList,
+  __updateUserList,
+} from '../../redux/modules/allUserListSlice';
+import { __updateUser } from '../../redux/modules/userSlice';
 
-//   const dispatch = useDispatch();
+function InvitePage() {
+  const { allUserList } = useSelector((state) => state.allUserList);
 
-//   const storeImg = async () => {
+  const dispatch = useDispatch();
 
-//       const connetRef = ref(
-//         imgStorage,
-//         `${auth.currentUser.uid}/connect/${uuidv4()}/`
-//       );
-//       const profileURL = localStorage.getItem('profileURL');
-//       const response = await uploadString(imgRef, profileURL, 'data_url');
-//       const tempUrl = await getDownloadURL(response.ref);
-//       setImagDownloadUrl(tempUrl);
+  useEffect(() => {
+    dispatch(__getUserList());
+  }, [dispatch]);
 
-//       console.log('1', imgDownloadUrl);
+  const onCheckRegistered = (e) => {
+    e.preventDefault();
+    const emailList = allUserList.map((user) => user.email);
+    // console.log(emailList);
+    // console.log(e.target[0].value);
+    const checked = emailList.indexOf(e.target[0].value);
+    checked === -1
+      ? alert('해당하는 회원이 없습니다.')
+      : dispatch(
+          __updateUser({
+            id: auth.currentUser.uid,
+            invitedUid: allUserList[checked].id,
+            invitedEmail: allUserList[checked].email,
+          })
+        ) &&
+        dispatch(
+          __updateUserList({
+            id: auth.currentUser.uid,
+            invitedUid: allUserList[checked].id,
+            invitedEmail: allUserList[checked].email,
+          })
+        ) &&
+        alert('추가되었습니다.');
+  };
 
-//       let EditedUser = {
-//         id: user[0].id,
-//         email: user[0].email,
-//         photoURL: tempUrl,
-//       };
-//       dispatch(__updateUser(EditedUser));
-//       await updateProfile(auth.currentUser, {
-//         displayName: nickName,
-//         photoURL: tempUrl,
-//       });
-//     }
-//     alert('프로필 변경 완료!');
-//   };
-//   return (
-//     <div>
-//       초대할 친구
-//       <input type='email' />
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      초대할 친구
+      <form onSubmit={onCheckRegistered}>
+        <input type='email' />
+        <input type='submit' />
+      </form>
+    </div>
+  );
+}
 
-// export default InvitePage;
+export default InvitePage;

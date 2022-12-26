@@ -12,8 +12,14 @@
   margin: 0px;
   padding: 0px;
 }
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 body {
+  width: 100%;
   background-position: center;
   background-size: cover;
   background-blend-mode: color-dodge;

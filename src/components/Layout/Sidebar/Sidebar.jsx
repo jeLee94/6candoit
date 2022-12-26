@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import * as S from "./SidebarStyle.js";
-import Ellipse from "./Ellipse.png";
-import { signOut } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
-import { __getUser, __deleteUser } from "../../../redux/modules/userSlice.js";
-import { auth } from "../../../firebase.js";
-import CustomButton from "../../Tools/CustomButton.jsx";
+import React, { useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import * as S from './SidebarStyle.js';
+import Ellipse from './Ellipse.png';
+import { signOut } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  __getUser,
+  __deleteUser,
+  __updateUser,
+} from '../../../redux/modules/userSlice.js';
+import { auth } from '../../../firebase.js';
+import CustomButton from '../../Tools/CustomButton.jsx';
+
 export default function Sidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -15,23 +20,26 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
+
+  const { allUserList } = useSelector((state) => state.allUserList);
+
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
     // dispatch(__getUser());
-    navigate("/");
+    navigate('/');
     await signOut(auth);
   };
-  console.log(user[0]?.photoURL);
+
   return (
     <>
       <S.SideBar>
         <div
           style={{
-            width: "100%",
-            height: "80px",
-            backgroundColor: "black",
-            color: "white",
+            width: '100%',
+            height: '80px',
+            backgroundColor: 'black',
+            color: 'white',
           }}
         >
           로고 영역
@@ -44,17 +52,17 @@ export default function Sidebar() {
                 <S.ProfileDetail>
                   <S.AppLogo src={Ellipse} />
                   <div>환영합니다!</div>
-                  <Link to="/login">Login</Link>
+                  <Link to='/login'>Login</Link>
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
-                  {user[0].PhotoURL !== null ? (
-                    <S.AppLogo src={auth.currentUser?.photoURL} />
+                  {auth.currentUser !== null ? (
+                    <S.AppLogo src={auth.currentUser.photoURL} />
                   ) : (
                     <S.AppLogo src={Ellipse} />
                   )}
                   <div>
-                    <Link to={"/mypage"}>
+                    <Link to={'/mypage'}>
                       {auth.currentUser?.displayName || user[0].email}
                     </Link>
                     님
@@ -68,12 +76,12 @@ export default function Sidebar() {
             <hr />
             <S.SideTitle>MENU</S.SideTitle>
             <S.SideMenu>
-              {location.pathname !== "/" && (
-                <Link to="/">
+              {location.pathname !== '/' && (
+                <Link to='/'>
                   <span>Main</span>
                 </Link>
               )}
-              <Link to="/Calendar">
+              <Link to='/Calendar'>
                 <span>Calendar</span>
               </Link>
             </S.SideMenu>

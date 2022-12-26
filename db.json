@@ -1,11 +1,47 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "userName": "11122",
+      "created_at": "2022.12.26 11:58:30",
+      "id": "811a746c-64f8-e96d-891d-a0343f7f375b",
+      "title": "test",
+      "content": "123",
+      "isDone": true,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
+    },
+    {
+      "userName": "11122",
+      "created_at": "2022.12.26 12:01:39",
+      "id": "e1a1d5eb-86db-8718-06ef-6054ea60a3bf",
+      "title": "test2",
+      "content": "1231233\n",
+      "isDone": false,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
+    },
+    {
+      "userName": "111",
+      "created_at": "2022.12.26 12:08:24",
+      "id": "f79ce77e-4cf2-a0d8-2ba5-6d80107971ac",
+      "title": "하윙",
+      "content": "하이",
+      "isDone": false,
+      "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
+    }
+  ],
   "user": [
     {
-      "id": "9qBSfVwIDjTphJa7WcEuuWNpUCY2",
-      "email": "333@naver.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9qBSfVwIDjTphJa7WcEuuWNpUCY2%2FprofileUrl%2Faf40cb7e-1d6a-45f2-aca5-3e20a0771db9?alt=media&token=f98c6b28-b24d-4a1c-8c16-858d65f6e6a4",
-      "displayName": "111"
+      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "email": "222@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
+      "displayName": "11122",
+      "invitedUid": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "invitedEmail": "jungwn9494@gmail.com"
     }
   ],
   "comment": [],
@@ -14,13 +50,17 @@
       "id": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "email": "jungwn9494@gmail.com",
       "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/CVhf698UXWP9ODzKDPAp1H3TETs2%2FprofileUrl%2Fba3ed60d-980c-4f18-a19a-13b6b83ed1d8?alt=media&token=71415edb-6b58-419c-a502-4e1bb22dc655",
-      "displayName": "111"
+      "displayName": "111",
+      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "invitedEmail": "222@naver.com"
     },
     {
       "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "email": "222@naver.com",
       "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
-      "displayName": "11122"
+      "displayName": "11122",
+      "invitedUid": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "invitedEmail": "jungwn9494@gmail.com"
     },
     {
       "id": "9qBSfVwIDjTphJa7WcEuuWNpUCY2",
