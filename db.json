@@ -43,12 +43,27 @@
       "userId": "g0i4C4NfL9bZMCbHaCDVeQZV9Zj1",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": ""
+    },
+    {
+      "userName": "11122",
+      "created_at": "2022.12.26 23:42:45",
+      "id": "1b6b53f4-76f3-d6cf-bf73-a9e85591a3a2",
+      "title": "123",
+      "content": "123",
+      "isDone": false,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "ZvwaGlTSLecJrrFHaruea0JAH9W2"
     }
   ],
   "user": [
     {
-      "id": "EGP36yqxW6VWhE1zqKSQxPptHB23",
-      "email": "o100ente@gmail.com"
+      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "email": "222@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
+      "displayName": "11122",
+      "invitedUid": "ZvwaGlTSLecJrrFHaruea0JAH9W2",
+      "invitedEmail": "555@naver.com"
     }
   ],
   "comments": [

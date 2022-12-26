@@ -5,7 +5,7 @@ export const __getUserList = createAsyncThunk(
   'allUserList/getUser',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get('http://localhost:3003/allUserList');
+      const data = await axios.get(`${process.env.REACT_APP_allUserList}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -18,9 +18,9 @@ export const __addUserList = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       console.log(payload);
-      await axios.post(`http://localhost:3003/allUserList`, payload);
+      await axios.post(`${process.env.REACT_APP_allUserList}`, payload);
 
-      const data = await axios.get('http://localhost:3003/allUserList');
+      const data = await axios.get(`${process.env.REACT_APP_allUserList}`);
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -34,10 +34,10 @@ export const __updateUserList = createAsyncThunk(
     try {
       // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `http://localhost:3003/allUserList/${payload.id}`,
+        `${process.env.REACT_APP_allUserList}/${payload.id}`,
         payload
       );
-      const data = await axios.get('http://localhost:3003/allUserList');
+      const data = await axios.get(`${process.env.REACT_APP_allUserList}`);
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {

@@ -5,7 +5,7 @@ export const __getPost = createAsyncThunk(
   'posts/getPost',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get('http://localhost:3003/posts');
+      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -18,8 +18,8 @@ export const __addPost = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.post('http://localhost:3003/posts', payload);
-      const data = await axios.get('http://localhost:3003/posts');
+      await axios.post(`${process.env.REACT_APP_localPosts}`, payload);
+      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -32,8 +32,8 @@ export const __deletePost = createAsyncThunk(
   'posts/deletePost',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(`http://localhost:3003/posts/${payload}`);
-      const data = await axios.get('http://localhost:3003/posts');
+      await axios.delete(`${process.env.REACT_APP_localPosts}/${payload}`);
+      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -48,10 +48,10 @@ export const __togglePost = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log('비동기 toggle payload값:', payload);
-      await axios.patch(`http://localhost:3003/posts/${payload.id}`, {
+      await axios.patch(`${process.env.REACT_APP_localPosts}/${payload.id}`, {
         isDone: !payload.isDone,
       });
-      const data = await axios.get('http://localhost:3003/posts');
+      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       // console.log('toggle: server로부터 받은 응답', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -64,8 +64,12 @@ export const __updatePost = createAsyncThunk(
   'posts/updatePost',
   async (payload, thunkAPI) => {
     try {
-      await axios.patch(`http://localhost:3003/posts/${payload.id}`, payload);
-      const data = await axios.get('http://localhost:3003/posts');
+      // console.log('update 페이로드: ', payload);
+      await axios.patch(
+        `${process.env.REACT_APP_localPosts}/${payload.id}`,
+        payload
+      );
+      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -73,18 +77,6 @@ export const __updatePost = createAsyncThunk(
     }
   }
 );
-
-// export const __getposts = createAsyncThunk(
-//   "posts/getposts",
-//   async (payload, thunkAPI) => {
-//     try {
-//       const data = await axios.get("http://localhost:3003/posts");
-//       console.log(data);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// );
 
 const initialState = {
   posts: [

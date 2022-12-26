@@ -5,7 +5,7 @@ export const __getComment = createAsyncThunk(
   'comments/getComment',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get('http://localhost:3003/comments');
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -18,8 +18,8 @@ export const __addComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.post('http://localhost:3003/comments', payload);
-      const data = await axios.get('http://localhost:3003/comments');
+      await axios.post(`${process.env.REACT_APP_localComments}`, payload);
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -32,8 +32,8 @@ export const __deleteComment = createAsyncThunk(
   'comments/deleteComment',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(`http://localhost:3003/comments/${payload}`);
-      const data = await axios.get('http://localhost:3003/comments');
+      await axios.delete(`${process.env.REACT_APP_localComments}/${payload}`);
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -48,10 +48,10 @@ export const __updateComment = createAsyncThunk(
     try {
       // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `http://localhost:3003/comments/${payload.id}`,
+        `${process.env.REACT_APP_localComments}/${payload.id}`,
         payload
       );
-      const data = await axios.get('http://localhost:3003/comments');
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
