@@ -128,6 +128,14 @@ export const EditBtn = styled.button`
   border-radius: 0.3rem;
 `;
 
+export const CommentCreateBtn = styled.button`
+  width: 3.125rem;
+  height: 1.875rem;
+  cursor: pointer;
+  border: 0.0625rem solid black;
+  border-radius: 0.3rem;
+`;
+
 // EditCompleteBtn.defaultProps = {
 //   disabled: false,
 // };

@@ -95,13 +95,6 @@ const DetailPage = () => {
     setContent(post.content);
   }, [post]);
 
-  useEffect(() => {
-    if (comments.length < 1) {
-      return;
-    }
-    setCommentContent(comments);
-  }, [comments]);
-
   return (
     <>
       <Sidebar />
@@ -179,24 +172,29 @@ const DetailPage = () => {
                   <div></div>
                 )}
               </S.CommentSection>
-              <S.EditBtn
+              <S.CommentCreateBtn
                 onClick={() => {
                   setCommentWindow(!commentWindow);
                 }}
               >
                 댓글작성
-              </S.EditBtn>
+              </S.CommentCreateBtn>
               {commentWindow && (
                 <div>
                   <input
                     id='comment-input'
-                    // value={commentContent}
+                    value={commentContent}
                     placeholder='댓글 내용을 입력해주세요'
                     onChange={(e) => {
                       setCommentContent(e.target.value);
                     }}
                   ></input>
-                  <button onClick={onCommentSubmitHandler}>등록</button>
+                  <button
+                    onClick={onCommentSubmitHandler}
+                    disabled={commentContent === '' ? true : false}
+                  >
+                    등록
+                  </button>
                 </div>
               )}
             </S.PostWrap>

@@ -49,20 +49,17 @@
     {
       "id": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "email": "jhye2@test.com",
-      "photoURL": "",
-      "displayName": "",
-      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "invitedEmail": "222@naver.com"
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9eAwuAOhogOZfWmzm3lZ4PBSSus1%2FprofileUrl%2Ff8951092-5a54-4c45-a126-a9df7d3fa127?alt=media&token=6951b1f2-1f67-41e2-8c5f-0877a7818f28",
+      "displayName": ""
     }
   ],
-  "user": [],
   "comments": [
     {
       "userName": "jhye",
       "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
       "created_at": "2022.12.26 17:22:59",
       "id": "e0975e32-6a08-fa19-ff4b-1eaf16e58118",
-      "commentContent": "댓글 추가!"
+      "commentContent": "댓글 추가!!!!!!"
     },
     {
       "userName": "jhye",
@@ -70,6 +67,20 @@
       "created_at": "2022.12.26 17:28:46",
       "id": "c0411074-2380-70c1-dcb6-ec087976076a",
       "commentContent": "등록하고 인풋이 안 비워지네;;"
+    },
+    {
+      "userName": "jhye2",
+      "parentId": "13e2946f-87de-ef67-dc44-4652795f7655",
+      "created_at": "2022.12.26 18:38:06",
+      "id": "732d9373-d3a6-107d-9675-e59f65d2f27b",
+      "commentContent": "가즈아!"
+    },
+    {
+      "userName": "jhye2",
+      "parentId": "13e2946f-87de-ef67-dc44-4652795f7655",
+      "created_at": "2022.12.26 18:46:48",
+      "id": "3eab3ec3-f392-88e3-c1a0-5a3420534fe3",
+      "commentContent": "sdfweve"
     }
   ],
   "allUserList": [
@@ -101,7 +112,9 @@
     },
     {
       "id": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
-      "email": "jhye2@test.com"
+      "email": "jhye2@test.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9eAwuAOhogOZfWmzm3lZ4PBSSus1%2FprofileUrl%2Ff8951092-5a54-4c45-a126-a9df7d3fa127?alt=media&token=6951b1f2-1f67-41e2-8c5f-0877a7818f28",
+      "displayName": ""
     }
   ]
 }
