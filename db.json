@@ -34,39 +34,64 @@
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
     },
     {
-      "userName": "jaehyun ye",
-      "created_at": "2022.12.26 12:52:33",
-      "id": "381b824c-c63f-37a0-fbc4-a64240d4afdf",
-      "title": "구글로그인",
-      "content": "테스트",
-      "isDone": true,
-      "userId": "8zUqM8iwsKSmojzC79Isjt7enot2",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": ""
-    },
-    {
-      "userName": "jaehyun ye",
-      "created_at": "2022.12.26 13:08:27",
-      "id": "d5a728b5-7c73-d0f4-79fd-f15f6838d222",
+      "userName": "ㄱㄱㄱ",
+      "created_at": "2022.12.26 15:07:40",
+      "id": "9396e2e3-dac7-1746-b85e-91ae071477fc",
       "title": "테스트",
-      "content": "얍",
+      "content": "테스트입니다!",
       "isDone": false,
-      "userId": "8zUqM8iwsKSmojzC79Isjt7enot2",
+      "userId": "pBDK70NOvVgqWOWWbPzGlBKS3Qb2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": ""
+      "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
     }
   ],
   "user": [
     {
-      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "email": "222@naver.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
-      "displayName": "11122",
+      "id": "pBDK70NOvVgqWOWWbPzGlBKS3Qb2",
+      "email": "jhye@test.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/pBDK70NOvVgqWOWWbPzGlBKS3Qb2%2FprofileUrl%2F9dbfaf41-c177-492c-ad1e-f5dc6d19bc06?alt=media&token=67b5ebed-2f67-40fe-8704-f3bb1e0a2ea4",
+      "displayName": "ㄱㄱㄱ",
       "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "invitedEmail": "222@naver.com"
     }
   ],
-  "comment": [],
+  "comments": [
+    {
+      "userName": "jhye",
+      "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
+      "created_at": "2022.12.26 15:53:14",
+      "id": "7372e8bf-bda3-0fb1-fa0e-fa7637204eb6",
+      "commentContent": "ssssㅁㄴㅇㅍ"
+    },
+    {
+      "userName": "jhye",
+      "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
+      "created_at": "2022.12.26 16:36:28",
+      "id": "b02ae5a0-4cf3-025c-1e33-d5bcfa1ad3a5",
+      "commentContent": "짜잔형"
+    },
+    {
+      "userName": "jhye",
+      "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
+      "created_at": "2022.12.26 17:05:40",
+      "id": "68810849-d918-3e11-d5ff-457be1226923",
+      "commentContent": "헝헝가리"
+    },
+    {
+      "userName": "jhye",
+      "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
+      "created_at": "2022.12.26 17:11:46",
+      "id": "13a93870-de14-ca4c-d277-79a8e5cebeb9",
+      "commentContent": "ㅁㄴㅇㅍ"
+    },
+    {
+      "userName": "jhye",
+      "parentId": "9396e2e3-dac7-1746-b85e-91ae071477fc",
+      "created_at": "2022.12.26 17:14:25",
+      "id": "821f4ce7-c650-7f05-4897-802c431906ed",
+      "commentContent": "댓글 테스트"
+    }
+  ],
   "allUserList": [
     {
       "id": "CVhf698UXWP9ODzKDPAp1H3TETs2",

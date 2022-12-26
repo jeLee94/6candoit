@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-// import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 import uuid from 'react-uuid';
-// import CustomButton from '../../components/Tools/CustomButton';
 import {
   __getPost,
   __deletePost,
@@ -14,10 +12,6 @@ import dayjs from 'dayjs';
 import * as S from './DetailPageStyle';
 import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 import CommentContainer from '../../components/Layout/Container/CommentContainer';
-
-// import CommentAddForm from './CommentAddForm';
-// import CommentsContainer from './CommentsContainer';
-// import { __getComment } from '../../../redux/modules/comments';
 
 const DetailPage = () => {
   const dispatch = useDispatch();
@@ -61,16 +55,9 @@ const DetailPage = () => {
     setContent(event.target.value);
   };
 
-  const changeComment = (event) => {
-    setCommentContent(event.target.value);
-  };
-
-  console.log('댓글: ', comments);
   //task 추가 버튼
   const onCommentSubmitHandler = (e) => {
     e.preventDefault();
-    console.log('댓글 submit 했을 때 user: ', user);
-    console.log('댓글 submit 했을 때 댓글내용: ', comments);
     if (commentContent === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
 
@@ -125,8 +112,6 @@ const DetailPage = () => {
           </S.Header>
           <S.PostpageWrap>
             <S.PostWrap>
-              {/* {post?.title} */}
-              {/* {post?.content} */}
               <S.TitleSection>
                 {edit ? (
                   <form id='editInput' onSubmit={updateTodoHandler}>
@@ -179,7 +164,7 @@ const DetailPage = () => {
               </div>
               {/* <S.ButtonSection></S.ButtonSection> */}
               <S.CommentSection>
-                {user.length > 0 && commentContent > 0 ? ( //로그인 했을 때만 보이도록
+                {user.length > 0 ? ( //로그인 했을 때만 보이도록
                   <div>
                     {comments.map((comment) => {
                       return (
@@ -205,9 +190,11 @@ const DetailPage = () => {
                 <div>
                   <input
                     id='comment-input'
-                    value={commentContent}
+                    // value={commentContent}
                     placeholder='댓글 내용을 입력해주세요'
-                    onChange={changeComment}
+                    onChange={(e) => {
+                      setCommentContent(e.target.value);
+                    }}
                   ></input>
                   <button onClick={onCommentSubmitHandler}>등록</button>
                 </div>

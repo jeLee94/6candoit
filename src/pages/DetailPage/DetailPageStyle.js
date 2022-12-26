@@ -103,6 +103,7 @@ export const CommentSection = styled.div`
   align-items: center;
   justify-content: center;
   background: white;
+  overflow: auto;
   border-radius: 1.25rem;
   gap: 1.25rem;
   box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);

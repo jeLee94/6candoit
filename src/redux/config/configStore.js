@@ -1,7 +1,7 @@
 // src/redux/modules/config/configStore.js
 
 import { configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
 /**
  * import 해온 것은 slice.reducer 입니다.
  */
@@ -24,7 +24,7 @@ const store = configureStore({
     user: userSlice,
     allUserList: allUserListSlice,
   },
-  middleware: [thunk],
+  // middleware: [thunk],
   // 다음이 middleware 추가 코드이다.
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({ serializableCheck: false }),
