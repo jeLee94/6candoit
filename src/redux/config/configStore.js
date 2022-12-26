@@ -6,7 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
  */
 import posts from '../modules/posts';
 import userSlice from '../modules/userSlice';
-// import comments from '../modules/comments';
+import allUserListSlice from '../modules/allUserListSlice';
 
 /**
  * 모듈(Slice)이 여러개인 경우
@@ -17,7 +17,7 @@ import userSlice from '../modules/userSlice';
  */
 const store = configureStore({
   //   reducer: { posts: posts, comments: comments },
-  reducer: { posts: posts, user: userSlice },
+  reducer: { posts: posts, user: userSlice, allUserList: allUserListSlice },
 });
 
 export default store;

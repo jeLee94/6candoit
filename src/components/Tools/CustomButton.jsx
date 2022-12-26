@@ -6,7 +6,7 @@ const CustomButton = (props) => {
 };
 
 const Button = styled.button`
-  width: 50px;
+  width: 30%;
   height: 30px;
   cursor: pointer;
   border: 1px solid #eee;

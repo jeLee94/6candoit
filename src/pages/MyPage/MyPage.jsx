@@ -9,14 +9,15 @@ import * as S from './MyPageStyle';
 import { __getUser, __updateUser } from '../../redux/modules/userSlice';
 import blankProfile from '../../images/blankProfile.webp';
 import { updateProfile } from 'firebase/auth';
+import CustomButton from '../../components/Tools/CustomButton';
+import { __updateUserList } from '../../redux/modules/allUserListSlice';
 
 function MyPage() {
   const [attachment, setAttachment] = useState();
   const [nickName, setNickName] = useState('');
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
-
+  console.log(auth);
   // console.log(user);
   // Todo 회원가입 완료 시 alert 뜨고 3초 후에 로그인으로 넘어가도록 수정
   // Todo2 로그인 ↔ 회원가입 왔다갔다 할 때 input창 데이터 안지워지는 부분 수정
@@ -57,16 +58,15 @@ function MyPage() {
       const profileURL = localStorage.getItem('profileURL');
       const response = await uploadString(imgRef, profileURL, 'data_url');
       const tempUrl = await getDownloadURL(response.ref);
-      setImagDownloadUrl(tempUrl);
-
-      console.log('1', imgDownloadUrl);
 
       let EditedUser = {
         id: user[0].id,
         email: user[0].email,
         photoURL: tempUrl,
+        displayName: nickName,
       };
       dispatch(__updateUser(EditedUser));
+      dispatch(__updateUserList(EditedUser));
       await updateProfile(auth.currentUser, {
         displayName: nickName,
         photoURL: tempUrl,
@@ -124,7 +124,12 @@ function MyPage() {
                     onChange={nickChange}
                   />
                 </div>
-                <input style={{ width: 100, height: 30 }} type='submit' />
+                <CustomButton
+                  style={{ width: '100px', height: 30 }}
+                  type='submit'
+                >
+                  프로필 수정
+                </CustomButton>
               </S.Align>
             )}
           </S.Form>
