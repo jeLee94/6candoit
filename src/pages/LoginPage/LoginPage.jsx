@@ -11,7 +11,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import googleLogin from '../../images/googleLogin.png';
 import googleLoginHover from '../../images/googleLoginHover.png';
 import * as S from './LoginPageStyle';
-import { __addUser, __updateUser } from '../../redux/modules/userSlice';
+import { __addUser } from '../../redux/modules/userSlice';
 import {
   __addUserList,
   __getUserList,
@@ -29,6 +29,7 @@ function LoginPage() {
   const [isRegistered, setIsRegistered] = useState(true);
   //구글 로그인 이미지 변환용
   const [isHover, setIsHover] = useState(false);
+  const [idx, setIdx] = useState(0);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -81,38 +82,54 @@ function LoginPage() {
     }
   };
   //로그인할 때 초대자도 추가하기 위해서 추가. handleLogin에서 하면 에러남
-  const handleUserUpdate = async () => {
-    const idList = allUserList.map((user) => user.id);
-    const idx = await idList.indexOf(auth.currentUser.uid);
-    console.log(idx);
-    // dispatch(
-    //   __updateUser({
-    //     id: auth.currentUser.uid,
-    //     invitedUid: allUserList[idx].invitedUid,
-    //     invitedEmail: allUserList[idx].invitedEmail,
-    //   })
-    // );
-    dispatch(
-      __addUser({
-        id: auth.currentUser.uid,
-        email: auth.currentUser.email,
-        photoURL: auth.currentUser.photoURL ?? '',
-        displayName: auth.currentUser.displayName ?? '',
-        invitedUid: allUserList[idx].invitedUid,
-        invitedEmail: allUserList[idx].invitedEmail,
-      })
-    );
-    alert('로그인완료!');
-    navigate('/');
-  };
+  // const handleUserUpdate = () => {
+  //   console.log(auth.currentUser);
+  //   const idList = allUserList.map((user) => user.id);
+  //   // const idx = idList.indexOf(props.uid);
+  //   // console.log(idx);
+  //   // dispatch(
+  //   //   __updateUser({
+  //   //     id: auth.currentUser.uid,
+  //   //     invitedUid: allUserList[idx].invitedUid,
+  //   //     invitedEmail: allUserList[idx].invitedEmail,
+  //   //   })
+  //   // );
+  //   dispatch(
+  //     __addUser({
+  //       id: auth.currentUser.uid,
+  //       email: auth.currentUser.email,
+  //       photoURL: auth.currentUser.photoURL ?? '',
+  //       displayName: auth.currentUser.displayName ?? '',
+  //       // invitedUid: allUserList[idx].invitedUid,
+  //       // invitedEmail: allUserList[idx].invitedEmail,
+  //     })
+  //   );
+  //   alert('로그인완료!');
+  //   navigate('/');
+  // };
 
   //로그인
   const handleLogin = async () => {
+    const idList = allUserList.map((user) => user.id);
+
     try {
       const curUserInfo = await signInWithEmailAndPassword(
         auth,
         LoginEmail,
         LoginPassword
+      );
+      setIdx(idList.indexOf(curUserInfo.user.uid));
+      alert('로그인완료!');
+      navigate('/');
+      dispatch(
+        __addUser({
+          id: auth.currentUser.uid,
+          email: auth.currentUser.email,
+          photoURL: auth.currentUser.photoURL ?? '',
+          displayName: auth.currentUser.displayName ?? '',
+          invitedUid: allUserList[idx].invitedUid,
+          invitedEmail: allUserList[idx].invitedEmail,
+        })
       );
     } catch (err) {
       // setIsAppropriate(false);
@@ -167,7 +184,7 @@ function LoginPage() {
           <S.Form
             onSubmit={(e) => {
               e.preventDefault();
-              handleLogin() && handleUserUpdate();
+              handleLogin();
               e.target[0].value = ''; //제출시 input창 초기화
               e.target[1].value = ''; //제출시 input창 초기화
             }}
