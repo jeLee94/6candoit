@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import styled from 'styled-components';
 
 export const PostpageWrap = styled.div`
@@ -103,6 +102,7 @@ export const CommentSection = styled.div`
   align-items: center;
   justify-content: center;
   background: white;
+  overflow: auto;
   border-radius: 1.25rem;
   gap: 1.25rem;
   box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
@@ -121,6 +121,14 @@ export const ButtonSection = styled.div`
 `;
 
 export const EditBtn = styled.button`
+  width: 3.125rem;
+  height: 1.875rem;
+  cursor: pointer;
+  border: 0.0625rem solid black;
+  border-radius: 0.3rem;
+`;
+
+export const CommentCreateBtn = styled.button`
   width: 3.125rem;
   height: 1.875rem;
   cursor: pointer;

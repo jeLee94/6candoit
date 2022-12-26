@@ -5,6 +5,7 @@ export const __getPost = createAsyncThunk(
   'posts/getPost',
   async (payload, thunkAPI) => {
     try {
+      // console.log('__getPost 실행?');
       const data = await axios.get('http://localhost:3003/posts');
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -64,7 +65,6 @@ export const __updatePost = createAsyncThunk(
   'posts/updatePost',
   async (payload, thunkAPI) => {
     try {
-      console.log('update 페이로드: ', payload);
       await axios.patch(`http://localhost:3003/posts/${payload.id}`, payload);
       const data = await axios.get('http://localhost:3003/posts');
       // console.log('update 이벤트의 서버 응답: ', data.data);
@@ -120,7 +120,6 @@ const postsSlice = createSlice({
     },
     toggleDisplay: (state, action) => {
       let postlist = state.posts.slice();
-      // console.log(postlist);
       postlist.find((e) => e.id === action.payload).displaytoggle =
         !postlist.find((e) => e.id === action.payload).displaytoggle;
       state.posts = postlist;

@@ -12,6 +12,15 @@ export const SideBar = styled.div`
   overflow-x: hidden;
 `;
 
+export const SideBarLogo = styled.img`
+  /* object-fit: contain; */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 5px;
+  /* border-radius: 100px; */
+  /* margin: 50px auto 10px auto; */
+`;
 export const SideLogin = styled.div`
   font-size: medium;
   font-weight: bold;
@@ -81,6 +90,7 @@ export const AppLogo = styled.img`
   width: 100px;
   height: 100px;
   overflow: hidden;
+  object-fit: cover;
   background-size: cover;
   border-radius: 100px;
   margin: 50px auto 10px auto;
