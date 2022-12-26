@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux/';
-import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import { auth, imgStorage } from '../../firebase';
-import { ref, uploadString, getDownloadURL } from 'firebase/storage';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux/";
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { auth, imgStorage } from "../../firebase";
+import { ref, uploadString, getDownloadURL } from "firebase/storage";
 // import google from './google.png';
-import * as S from './MyPageStyle';
-import { __getUser, __updateUser } from '../../redux/modules/userSlice';
-import blankProfile from '../../images/blankProfile.webp';
-import { updateProfile } from 'firebase/auth';
-import CustomButton from '../../components/Tools/CustomButton';
-import { __updateUserList } from '../../redux/modules/allUserListSlice';
+import * as S from "./MyPageStyle";
+import { __getUser, __updateUser } from "../../redux/modules/userSlice";
+import blankProfile from "../../images/blankProfile.webp";
+import { updateProfile } from "firebase/auth";
+import CustomButton from "../../components/Tools/CustomButton";
+import { __updateUserList } from "../../redux/modules/allUserListSlice";
 
 function MyPage() {
   const [attachment, setAttachment] = useState();
-  const [nickName, setNickName] = useState('');
+  const [nickName, setNickName] = useState("");
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   console.log(auth);
@@ -45,18 +45,18 @@ function MyPage() {
       } = finishedEvent;
       setAttachment(result);
       const profileURL = finishedEvent.currentTarget.result;
-      localStorage.setItem('profileURL', profileURL);
+      localStorage.setItem("profileURL", profileURL);
     };
   };
 
   const storeImg = async () => {
-    if (attachment !== '') {
+    if (attachment !== "") {
       const imgRef = ref(
         imgStorage,
         `${auth.currentUser.uid}/profileUrl/${uuidv4()}/` //마지막데이터가져오게하려면?
       );
-      const profileURL = localStorage.getItem('profileURL');
-      const response = await uploadString(imgRef, profileURL, 'data_url');
+      const profileURL = localStorage.getItem("profileURL");
+      const response = await uploadString(imgRef, profileURL, "data_url");
       const tempUrl = await getDownloadURL(response.ref);
 
       let EditedUser = {
@@ -72,12 +72,12 @@ function MyPage() {
         photoURL: tempUrl,
       });
     }
-    alert('프로필 변경 완료!');
+    alert("프로필 변경 완료!");
   };
 
   return (
     <S.Outer>
-      <Link to={'/'}>돌아가기</Link>
+      <Link to={"/"}>돌아가기</Link>
       <S.Align>
         <S.Box>
           <h2>마이페이지</h2>
@@ -91,27 +91,27 @@ function MyPage() {
               <S.Align style={{ gap: 10 }}>
                 <div>
                   {!attachment && (
-                    <label htmlFor='imgInput'>
+                    <label htmlFor="imgInput">
                       <S.ProfileImg
-                        id='profileView'
+                        id="profileView"
                         src={auth.currentUser.photoURL || blankProfile}
                       />
                     </label>
                   )}
                 </div>
-                <label htmlFor='imgInput'></label>
+                <label htmlFor="imgInput"></label>
                 <S.ProfileImgInput
-                  id='imgInput'
-                  type='file'
-                  accept='image/*'
+                  id="imgInput"
+                  type="file"
+                  accept="image/*"
                   onChange={fileChange}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                 />
                 {attachment && <S.ProfileImg src={attachment} />}
                 <div>
                   <span>이메일 </span>
                   <S.Input
-                    type='email'
+                    type="email"
                     placeholder={user[0].email}
                     disabled={true}
                   />
@@ -119,14 +119,14 @@ function MyPage() {
                 <div>
                   <span>닉네임 </span>
                   <S.Input
-                    type='text'
-                    placeholder={auth.currentUser.displayName || '닉네임'}
+                    type="text"
+                    placeholder={auth.currentUser.displayName || "닉네임"}
                     onChange={nickChange}
                   />
                 </div>
                 <CustomButton
-                  style={{ width: '100px', height: 30 }}
-                  type='submit'
+                  style={{ width: "100px", height: 30 }}
+                  type="submit"
                 >
                   프로필 수정
                 </CustomButton>

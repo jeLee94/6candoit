@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -18,8 +18,10 @@ export const SideLogin = styled.div`
 `;
 
 export const SideTitle = styled.div`
-  font-size: 1rem;
-  margin: 1.5rem 0 1.5rem 1rem;
+  font-size: 20px;
+  margin: 1.5rem 0 30px 1rem;
+  font-weight: 700;
+  color: #3a8bfe;
 `;
 
 export const SideMenu = styled.div`
@@ -27,7 +29,8 @@ export const SideMenu = styled.div`
   flex-direction: column;
   width: 9.0625rem;
   margin-left: 1rem;
-  font-size: 1.4rem;
+  font-size: 20px;
+  color: #696969;
 `;
 
 export const SideWrapper = styled.div`
@@ -55,7 +58,7 @@ export const ProfileDetail = styled.div`
 export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 80px 0 0 10px;
+  margin: 50px 0 0 10px;
 `;
 
 export const Header = styled.div`
@@ -78,5 +81,11 @@ export const AppLogo = styled.img`
   width: 100px;
   height: 100px;
   overflow: hidden;
+  background-size: cover;
+  border-radius: 100px;
   margin: 50px auto 10px auto;
+`;
+
+export const MenuList = styled.div`
+  margin-bottom: 30px;
 `;
