@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
 import { auth } from '../../../firebase.js';
 import CustomButton from '../../Tools/CustomButton.jsx';
-
+import blankProfile from '../../../images/blankProfile.webp';
 export default function Sidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
-
+  console.log(auth.currentUser);
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
@@ -44,7 +44,6 @@ export default function Sidebar() {
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
-
                   <Link
                     style={{
                       textDecoration: 'none',
@@ -54,7 +53,9 @@ export default function Sidebar() {
                     to={'/mypage'}
                   >
                     {auth.currentUser !== null ? (
-                      <S.AppLogo src={auth.currentUser.photoURL} />
+                      <S.AppLogo
+                        src={auth.currentUser.photoURL ?? blankProfile}
+                      />
                     ) : (
                       <S.AppLogo src={Ellipse} />
                     )}

@@ -100,8 +100,8 @@ function LoginPage() {
         __addUser({
           id: auth.currentUser.uid,
           email: auth.currentUser.email,
-          photoURL: auth.currentUser.photoURL ?? '',
-          displayName: auth.currentUser.displayName ?? '',
+          photoURL: auth.currentUser.photoURL,
+          displayName: auth.currentUser.displayName,
           invitedUid: allUserList[idx].invitedUid,
           invitedEmail: allUserList[idx].invitedEmail,
         })
