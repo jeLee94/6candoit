@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // export const AppLogo = styled.img`
 //   width: 200px;
@@ -8,21 +8,29 @@ import styled from 'styled-components';
 // `;
 
 export const Outer = styled.div`
-  width: 40rem;
-  height: 30rem;
+  width: 50%;
+  margin-right: 100px;
   display: flex;
   flex-direction: column;
-  margin: 10% auto;
-  border: 1px solid gray;
-  border-radius: 10px;
-  box-shadow: 10px 5px 5px 3px gray;
   align-items: center;
   justify-content: center;
 `;
 
 export const Input = styled.input`
-  height: 2rem;
-  width: 20rem;
+  height: 4rem;
+  background: #f2f2f2;
+  width: 400px;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 25px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
+`;
+
+export const MyText = styled.input`
+  font-size: 20px;
+  margin-bottom: 10px;
 `;
 
 export const Form = styled.form`
@@ -30,7 +38,8 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+  width: 400px;
 `;
 
 export const Align = styled.div`
@@ -54,7 +63,7 @@ export const Register = styled.div`
   justify-content: center;
   align-items: center;
   display: ${({ isRegistered }) => {
-    return isRegistered ? 'none' : 'flex';
+    return isRegistered ? "none" : "flex";
   }};
 `;
 
@@ -62,7 +71,14 @@ export const ProfileImg = styled.img`
   width: 7rem;
   height: 7rem;
   border-radius: 100%;
+  object-fit: cover;
   cursor: pointer;
+`;
+
+export const LoginWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ProfileImgInput = styled.input`

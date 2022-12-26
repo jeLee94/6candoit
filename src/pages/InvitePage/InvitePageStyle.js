@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Div = styled.div`
   height: 100%;
@@ -20,18 +20,49 @@ export const Sidebar = styled.div`
 `;
 
 export const Contents = styled.div`
-  width: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-top: 150px;
 `;
 
 export const Input = styled.input`
-  height: 30px;
+  height: 4rem;
+  background: #f2f2f2;
   width: 300px;
+  border: 0;
+  padding: 25px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 10px;
 `;
+
 export const Submit = styled.input`
-  width: 100px;
-  height: 34px;
+  margin-left: 20px;
+  width: 150px;
+  height: 4rem;
+  border-radius: 10px;
+  background-color: #3a9bfe;
+  color: white;
+  border: none;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 3.125rem 4.375rem;
+  flex-grow: 1;
+  overflow: auto;
+`;
+
+export const Friend = styled.p`
+  font-size: 20px;
+  margin-right: 20px;
 `;

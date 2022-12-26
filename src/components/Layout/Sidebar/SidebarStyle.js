@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -90,6 +90,7 @@ export const AppLogo = styled.img`
   width: 100px;
   height: 100px;
   overflow: hidden;
+  object-fit: cover;
   background-size: cover;
   border-radius: 100px;
   margin: 50px auto 10px auto;
