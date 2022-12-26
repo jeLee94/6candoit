@@ -8,6 +8,8 @@ import * as S from "./PostsContainerStyle";
 import dayjs from "dayjs";
 import blankProfile from "../../../images/blankProfile.webp";
 import { auth } from "../../../firebase";
+import CalendarTodo from "../Calendar/CalendarTodo";
+import { styled } from "styled-components";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -93,6 +95,11 @@ const PostsContainer = () => {
               setContent(e.target.value);
             }}
           />
+
+          <CalendarTodo />
+          {/*  마감일을 정할 것인지 아닌지 */}
+          {/* 마감일을 정한다면 날짜값이 캘린더에 나와야함 */}
+
           <S.AddBtn disabled={title === "" || content === "" ? true : false}>
             추가
           </S.AddBtn>
@@ -101,9 +108,7 @@ const PostsContainer = () => {
 
       <S.DoingTodo>
         <S.DoneTitle>Doing</S.DoneTitle>
-
         {/* <div style={{ marginBottom: 10 }}>Doing</div> */}
-
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts

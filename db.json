@@ -1,7 +1,6 @@
 {
   "posts": [
     {
-
       "userName": "11122",
       "created_at": "2022.12.26 11:58:30",
       "id": "811a746c-64f8-e96d-891d-a0343f7f375b",
@@ -33,14 +32,25 @@
       "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
+    },
+    {
+      "userName": null,
+      "created_at": "2022.12.26 19:23:15",
+      "id": "ddffaff7-40b2-3983-b3d0-8ae0553f51a6",
+      "title": "test",
+      "content": "test 해보는 중입니다",
+      "isDone": true,
+      "userId": "X5EIemERvQNgSJwldkWrVzzC4yV2",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
     }
   ],
   "user": [
     {
-      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "email": "222@naver.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
-      "displayName": "11122",
+      "id": "X5EIemERvQNgSJwldkWrVzzC4yV2",
+      "email": "yunwel0610@test.com",
+      "photoURL": "",
+      "displayName": "",
       "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "invitedEmail": "222@naver.com"
     }
@@ -68,6 +78,18 @@
       "email": "333@naver.com",
       "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9qBSfVwIDjTphJa7WcEuuWNpUCY2%2FprofileUrl%2Faf40cb7e-1d6a-45f2-aca5-3e20a0771db9?alt=media&token=f98c6b28-b24d-4a1c-8c16-858d65f6e6a4",
       "displayName": "111"
+    },
+    {
+      "id": "odFm2O1DvmSHrTOw5RL490cPy2M2",
+      "email": "yesle@naver.com"
+    },
+    {
+      "id": "oXmUxgcduiTS6GVnVozt86q4F9D2",
+      "email": "yunwel0610@gmail.com"
+    },
+    {
+      "id": "X5EIemERvQNgSJwldkWrVzzC4yV2",
+      "email": "yunwel0610@test.com"
     }
   ]
 }
