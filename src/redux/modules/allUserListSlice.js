@@ -105,7 +105,7 @@ const allUserListSlice = createSlice({
   },
 });
 
-console.log('userSlice.action:', allUserListSlice.actions);
+// console.log('userSlice.action:', allUserListSlice.actions);
 export const { addUser } = allUserListSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default allUserListSlice.reducer;

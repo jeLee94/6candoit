@@ -34,8 +34,8 @@ export const __deleteUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.delete(`${process.env.REACT_APP_localUer}/${payload[0].id}`);
-      const data = await axios.get(`${process.env.REACT_APP_localUer}`);
+      await axios.delete(`${process.env.REACT_APP_localUser}/${payload[0].id}`);
+      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {

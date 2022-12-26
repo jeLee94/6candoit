@@ -34,7 +34,7 @@ const PostContainer = ({ post }) => {
 
   const idList = allUserList.map((user) => user.id);
   const idx = idList.indexOf(user[0].invitedUid);
-  console.log(allUserList[idx]);
+  // console.log(allUserList[idx]);
   return (
     <S.BoxWrap>
       <Link
@@ -44,12 +44,12 @@ const PostContainer = ({ post }) => {
         <S.ContentsWrap>
           <S.CreatedAtWrap>
             {createdTime}
-            {user.length > 0 && (
+            {user?.length > 0 && (
               <S.UserDiv>
-                <S.UserProfile src={user[0].photoURL ?? blankProfile} />
-                {allUserList[idx] ? (
+                <S.UserProfile src={user?.[0]?.photoURL ?? blankProfile} />
+                {allUserList?.[idx] ? (
                   <S.UserProfile
-                    src={allUserList[idx].photoURL ?? blankProfile}
+                    src={allUserList?.[idx]?.photoURL ?? blankProfile}
                   />
                 ) : (
                   <span></span>

@@ -17,7 +17,7 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
-  console.log(auth.currentUser);
+  // console.log(auth.currentUser);
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
@@ -25,6 +25,7 @@ export default function Sidebar() {
     navigate('/');
     await signOut(auth);
   };
+
   return (
     <>
       <S.SideBar>
@@ -36,7 +37,7 @@ export default function Sidebar() {
         <S.SideWrapper>
           <S.ProfileWrapper>
             <S.SideLogin>
-              {user.length === 0 ? (
+              {user?.length === 0 ? (
                 <S.ProfileDetail>
                   <S.AppLogo src={Ellipse} />
                   <div>환영합니다!</div>
@@ -52,10 +53,8 @@ export default function Sidebar() {
                     }}
                     to={'/mypage'}
                   >
-                    {auth.currentUser !== null ? (
-                      <S.AppLogo
-                        src={auth.currentUser.photoURL ?? blankProfile}
-                      />
+                    {user?.[0]?.photoURL !== null ? (
+                      <S.AppLogo src={user?.[0]?.photoURL ?? blankProfile} />
                     ) : (
                       <S.AppLogo src={Ellipse} />
                     )}
@@ -68,7 +67,7 @@ export default function Sidebar() {
           <S.ContentsWrapper>
             <S.SideTitle>MENU</S.SideTitle>
             <S.SideMenu>
-              {location.pathname !== '/' && (
+              {location?.pathname !== '/' && (
                 <Link
                   style={{
                     textDecoration: 'none',

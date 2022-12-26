@@ -111,7 +111,6 @@ const postsSlice = createSlice({
     },
     toggleDisplay: (state, action) => {
       let postlist = state.posts.slice();
-      // console.log(postlist);
       postlist.find((e) => e.id === action.payload).displaytoggle =
         !postlist.find((e) => e.id === action.payload).displaytoggle;
       state.posts = postlist;
