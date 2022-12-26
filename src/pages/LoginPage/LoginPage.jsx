@@ -1,5 +1,4 @@
-import { auth, imgStorage } from '../../firebase';
-
+import { auth } from '../../firebase';
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -7,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux/';
+import { useDispatch, useSelector } from 'react-redux/';
 import { Link, useNavigate } from 'react-router-dom';
 import googleLogin from '../../images/googleLogin.png';
 import googleLoginHover from '../../images/googleLoginHover.png';
@@ -26,11 +25,11 @@ function LoginPage() {
   //로그인용 state
   const [LoginEmail, setLoginEmail] = useState('');
   const [LoginPassword, setLoginPassword] = useState('');
-
   //회원가입, 로그인 토글용
   const [isRegistered, setIsRegistered] = useState(true);
   //구글 로그인 이미지 변환용
   const [isHover, setIsHover] = useState(false);
+  const [idx, setIdx] = useState(0);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -38,9 +37,10 @@ function LoginPage() {
   // Todo2 로그인 ↔ 회원가입 왔다갔다 할 때 input창 데이터 안지워지는 부분 수정
   // Todo3 메인, 디테일 페이지에서 로그인 정보 보여주기 세션?쿠키?
   // Todo4 마이페이지 구현(닉네임 수정)
-  // useEffect(() => {
-  //   dispatch(__getUserList());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(__getUserList());
+  }, [dispatch]);
+  const { allUserList } = useSelector((state) => state.allUserList);
   // 회원가입
   const handleRegister = async () => {
     try {
@@ -81,27 +81,56 @@ function LoginPage() {
       }
     }
   };
+  //로그인할 때 초대자도 추가하기 위해서 추가. handleLogin에서 하면 에러남
+  // const handleUserUpdate = () => {
+  //   console.log(auth.currentUser);
+  //   const idList = allUserList.map((user) => user.id);
+  //   // const idx = idList.indexOf(props.uid);
+  //   // console.log(idx);
+  //   // dispatch(
+  //   //   __updateUser({
+  //   //     id: auth.currentUser.uid,
+  //   //     invitedUid: allUserList[idx].invitedUid,
+  //   //     invitedEmail: allUserList[idx].invitedEmail,
+  //   //   })
+  //   // );
+  //   dispatch(
+  //     __addUser({
+  //       id: auth.currentUser.uid,
+  //       email: auth.currentUser.email,
+  //       photoURL: auth.currentUser.photoURL ?? '',
+  //       displayName: auth.currentUser.displayName ?? '',
+  //       // invitedUid: allUserList[idx].invitedUid,
+  //       // invitedEmail: allUserList[idx].invitedEmail,
+  //     })
+  //   );
+  //   alert('로그인완료!');
+  //   navigate('/');
+  // };
 
   //로그인
   const handleLogin = async () => {
+    const idList = allUserList.map((user) => user.id);
+
     try {
       const curUserInfo = await signInWithEmailAndPassword(
         auth,
         LoginEmail,
         LoginPassword
       );
-
-      dispatch(
-        __addUser({
-          id: curUserInfo.user.uid,
-          email: curUserInfo.user.email,
-          photoURL: curUserInfo.user.photoURL ?? null,
-          displayName: curUserInfo.user.displayName ?? null,
-        })
-      );
-      console.log(curUserInfo.user.uid);
+      setIdx(idList.indexOf(curUserInfo.user.uid));
       alert('로그인완료!');
       navigate('/');
+      dispatch(
+        __addUser({
+          id: auth.currentUser.uid,
+          email: auth.currentUser.email,
+          photoURL: auth.currentUser.photoURL ?? '',
+          displayName: auth.currentUser.displayName ?? '',
+          invitedUid: allUserList[idx].invitedUid,
+          invitedEmail: allUserList[idx].invitedEmail,
+        })
+      );
     } catch (err) {
       // setIsAppropriate(false);
       switch (err.code) {

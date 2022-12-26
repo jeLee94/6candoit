@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommentsWrap = styled.div`
   display: flex;
@@ -14,17 +14,17 @@ export const Form = styled.form`
 
 export const TitleInput = styled.input`
   border: 0.0625rem solid #eee;
+  border-radius: 10px;
   width: 100%;
   height: 2rem;
-  border-radius: 0.3rem;
   outline: none;
   padding: 0.3125rem 0.625rem;
 `;
 
 export const ContentInput = styled.textarea`
   border: 0.0625rem solid #eee;
+  border-radius: 10px;
   width: 100%;
-  border-radius: 0.3rem;
   outline: none;
   padding: 0.3125rem 0.625rem;
 `;
@@ -91,7 +91,7 @@ export const AddBtn = styled.button`
   width: 5rem;
   height: 1.875rem;
   cursor: pointer;
-  border: 0.0625rem solid black;
+  border: 0.0625rem solid #eff2f7;
   border-radius: 0.3rem;
   margin: 0 auto 0 auto;
   /* font-size: 0.5rem; */
@@ -111,7 +111,7 @@ export const ProfileImgInput = styled.input`
 export const DoneTitle = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1.875rem;
+  margin-bottom: 3.125rem;
   color: #696969;
 `;
 
@@ -122,3 +122,5 @@ export const WriteTitle = styled.div`
   color: white;
   text-shadow: 0.125rem 0.125rem 0.125rem #1a5ab5;
 `;
+
+export const TitleCommentText = styled.div``;

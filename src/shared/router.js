@@ -10,6 +10,7 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import CalendarPage from '../pages/CalendarPage/CalendarPage';
 import MyPage from '../pages/MyPage/MyPage';
 import InvitePage from '../pages/InvitePage/InvitePage';
+import { auth } from '../firebase';
 
 const Router = () => {
   return (
@@ -22,7 +23,7 @@ const Router = () => {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/Calendar' element={<CalendarPage />} />
           <Route path='/mypage' element={<MyPage />} />
-          {/* <Route path='/invite' element={<InvitePage />} /> */}
+          <Route path='/invite' element={<InvitePage />} />
 
           {/* <Route path="/" element={<Main />} /> */}
           {/* <Route path="/addform" element={<PostAddForm />} /> */}

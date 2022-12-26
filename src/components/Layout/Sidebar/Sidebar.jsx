@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import * as S from "./SidebarStyle.js";
+import candylogo from "./candylogo.png";
 import Ellipse from "./Ellipse.png";
 import { signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { __getUser, __deleteUser } from "../../../redux/modules/userSlice.js";
+import {
+  __getUser,
+  __deleteUser,
+  __updateUser,
+} from "../../../redux/modules/userSlice.js";
 import { auth } from "../../../firebase.js";
 import CustomButton from "../../Tools/CustomButton.jsx";
+
 export default function Sidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -15,6 +21,9 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
+
+  const { allUserList } = useSelector((state) => state.allUserList);
+
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
@@ -22,20 +31,17 @@ export default function Sidebar() {
     navigate("/");
     await signOut(auth);
   };
-  console.log(user[0]?.photoURL);
+
   return (
     <>
       <S.SideBar>
-        <div
+        <img
+          src={candylogo}
           style={{
-            width: "100%",
-            height: "80px",
-            backgroundColor: "black",
-            color: "white",
+            backgroundSize: "conver",
+            marginTop: "5px",
           }}
-        >
-          로고 영역
-        </div>
+        ></img>
         <S.SideWrapper>
           <S.ProfileWrapper>
             {/* 이미지 받아오기 */}
@@ -48,16 +54,25 @@ export default function Sidebar() {
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
-                  {user[0].PhotoURL !== null ? (
-                    <S.AppLogo src={auth.currentUser?.photoURL} />
+                  {auth.currentUser !== null ? (
+                    <S.AppLogo src={auth.currentUser.photoURL} />
                   ) : (
                     <S.AppLogo src={Ellipse} />
                   )}
-                  <div>
-                    <Link to={"/mypage"}>
-                      {auth.currentUser?.displayName || user[0].email}
-                    </Link>
-                    님
+                  <div
+                    style={{
+                      color: "#696969",
+                      fontSize: "20px",
+                    }}
+                  >
+                    <Link
+                      style={{
+                        textDecoration: "none",
+                        color: "#696969",
+                        fontSize: "20px",
+                      }}
+                      to={"/mypage"}
+                    />
                   </div>
                   <CustomButton onClick={handleLogout}>로그아웃</CustomButton>
                 </S.ProfileDetail>
@@ -65,16 +80,27 @@ export default function Sidebar() {
             </S.SideLogin>
           </S.ProfileWrapper>
           <S.ContentsWrapper>
-            <hr />
             <S.SideTitle>MENU</S.SideTitle>
             <S.SideMenu>
               {location.pathname !== "/" && (
-                <Link to="/">
-                  <span>Main</span>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "#696969",
+                  }}
+                  to="/"
+                >
+                  <S.MenuList>Main</S.MenuList>
                 </Link>
               )}
-              <Link to="/Calendar">
-                <span>Calendar</span>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "#696969",
+                }}
+                to="/Calendar"
+              >
+                <S.MenuList>Calendar</S.MenuList>
               </Link>
             </S.SideMenu>
           </S.ContentsWrapper>
