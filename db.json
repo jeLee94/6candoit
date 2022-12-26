@@ -12,17 +12,6 @@
       "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
     },
     {
-      "userName": "11122",
-      "created_at": "2022.12.26 12:01:39",
-      "id": "e1a1d5eb-86db-8718-06ef-6054ea60a3bf",
-      "title": "test2",
-      "content": "1231233\n",
-      "isDone": false,
-      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
-    },
-    {
       "userName": "111",
       "created_at": "2022.12.26 12:08:24",
       "id": "f79ce77e-4cf2-a0d8-2ba5-6d80107971ac",
@@ -32,29 +21,9 @@
       "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
-    },
-    {
-      "userName": "ㄱㄱㄱ",
-      "created_at": "2022.12.26 15:07:40",
-      "id": "9396e2e3-dac7-1746-b85e-91ae071477fc",
-      "title": "테스트dddd",
-      "content": "테스트입니다!sss",
-      "isDone": false,
-      "userId": "pBDK70NOvVgqWOWWbPzGlBKS3Qb2",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
     }
   ],
-  "user": [
-    {
-      "id": "pBDK70NOvVgqWOWWbPzGlBKS3Qb2",
-      "email": "jhye@test.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/pBDK70NOvVgqWOWWbPzGlBKS3Qb2%2FprofileUrl%2F9dbfaf41-c177-492c-ad1e-f5dc6d19bc06?alt=media&token=67b5ebed-2f67-40fe-8704-f3bb1e0a2ea4",
-      "displayName": "ㄱㄱㄱ",
-      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "invitedEmail": "222@naver.com"
-    }
-  ],
+  "user": [],
   "comments": [
     {
       "userName": "jhye",

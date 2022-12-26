@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SideBar = styled.div`
   width: 13.75rem;
@@ -12,6 +12,15 @@ export const SideBar = styled.div`
   overflow-x: hidden;
 `;
 
+export const SideBarLogo = styled.img`
+  /* object-fit: contain; */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 5px;
+  /* border-radius: 100px; */
+  /* margin: 50px auto 10px auto; */
+`;
 export const SideLogin = styled.div`
   font-size: medium;
   font-weight: bold;

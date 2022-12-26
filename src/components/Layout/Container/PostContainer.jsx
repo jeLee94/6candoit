@@ -9,12 +9,13 @@ import {
 import * as S from './PostContainerStyle';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { useSelector } from 'react-redux';
+import blankProfile from '../../../images/blankProfile.webp';
 // import {
 //   __deleteComment,
 //   __deleteAllComment,
 //   __getComment,
 // } from '../../redux/modules/comments';
-
 const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
   dayjs.extend(relativeTime);
@@ -22,12 +23,18 @@ const PostContainer = ({ post }) => {
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
   };
+  const { user } = useSelector((state) => state.user);
+  const { allUserList } = useSelector((state) => state.allUserList);
+  // const [idx, setIdx] = useState(0);
 
   const togglePostHandler = () => {
     // event.preventDefault();
     dispatch(__togglePost(post));
     // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
+
+  const idList = allUserList.map((user) => user.id);
+  const idx = idList.indexOf(user[0].invitedUid);
 
   return (
     <S.BoxWrap>
@@ -36,7 +43,20 @@ const PostContainer = ({ post }) => {
         style={{ textDecoration: 'none', color: 'black' }}
       >
         <S.ContentsWrap>
-          <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
+          <S.CreatedAtWrap>
+            {createdTime}
+            {user.length > 0 && (
+              <S.UserDiv>
+                <S.UserProfile src={user[0].photoURL} />
+                {allUserList[idx] ? (
+                  <S.UserProfile src={allUserList[idx].photoURL} />
+                ) : (
+                  <S.UserProfile src={blankProfile} />
+                )}
+              </S.UserDiv>
+            )}
+          </S.CreatedAtWrap>
+
           {/* <S.UserImgView src={post?.imgUrl} /> */}
           {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
           <S.TitleWrap>

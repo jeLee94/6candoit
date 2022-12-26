@@ -20,7 +20,17 @@ export default function BoardHeader() {
             </h2>
 
             <h2>
-              <Link to={'/invite'}>+ Board에 초대하기</Link>
+              {user.length > 0 && (
+                <Link
+                  style={{
+                    textDecoration: 'none',
+                    color: 'black',
+                  }}
+                  to={'/invite'}
+                >
+                  + Board에 초대하기
+                </Link>
+              )}
             </h2>
           </S.Header>
           <PostsContainer />

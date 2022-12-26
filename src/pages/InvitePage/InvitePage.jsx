@@ -5,12 +5,14 @@
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 import { auth } from '../../firebase';
 import {
   __getUserList,
   __updateUserList,
 } from '../../redux/modules/allUserListSlice';
 import { __updateUser } from '../../redux/modules/userSlice';
+import * as S from './InvitePageStyle';
 
 function InvitePage() {
   const { allUserList } = useSelector((state) => state.allUserList);
@@ -47,13 +49,18 @@ function InvitePage() {
   };
 
   return (
-    <div>
-      초대할 친구
-      <form onSubmit={onCheckRegistered}>
-        <input type='email' />
-        <input type='submit' />
-      </form>
-    </div>
+    <S.Div>
+      <S.Sidebar>
+        <Sidebar />
+        <S.Contents>
+          <span>초대할 친구 </span>
+          <form onSubmit={onCheckRegistered}>
+            <S.Input type='email' placeholder='이메일 주소를 입력하세요' />
+            <S.Submit type='submit' />
+          </form>
+        </S.Contents>
+      </S.Sidebar>
+    </S.Div>
   );
 }
 
