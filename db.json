@@ -1,36 +1,32 @@
 {
-  "posts": [
+  "posts": [],
+  "user": [
     {
-      "id": "3f79eedc-fbef-2d89-b7d4-d8b4f02698a7",
-      "title": "",
-      "content": "",
-      "isDone": false,
-      "userId": ""
-    },
-    {
-      "id": "cb4866f3-b7aa-b8cb-04cc-3d2c97682271",
-      "title": "",
-      "content": "",
-      "isDone": false
-    },
-    {
-      "id": "844ddb3c-1c4b-af3e-6bcc-85b83eda780d",
-      "title": "",
-      "content": "",
-      "isDone": true
-    },
-    {
-      "id": "e44440de-91c2-77e1-5f08-0e4f41429ab7",
-      "title": "",
-      "content": "",
-      "isDone": true
-    },
-    {
-      "id": "ee4b7692-182d-8039-be8e-ee90c582d0cc",
-      "title": "",
-      "content": "",
-      "isDone": false
+      "id": "9qBSfVwIDjTphJa7WcEuuWNpUCY2",
+      "email": "333@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9qBSfVwIDjTphJa7WcEuuWNpUCY2%2FprofileUrl%2Faf40cb7e-1d6a-45f2-aca5-3e20a0771db9?alt=media&token=f98c6b28-b24d-4a1c-8c16-858d65f6e6a4",
+      "displayName": "111"
     }
   ],
-  "user": []
+  "comment": [],
+  "allUserList": [
+    {
+      "id": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "email": "jungwn9494@gmail.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/CVhf698UXWP9ODzKDPAp1H3TETs2%2FprofileUrl%2Fba3ed60d-980c-4f18-a19a-13b6b83ed1d8?alt=media&token=71415edb-6b58-419c-a502-4e1bb22dc655",
+      "displayName": "111"
+    },
+    {
+      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "email": "222@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
+      "displayName": "11122"
+    },
+    {
+      "id": "9qBSfVwIDjTphJa7WcEuuWNpUCY2",
+      "email": "333@naver.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9qBSfVwIDjTphJa7WcEuuWNpUCY2%2FprofileUrl%2Faf40cb7e-1d6a-45f2-aca5-3e20a0771db9?alt=media&token=f98c6b28-b24d-4a1c-8c16-858d65f6e6a4",
+      "displayName": "111"
+    }
+  ]
 }

@@ -1,127 +1,130 @@
-import { Children } from "react";
-import styled from "styled-components";
+import { Children } from 'react';
+import styled from 'styled-components';
 
 export const PostpageWrap = styled.div`
+  font-size: 1.3rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const PostWrap = styled.div`
   width: 100%;
-  height: 700px;
+  height: 43.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const ContentsWrap = styled.div`
   width: 100%;
-  height: 300px;
+  height: 18.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const UserSection = styled.div`
-  width: 100%;
-  height: 100px;
+  width: 70%;
+  height: 6.25rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   border-radius: 0.5rem;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const TitleSection = styled.div`
   input {
-    width: 500px;
-    height: 32px;
-    font-size: 15px;
+    width: 31.25rem;
+    height: 2rem;
+    font-size: 1.3rem;
     border: 0;
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     outline: none;
-    padding-left: 10px;
+    padding-left: 0.625rem;
     background-color: rgb(233, 233, 233);
   }
   width: 100%;
-  height: 300px;
+  height: 18.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
-  gap: 20px;
+  border-radius: 1.25rem;
+  gap: 1.25rem;
   background: rgb(58, 139, 254);
   background: linear-gradient(
     90deg,
     rgba(58, 139, 254, 1) 0%,
     rgba(43, 221, 255, 1) 100%
   );
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const ContentSection = styled.div`
-  input {
-    width: 500px;
-    height: 32px;
-    font-size: 15px;
+  textarea {
+    /* width: 31.25rem; */
+    height: 2rem;
+    font-size: 1.3rem;
     border: 0;
-    border-radius: 15px;
+    border-radius: 0.9375rem;
     outline: none;
-    padding-left: 10px;
+    padding-left: 0.625rem;
     background-color: rgb(233, 233, 233);
   }
+
   width: 100%;
-  height: 500px;
+  height: 31.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
-  border-radius: 20px;
-  gap: 20px;
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  border-radius: 1.25rem;
+  gap: 1.25rem;
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const CommentSection = styled.div`
   width: 100%;
-  height: 500px;
+  height: 31.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
-  border-radius: 20px;
-  gap: 20px;
-  box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -webkit-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
-  -moz-box-shadow: 1px 1px 40px -15px rgba(108, 169, 255, 1);
+  border-radius: 1.25rem;
+  gap: 1.25rem;
+  box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -webkit-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
+  -moz-box-shadow: 0.0625rem 0.0625rem 2.5rem -0.9375rem rgba(108, 169, 255, 1);
 `;
 
 export const ButtonSection = styled.div`
   /* background-color: green; */
   width: 70%;
-  height: 100px;
+  height: 6.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
 `;
 
 export const EditBtn = styled.button`
-  width: 50px;
-  height: 30px;
+  width: 3.125rem;
+  height: 1.875rem;
   cursor: pointer;
-  border: 1px solid black;
+  border: 0.0625rem solid black;
   border-radius: 0.3rem;
 `;
 

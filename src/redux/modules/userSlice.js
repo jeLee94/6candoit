@@ -17,7 +17,7 @@ export const __addUser = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.post(`http://localhost:3003/user`, payload);
 
       const data = await axios.get('http://localhost:3003/user');
@@ -33,10 +33,24 @@ export const __deleteUser = createAsyncThunk(
   'user/deleteUser',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
+      // console.log(payload);
       await axios.delete(`http://localhost:3003/user/${payload[0].id}`);
       const data = await axios.get('http://localhost:3003/user');
       // console.log(data.data);
+      return thunkAPI.fulfillWithValue(data.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+export const __updateUser = createAsyncThunk(
+  'user/updateUser',
+  async (payload, thunkAPI) => {
+    try {
+      // console.log('update 페이로드: ', payload);
+      await axios.patch(`http://localhost:3003/user/${payload.id}`, payload);
+      const data = await axios.get('http://localhost:3003/user');
+      // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -101,6 +115,18 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     [__deleteUser.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+
+    [__updateUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [__updateUser.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.user = action.payload;
+    },
+    [__updateUser.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },

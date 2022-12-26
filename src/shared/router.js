@@ -1,12 +1,15 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 // import MainPage from '../components/Layout/Container/PostsContainer';
 // import MainPage from '../pages/PostListPage/PostsContainer';
-import MainPage from "../pages/MainPage/MainPage";
-import DetailPage from "../pages/DetailPage/DetailPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import CalendarPage from "../pages/CalendarPage/CalendarPage";
+
+import MainPage from '../pages/MainPage/MainPage';
+import DetailPage from '../pages/DetailPage/DetailPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import CalendarPage from '../pages/CalendarPage/CalendarPage';
+import MyPage from '../pages/MyPage/MyPage';
+import InvitePage from '../pages/InvitePage/InvitePage';
 
 const Router = () => {
   return (
@@ -14,10 +17,13 @@ const Router = () => {
       {/* <Header></Header> */}
       <Wrap>
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/:id" element={<DetailPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/Calendar" element={<CalendarPage />} />
+          <Route path='/' element={<MainPage />} />
+          <Route path='/:id' element={<DetailPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/Calendar' element={<CalendarPage />} />
+          <Route path='/mypage' element={<MyPage />} />
+          {/* <Route path='/invite' element={<InvitePage />} /> */}
+
           {/* <Route path="/" element={<Main />} /> */}
           {/* <Route path="/addform" element={<PostAddForm />} /> */}
         </Routes>
