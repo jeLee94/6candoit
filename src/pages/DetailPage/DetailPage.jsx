@@ -26,7 +26,6 @@ const DetailPage = () => {
   const [edit, setEdit] = useState(false);
   const [commentContent, setCommentContent] = useState('');
   const [commentWindow, setCommentWindow] = useState(false);
-  // const [comment, setComment] = useState('');
 
   const DeletePost = () => {
     dispatch(__deletePost(post.id));
@@ -59,8 +58,6 @@ const DetailPage = () => {
   const onCommentSubmitHandler = (e) => {
     e.preventDefault();
     if (commentContent === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
-    // console.log('imgUrl값은?', imgUrl);
-
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addComment({
@@ -68,9 +65,9 @@ const DetailPage = () => {
             parentId: post.id,
             created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
             id: uuid(),
+            creator: user[0].id,
             commentContent,
           })
-          // imgUrl: imgDownloadUrl ?? blankProfile,
         )
       : alert('로그인해주세요');
 
@@ -135,38 +132,46 @@ const DetailPage = () => {
                   post?.content
                 )}
               </S.ContentSection>
-              <div style={{ gap: '10px' }}>
-                {edit && (
-                  <S.EditBtn
-                    id='edit-complete'
-                    form='editInput'
-                    onClick={updateTodoHandler}
-                    disabled={title === '' || content === '' ? true : false}
-                  >
-                    수정완료
-                  </S.EditBtn>
+              <div>
+                {post?.userId === user?.[0]?.id ? (
+                  <div style={{ gap: '10px' }}>
+                    {edit && (
+                      <S.EditBtn
+                        id='edit-complete'
+                        form='editInput'
+                        onClick={updateTodoHandler}
+                        disabled={title === '' || content === '' ? true : false}
+                      >
+                        수정완료
+                      </S.EditBtn>
+                    )}
+                    <S.EditBtn
+                      onClick={() => {
+                        setEdit(!edit);
+                      }}
+                    >
+                      {edit ? '수정취소' : '수정'}
+                    </S.EditBtn>
+                    <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
+                  </div>
+                ) : (
+                  <div></div>
                 )}
-                <S.EditBtn
-                  onClick={() => {
-                    setEdit(!edit);
-                  }}
-                >
-                  {edit ? '수정취소' : '수정'}
-                </S.EditBtn>
-                <S.EditBtn onClick={DeletePost}>삭제</S.EditBtn>
               </div>
-              {/* <S.ButtonSection></S.ButtonSection> */}
+
               <S.CommentSection>
                 {user.length > 0 ? ( //로그인 했을 때만 보이도록
                   <div>
-                    {comments.map((comment) => {
-                      return (
-                        <CommentContainer
-                          key={comment.id}
-                          comment={comment}
-                        ></CommentContainer>
-                      );
-                    })}
+                    {comments
+                      .filter((comment) => comment.parentId === param.id)
+                      .map((comment) => {
+                        return (
+                          <CommentContainer
+                            key={comment.id}
+                            comment={comment}
+                          ></CommentContainer>
+                        );
+                      })}
                   </div>
                 ) : (
                   <div></div>
@@ -198,8 +203,6 @@ const DetailPage = () => {
                 </div>
               )}
             </S.PostWrap>
-            {/* <CommentAddForm post_id={post?.id}></CommentAddForm> */}
-            {/* <CommentsContainer post_id={post?.id}></CommentsContainer> */}
           </S.PostpageWrap>
         </S.MainContainer>
       </S.Wrapper>

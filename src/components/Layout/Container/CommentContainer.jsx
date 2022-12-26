@@ -15,6 +15,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 const CommentContainer = ({ comment }) => {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   dayjs.extend(relativeTime);
   const createdTime = dayjs(comment.created_at).fromNow();
   const [commentEdit, setCommentEdit] = useState(false);
@@ -67,26 +68,30 @@ const CommentContainer = ({ comment }) => {
         </S.CommentContentWrap>
         <S.CreatedAtWrap>{createdTime}</S.CreatedAtWrap>
       </S.CommentTextWrap>
-      <S.ButtonWrap>
-        {commentEdit && (
+      {comment.creator === user[0].id ? (
+        <S.ButtonWrap>
+          {commentEdit && (
+            <S.EditBtn
+              id='comment-edit'
+              form='commentEditInput'
+              onClick={updateCommentHandler}
+              disabled={comment === '' ? true : false}
+            >
+              수정완료
+            </S.EditBtn>
+          )}
           <S.EditBtn
-            id='comment-edit'
-            form='commentEditInput'
-            onClick={updateCommentHandler}
-            disabled={comment === '' ? true : false}
+            onClick={() => {
+              setCommentEdit(!commentEdit);
+            }}
           >
-            수정완료
+            {commentEdit ? '수정취소' : '수정'}
           </S.EditBtn>
-        )}
-        <S.EditBtn
-          onClick={() => {
-            setCommentEdit(!commentEdit);
-          }}
-        >
-          {commentEdit ? '수정취소' : '수정'}
-        </S.EditBtn>
-        <S.DeleteButton onClick={DeleteComment}>삭제</S.DeleteButton>
-      </S.ButtonWrap>
+          <S.DeleteButton onClick={DeleteComment}>삭제</S.DeleteButton>
+        </S.ButtonWrap>
+      ) : (
+        <div></div>
+      )}
     </S.CommentWrap>
   );
 };
