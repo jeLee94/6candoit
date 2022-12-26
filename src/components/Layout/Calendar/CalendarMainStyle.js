@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Calendar } from "@fullcalendar/react";
 
 export const dot = styled.div`
   height: 0.5rem;
@@ -29,6 +30,13 @@ export const MainContainer = styled.div`
   flex-grow: 1;
   overflow: auto;
   background-color: #f6f8fb;
+  .fc-button-primary {
+    background-color: #3a8bfe;
+    border-color: #3a8bfe;
+  }
+  .fc .fc-daygrid-day.fc-day-today {
+    background-color: #c5dcff;
+  }
 `;
 
 export const StyleWrapper = styled.div`
