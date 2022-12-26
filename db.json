@@ -45,7 +45,12 @@
       "invitedId": ""
     }
   ],
-  "user": [],
+  "user": [
+    {
+      "id": "EGP36yqxW6VWhE1zqKSQxPptHB23",
+      "email": "o100ente@gmail.com"
+    }
+  ],
   "comments": [
     {
       "userName": "jhye",
@@ -130,6 +135,10 @@
     {
       "id": "g0i4C4NfL9bZMCbHaCDVeQZV9Zj1",
       "email": "666@naver.com"
+    },
+    {
+      "id": "EGP36yqxW6VWhE1zqKSQxPptHB23",
+      "email": "o100ente@gmail.com"
     }
   ]
 }

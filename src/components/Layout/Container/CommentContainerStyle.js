@@ -1,14 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CommentWrap = styled.div`
-  width: 65rem;
+  width: 60rem;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   gap: 10px;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   overflow: hidden;
 `;
 
