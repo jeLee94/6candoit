@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BoxWrap = styled.div`
   background-size: 100%;
@@ -27,7 +27,20 @@ export const CreatedAtWrap = styled.div`
   width: 90%;
   font-size: 0.8rem;
   /* color: grey; */
-  justify-content: center;
+  justify-content: space-between;
+  display: flex;
+`;
+export const UserDiv = styled.div`
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const UserProfile = styled.img`
+  width: 50%;
+  border-radius: '10px';
+  display: flex;
+  flex-direction: column;
 `;
 
 // export const UserImgView = styled.img`

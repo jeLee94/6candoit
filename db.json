@@ -1,24 +1,12 @@
 {
   "posts": [
     {
-
       "userName": "11122",
       "created_at": "2022.12.26 11:58:30",
       "id": "811a746c-64f8-e96d-891d-a0343f7f375b",
       "title": "test",
       "content": "123",
       "isDone": true,
-      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
-    },
-    {
-      "userName": "11122",
-      "created_at": "2022.12.26 12:01:39",
-      "id": "e1a1d5eb-86db-8718-06ef-6054ea60a3bf",
-      "title": "test2",
-      "content": "1231233\n",
-      "isDone": false,
       "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
@@ -33,6 +21,17 @@
       "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
+    },
+    {
+      "userName": "11122",
+      "created_at": "2022.12.26 17:48:42",
+      "id": "15cdf728-dded-8a2c-82ff-103b3dd7e5af",
+      "title": "123",
+      "content": "234",
+      "isDone": false,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2"
     }
   ],
   "user": [
@@ -41,8 +40,8 @@
       "email": "222@naver.com",
       "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
       "displayName": "11122",
-      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "invitedEmail": "222@naver.com"
+      "invitedUid": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "invitedEmail": "jungwn9494@gmail.com"
     }
   ],
   "comment": [],

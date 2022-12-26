@@ -29,7 +29,7 @@ function LoginPage() {
   const [isRegistered, setIsRegistered] = useState(true);
   //구글 로그인 이미지 변환용
   const [isHover, setIsHover] = useState(false);
-  const [idx, setIdx] = useState(0);
+  // const [idx, setIdx] = useState(0);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -81,32 +81,6 @@ function LoginPage() {
       }
     }
   };
-  //로그인할 때 초대자도 추가하기 위해서 추가. handleLogin에서 하면 에러남
-  // const handleUserUpdate = () => {
-  //   console.log(auth.currentUser);
-  //   const idList = allUserList.map((user) => user.id);
-  //   // const idx = idList.indexOf(props.uid);
-  //   // console.log(idx);
-  //   // dispatch(
-  //   //   __updateUser({
-  //   //     id: auth.currentUser.uid,
-  //   //     invitedUid: allUserList[idx].invitedUid,
-  //   //     invitedEmail: allUserList[idx].invitedEmail,
-  //   //   })
-  //   // );
-  //   dispatch(
-  //     __addUser({
-  //       id: auth.currentUser.uid,
-  //       email: auth.currentUser.email,
-  //       photoURL: auth.currentUser.photoURL ?? '',
-  //       displayName: auth.currentUser.displayName ?? '',
-  //       // invitedUid: allUserList[idx].invitedUid,
-  //       // invitedEmail: allUserList[idx].invitedEmail,
-  //     })
-  //   );
-  //   alert('로그인완료!');
-  //   navigate('/');
-  // };
 
   //로그인
   const handleLogin = async () => {
@@ -118,9 +92,10 @@ function LoginPage() {
         LoginEmail,
         LoginPassword
       );
-      setIdx(idList.indexOf(curUserInfo.user.uid));
+      const idx = idList.indexOf(curUserInfo.user.uid);
       alert('로그인완료!');
       navigate('/');
+      console.log(idx);
       dispatch(
         __addUser({
           id: auth.currentUser.uid,
