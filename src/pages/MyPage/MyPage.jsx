@@ -6,6 +6,7 @@ import { auth, imgStorage } from "../../firebase";
 import { ref, uploadString, getDownloadURL } from "firebase/storage";
 // import google from './google.png';
 import * as S from "./MyPageStyle";
+import Profile from "./Profile.png";
 import { __getUser, __updateUser } from "../../redux/modules/userSlice";
 import blankProfile from "../../images/blankProfile.webp";
 import { updateProfile } from "firebase/auth";
@@ -76,66 +77,66 @@ function MyPage() {
   };
 
   return (
-    <S.Outer>
-      <Link to={"/"}>돌아가기</Link>
-      <S.Align>
-        <S.Box>
-          <h2>마이페이지</h2>
-          <S.Form
-            onSubmit={(e) => {
-              e.preventDefault();
-              storeImg();
-            }}
-          >
-            {auth.currentUser && (
-              <S.Align style={{ gap: 10 }}>
-                <div>
-                  {!attachment && (
-                    <label htmlFor="imgInput">
-                      <S.ProfileImg
-                        id="profileView"
-                        src={auth.currentUser.photoURL || blankProfile}
-                      />
-                    </label>
-                  )}
-                </div>
-                <label htmlFor="imgInput"></label>
-                <S.ProfileImgInput
-                  id="imgInput"
-                  type="file"
-                  accept="image/*"
-                  onChange={fileChange}
-                  style={{ display: "none" }}
-                />
-                {attachment && <S.ProfileImg src={attachment} />}
-                <div>
-                  <span>이메일 </span>
-                  <S.Input
-                    type="email"
-                    placeholder={user[0].email}
-                    disabled={true}
+    <S.LoginWrapper>
+      <img
+        src={Profile}
+        style={{ width: "45%", margin: "200px 50px 200px 100px" }}
+      ></img>
+      <S.Outer>
+        <Link to={"/"}>돌아가기</Link>
+        <S.Align>
+          <S.Box>
+            <S.Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                storeImg();
+              }}
+            >
+              {auth.currentUser && (
+                <S.Align style={{ gap: 10 }}>
+                  <div>
+                    {!attachment && (
+                      <label htmlFor="imgInput">
+                        <S.ProfileImg
+                          id="profileView"
+                          src={auth.currentUser.photoURL || blankProfile}
+                        />
+                      </label>
+                    )}
+                  </div>
+                  <label htmlFor="imgInput"></label>
+                  <S.ProfileImgInput
+                    id="imgInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={fileChange}
+                    style={{ display: "none" }}
                   />
-                </div>
-                <div>
-                  <span>닉네임 </span>
-                  <S.Input
-                    type="text"
-                    placeholder={auth.currentUser.displayName || "닉네임"}
-                    onChange={nickChange}
-                  />
-                </div>
-                <CustomButton
-                  style={{ width: "100px", height: 30 }}
-                  type="submit"
-                >
-                  프로필 수정
-                </CustomButton>
-              </S.Align>
-            )}
-          </S.Form>
-        </S.Box>
-      </S.Align>
-    </S.Outer>
+                  {attachment && <S.ProfileImg src={attachment} />}
+                  <div>
+                    <span>이메일 </span>
+                    <S.Input
+                      type="email"
+                      placeholder={user[0].email}
+                      disabled={true}
+                    />
+                  </div>
+                  <div>
+                    <span>닉네임 </span>
+                    <S.Input
+                      type="text"
+                      placeholder={auth.currentUser.displayName || "닉네임"}
+                      onChange={nickChange}
+                    />
+                  </div>
+                  <CustomButton type="submit">프로필 수정</CustomButton>
+                </S.Align>
+              )}
+            </S.Form>
+          </S.Box>
+        </S.Align>
+      </S.Outer>
+    </S.LoginWrapper>
   );
 }
 

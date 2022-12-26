@@ -25,7 +25,6 @@ const PostContainer = ({ post }) => {
   };
   const { user } = useSelector((state) => state.user);
   const { allUserList } = useSelector((state) => state.allUserList);
-  // const [idx, setIdx] = useState(0);
 
   const togglePostHandler = () => {
     // event.preventDefault();
@@ -35,7 +34,7 @@ const PostContainer = ({ post }) => {
 
   const idList = allUserList.map((user) => user.id);
   const idx = idList.indexOf(user[0].invitedUid);
-
+  // console.log(allUserList[idx]);
   return (
     <S.BoxWrap>
       <Link
@@ -47,11 +46,13 @@ const PostContainer = ({ post }) => {
             {createdTime}
             {user.length > 0 && (
               <S.UserDiv>
-                <S.UserProfile src={user[0].photoURL} />
+                <S.UserProfile src={user[0].photoURL ?? blankProfile} />
                 {allUserList[idx] ? (
-                  <S.UserProfile src={allUserList[idx].photoURL} />
+                  <S.UserProfile
+                    src={allUserList[idx].photoURL ?? blankProfile}
+                  />
                 ) : (
-                  <S.UserProfile src={blankProfile} />
+                  <span></span>
                 )}
               </S.UserDiv>
             )}

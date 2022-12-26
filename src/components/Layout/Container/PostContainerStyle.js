@@ -41,6 +41,8 @@ export const UserProfile = styled.img`
   border-radius: '10px';
   display: flex;
   flex-direction: column;
+  border: 0px solid transparent;
+  background-color: transparent;
 `;
 
 // export const UserImgView = styled.img`

@@ -6,8 +6,8 @@ const CustomButton = (props) => {
 };
 
 const Button = styled.button`
-  width: 60px;
-  height: 30px;
+  width: 100px;
+  height: 40px;
   cursor: pointer;
   border-radius: 10px;
   border: 1px solid #eee;

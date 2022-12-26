@@ -10,7 +10,6 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import CalendarPage from '../pages/CalendarPage/CalendarPage';
 import MyPage from '../pages/MyPage/MyPage';
 import InvitePage from '../pages/InvitePage/InvitePage';
-import { auth } from '../firebase';
 
 const Router = () => {
   return (
