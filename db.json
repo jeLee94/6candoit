@@ -32,16 +32,34 @@
       "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
+    },
+    {
+      "userName": "jaehyun ye",
+      "created_at": "2022.12.26 12:52:33",
+      "id": "381b824c-c63f-37a0-fbc4-a64240d4afdf",
+      "title": "구글로그인",
+      "content": "테스트",
+      "isDone": true,
+      "userId": "8zUqM8iwsKSmojzC79Isjt7enot2",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": ""
+    },
+    {
+      "userName": "jaehyun ye",
+      "created_at": "2022.12.26 13:08:27",
+      "id": "d5a728b5-7c73-d0f4-79fd-f15f6838d222",
+      "title": "테스트",
+      "content": "얍",
+      "isDone": false,
+      "userId": "8zUqM8iwsKSmojzC79Isjt7enot2",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": ""
     }
   ],
   "user": [
     {
-      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "email": "222@naver.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
-      "displayName": "11122",
-      "invitedUid": "CVhf698UXWP9ODzKDPAp1H3TETs2",
-      "invitedEmail": "jungwn9494@gmail.com"
+      "id": "8zUqM8iwsKSmojzC79Isjt7enot2",
+      "email": "forthevision7@gmail.com"
     }
   ],
   "comment": [],
@@ -67,6 +85,10 @@
       "email": "333@naver.com",
       "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/9qBSfVwIDjTphJa7WcEuuWNpUCY2%2FprofileUrl%2Faf40cb7e-1d6a-45f2-aca5-3e20a0771db9?alt=media&token=f98c6b28-b24d-4a1c-8c16-858d65f6e6a4",
       "displayName": "111"
+    },
+    {
+      "id": "8zUqM8iwsKSmojzC79Isjt7enot2",
+      "email": "forthevision7@gmail.com"
     }
   ]
 }
