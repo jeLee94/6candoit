@@ -25,7 +25,6 @@ export default function Sidebar() {
     navigate('/');
     await signOut(auth);
   };
-
   return (
     <>
       <S.SideBar>
@@ -45,6 +44,7 @@ export default function Sidebar() {
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
+
                   <Link
                     style={{
                       textDecoration: 'none',

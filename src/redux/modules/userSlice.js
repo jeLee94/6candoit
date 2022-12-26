@@ -133,7 +133,7 @@ const userSlice = createSlice({
   },
 });
 
-console.log('userSlice.action:', userSlice.actions);
+// console.log('userSlice.action:', userSlice.actions);
 export const { addUser, deleteUser } = userSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default userSlice.reducer;
