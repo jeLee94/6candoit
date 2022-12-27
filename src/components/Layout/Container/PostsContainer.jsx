@@ -2,77 +2,33 @@ import React, { useState, useEffect } from "react";
 import PostContainer from "./PostContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { __addPost, __getPost } from "../../../redux/modules/posts";
-import { useNavigate } from "react-router-dom";
-import uuid from "react-uuid";
 import * as S from "./PostsContainerStyle";
 import dayjs from "dayjs";
 import blankProfile from "../../../images/blankProfile.webp";
-import { auth } from "../../../firebase";
 import DateSellector from "./DateSellector";
 import { format } from "date-fns";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.user);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [imgUrl, setImgUrl] = useState(blankProfile);
-  const [imgDownloadUrl, setImagDownloadUrl] = useState(null);
-  // const [imgUploaded, setImgUploaded] = useState(false);
-  // const [user, setUser] = useState('anonymous');
-  // console.log('2', imgDownloadUrl);
-  let isDateRange = new Date();
-  const [range, setRange] = useState(isDateRange);
 
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
-
-  //task 추가 버튼
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-
-    if (title === "" || content === "") return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
-    // console.log('imgUrl값은?', imgUrl);
-    // console.log(user[0].invitedUid);
-    user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
-      ? dispatch(
-          __addPost({
-            userName: auth.currentUser
-              ? auth.currentUser.displayName
-              : user[0].email.split("@")[0],
-            created_at: dayjs().format("YYYY.MM.DD HH:mm:ss"),
-            id: uuid(),
-            title,
-            content,
-            isDone: false,
-            userId: user[0].id,
-            imgUrl: imgDownloadUrl ?? blankProfile,
-            invitedId: user[0].invitedUid ?? "",
-            // to, from 이 들어가야함!
-          })
-        )
-      : alert("로그인해주세요");
-
-    setTitle("");
-    setContent("");
-    navigate("/");
-  };
+  //post 생성 커스텀 훅 적용
+  const [
+    { title, content, imgUrl, imgDownloadUrl },
+    changeTitle,
+    changeContent,
+    onSubmitHandler,
+  ] = usePostCreate({
+    title: "",
+    content: "",
+    imgUrl: blankProfile,
+    imgDownloadUrl: null,
+  });
 
   useEffect(() => {
     dispatch(__getPost());
   }, [dispatch]);
-
-  // console.log('posts: ', posts);
-  useEffect(() => {
-    if (posts.length < 1) {
-      return;
-    }
-    posts.map((post) => setImgUrl(post.imgUrl));
-  }, [posts]);
-
-  // console.log(auth.currentUser?.photoURL);
 
   return (
     <S.CommentsWrap>
