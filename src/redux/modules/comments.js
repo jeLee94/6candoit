@@ -17,10 +17,8 @@ export const __addComment = createAsyncThunk(
   'comments/addComment',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
       await axios.post(`${process.env.REACT_APP_localComments}`, payload);
       const data = await axios.get(`${process.env.REACT_APP_localComments}`);
-      // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -34,7 +32,6 @@ export const __deleteComment = createAsyncThunk(
     try {
       await axios.delete(`${process.env.REACT_APP_localComments}/${payload}`);
       const data = await axios.get(`${process.env.REACT_APP_localComments}`);
-      // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -46,13 +43,11 @@ export const __updateComment = createAsyncThunk(
   'comments/updateComment',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
       await axios.patch(
         `${process.env.REACT_APP_localComments}/${payload.id}`,
         payload
       );
       const data = await axios.get(`${process.env.REACT_APP_localComments}`);
-      // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -87,7 +82,6 @@ const commentsSlice = createSlice({
 
     updateComment: (state, action) => {
       let commentlist = state.comments.slice();
-      console.log(action.payload);
       // postlist.find((e) => e.id === action.payload.id) =
       //   action.payload;
       // state.comments = postlist;
@@ -144,7 +138,6 @@ const commentsSlice = createSlice({
   },
 });
 
-// console.log('commentsSlice.action:', commentsSlice.actions);
 export const { addComment, deleteComment, updateComment } =
   commentsSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.

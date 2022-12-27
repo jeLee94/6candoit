@@ -17,11 +17,9 @@ export const __addUser = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
       await axios.post(`${process.env.REACT_APP_localUser}`, payload);
 
       const data = await axios.get(`${process.env.REACT_APP_localUser}`);
-      // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -33,10 +31,8 @@ export const __deleteUser = createAsyncThunk(
   'user/deleteUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
       await axios.delete(`${process.env.REACT_APP_localUser}/${payload[0].id}`);
       const data = await axios.get(`${process.env.REACT_APP_localUser}`);
-      // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -47,13 +43,11 @@ export const __updateUser = createAsyncThunk(
   'user/updateUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
       await axios.patch(
         `${process.env.REACT_APP_localUser}/${payload.id}`,
         payload
       );
       const data = await axios.get(`${process.env.REACT_APP_localUser}`);
-      // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -136,7 +130,6 @@ const userSlice = createSlice({
   },
 });
 
-console.log('userSlice.action:', userSlice.actions);
 export const { addUser, deleteUser } = userSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default userSlice.reducer;

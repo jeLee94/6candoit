@@ -9,7 +9,10 @@ const DateSellector = ({ setFromDate, setToDate }) => {
     setOpen(true);
   };
   const handleOk = (e) => {
+<<<<<<< HEAD
     console.log(e);
+=======
+>>>>>>> dfcd63a930ca82f61822e61463b1dd36833fc134
     setModalText('등록완료 ദ്ദി ᵔ∇ᵔ )!!');
     setConfirmLoading(true);
     setTimeout(() => {
@@ -18,19 +21,25 @@ const DateSellector = ({ setFromDate, setToDate }) => {
     }, 200);
   };
   const handleCancel = () => {
+<<<<<<< HEAD
     console.log('취소');
+=======
+>>>>>>> dfcd63a930ca82f61822e61463b1dd36833fc134
     setOpen(false);
   };
-  // console.log();
   return (
     <>
       <p>일정</p>
+<<<<<<< HEAD
       <Button
         type='primary'
         onClick={showModal}
         style={{ width: "285px" }}
         //   style={{ backgroundColor }}
       >
+=======
+      <Button type='primary' onClick={showModal} style={{ width: '285px' }}>
+>>>>>>> dfcd63a930ca82f61822e61463b1dd36833fc134
         일정등록
       </Button>
       <Modal
