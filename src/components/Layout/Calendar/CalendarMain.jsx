@@ -43,6 +43,7 @@ function CalendarMain() {
               defaultView="dayGridMonth"
               plugins={[dayGridPlugin]}
               events={calendarEvents}
+              style={{ width: "285px" }}
             />
           </S.StyleWrapper>
         </S.MainContainer>
