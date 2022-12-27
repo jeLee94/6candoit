@@ -1,21 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {
-  __deletePost,
-  // togglePost,
-  __togglePost,
-} from "../../../redux/modules/posts";
-import * as S from "./PostContainerStyle";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import { useSelector } from "react-redux";
-import blankProfile from "../../../images/blankProfile.webp";
-// import {
-//   __deleteComment,
-//   __deleteAllComment,
-//   __getComment,
-// } from '../../redux/modules/comments';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { __deletePost, __togglePost } from '../../../redux/modules/posts';
+import * as S from './PostContainerStyle';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { useSelector } from 'react-redux';
+import blankProfile from '../../../images/blankProfile.webp';
+
 const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
   dayjs.extend(relativeTime);
@@ -29,7 +21,6 @@ const PostContainer = ({ post }) => {
   const togglePostHandler = () => {
     // event.preventDefault();
     dispatch(__togglePost(post));
-    // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
 
   const idList = allUserList.map((user) => user.id);
@@ -39,7 +30,7 @@ const PostContainer = ({ post }) => {
     <S.BoxWrap>
       <Link
         to={`/${post.id}`}
-        style={{ textDecoration: "none", color: "black" }}
+        style={{ textDecoration: 'none', color: 'black' }}
       >
         <S.ContentsWrap>
           <S.CreatedAtWrap>
@@ -62,12 +53,12 @@ const PostContainer = ({ post }) => {
           {/* <S.UserNameWrap>{post.userName}</S.UserNameWrap> */}
           <S.TitleWrap>
             {post.title.length > 20
-              ? post.title.substr(0, 20) + "..."
+              ? post.title.substr(0, 20) + '...'
               : post.title}
           </S.TitleWrap>
           <S.ContentWrap>
             {post.content.length > 25
-              ? post.content.substr(0, 25) + "..."
+              ? post.content.substr(0, 25) + '...'
               : post.content}
           </S.ContentWrap>
         </S.ContentsWrap>
@@ -76,7 +67,7 @@ const PostContainer = ({ post }) => {
         <S.ButtonWrap>
           <S.CusttomButton onClick={DeletePost}>삭제</S.CusttomButton>
           <S.CusttomButton onClick={togglePostHandler}>
-            {post.isDone ? "진행중" : "완료"}
+            {post.isDone ? '진행중' : '완료'}
           </S.CusttomButton>
         </S.ButtonWrap>
       </S.ContentWrap>

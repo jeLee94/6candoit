@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   __deleteComment,
@@ -7,11 +7,7 @@ import {
 import * as S from './CommentContainerStyle';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-// import {
-//   __deleteComment,
-//   __deleteAllComment,
-//   __getComment,
-// } from '../../redux/modules/comments';
+import { useCommentEdit } from '../../../hooks/useCommentEdit';
 
 const CommentContainer = ({ comment }) => {
   const dispatch = useDispatch();
@@ -19,14 +15,10 @@ const CommentContainer = ({ comment }) => {
   dayjs.extend(relativeTime);
   const createdTime = dayjs(comment.created_at).fromNow();
   const [commentEdit, setCommentEdit] = useState(false);
-  const [commentContent, setCommentContent] = useState('');
+  const [commentContent, changeCommentContent] = useCommentEdit('', comment);
 
   const DeleteComment = () => {
     dispatch(__deleteComment(comment.id));
-  };
-
-  const changeCommentContent = (event) => {
-    setCommentContent(event.target.value);
   };
 
   const updateCommentHandler = (event) => {
@@ -40,10 +32,6 @@ const CommentContainer = ({ comment }) => {
     setCommentEdit(!commentEdit);
     dispatch(__updateComment(EditedComment));
   };
-
-  useEffect(() => {
-    setCommentContent(comment.commentContent);
-  }, [comment]);
 
   return (
     <S.CommentWrap>
