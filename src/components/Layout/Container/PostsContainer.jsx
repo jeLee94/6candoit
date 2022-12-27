@@ -5,6 +5,7 @@ import { __getPost } from '../../../redux/modules/posts';
 import * as S from './PostsContainerStyle';
 import blankProfile from '../../../images/blankProfile.webp';
 import { usePostCreate } from '../../../hooks/usePostCreate';
+// import DateSellector from './DateSellector';
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ const PostsContainer = () => {
             onChange={changeContent}
           />
 
+          {/* CALENDAR */}
+          {/* <DateSellector /> */}
+
           <S.AddBtn disabled={title === '' || content === '' ? true : false}>
             추가
           </S.AddBtn>
@@ -59,9 +63,7 @@ const PostsContainer = () => {
 
       <S.DoingTodo>
         <S.DoneTitle>Doing</S.DoneTitle>
-
         {/* <div style={{ marginBottom: 10 }}>Doing</div> */}
-
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
             {posts

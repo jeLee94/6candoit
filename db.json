@@ -70,9 +70,9 @@
       "userName": null,
       "created_at": "2022.12.26 22:04:13",
       "id": "2abc3959-65fc-fec5-c988-7801b1806108",
-      "title": "jhye4의 첫 글",
-      "content": "ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ",
-      "isDone": false,
+      "title": "jhye4의 첫 글입낟",
+      "content": "ㄷㄷㄷㄷㄷㄷㄷㄷ",
+      "isDone": true,
       "userId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": ""
@@ -105,7 +105,7 @@
       "id": "88985cab-6894-bed0-fe8c-cfdb7449205d",
       "title": "post 생성 커스텀 훅 적용 테스트",
       "content": "과연?",
-      "isDone": false,
+      "isDone": true,
       "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
@@ -193,7 +193,7 @@
       "created_at": "2022.12.26 22:08:25",
       "id": "2aabba4e-e9bd-ec54-c640-138007f68312",
       "creator": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
-      "commentContent": "jhye4의 첫 댓글"
+      "commentContent": "jhye4의 첫 댓글입니다"
     },
     {
       "userName": "jhye2",
@@ -274,6 +274,14 @@
       "email": "jhye4@test.com",
       "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "invitedEmail": "jhye2@test.com"
+    },
+    {
+      "id": "8yuA8RB9lcTWcPU49SVIH5ckI5h2",
+      "email": "gongdonglee@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5yvNKiX0_4sIQac84vUXGlqoaLCkmEjL3gS7nK=s96-c",
+      "displayName": "LEE공동",
+      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "invitedEmail": "222@naver.com"
     }
   ]
 }
