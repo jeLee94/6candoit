@@ -68,6 +68,7 @@ export const usePostCreate = (initialValue) => {
   };
 
   useEffect(() => {
+    console.log('posts', posts);
     if (posts.length < 1) {
       return;
     }

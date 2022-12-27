@@ -71,23 +71,22 @@ const PostsContainer = () => {
       <S.DoingTodo>
         <S.DoneTitle>Doing</S.DoneTitle>
         {/* <div style={{ marginBottom: 10 }}>Doing</div> */}
-        {user.length > 0 &&
-          posts.length > 0 && ( //로그인 했을 때만 보이도록
-            <div>
-              {posts
-                .filter(
-                  (post) =>
-                    (user[0].id === post.userId ||
-                      user[0].id === post.invitedId) &&
-                    post.isDone === false
-                )
-                .map((post) => {
-                  return (
-                    <PostContainer key={post.id} post={post}></PostContainer>
-                  );
-                })}
-            </div>
-          )}
+        {user.length > 0 && ( //로그인 했을 때만 보이도록
+          <div>
+            {Object.value(posts)
+              .filter(
+                (post) =>
+                  (user[0].id === post.userId ||
+                    user[0].id === post.invitedId) &&
+                  post.isDone === false
+              )
+              .map((post) => {
+                return (
+                  <PostContainer key={post.id} post={post}></PostContainer>
+                );
+              })}
+          </div>
+        )}
       </S.DoingTodo>
 
       <S.DoneTodo>
@@ -95,23 +94,22 @@ const PostsContainer = () => {
 
         <S.DoneTitle>Done</S.DoneTitle>
 
-        {user.length > 0 &&
-          posts.length > 0 && ( //로그인 했을 때만 보이도록
-            <div>
-              {posts
-                .filter(
-                  (post) =>
-                    (user[0].id === post.userId ||
-                      user[0].id === post.invitedId) &&
-                    post.isDone === true
-                )
-                .map((post) => {
-                  return (
-                    <PostContainer key={post.id} post={post}></PostContainer>
-                  );
-                })}
-            </div>
-          )}
+        {user.length > 0 && ( //로그인 했을 때만 보이도록
+          <div>
+            {Object.value(posts)
+              .filter(
+                (post) =>
+                  (user[0].id === post.userId ||
+                    user[0].id === post.invitedId) &&
+                  post.isDone === true
+              )
+              .map((post) => {
+                return (
+                  <PostContainer key={post.id} post={post}></PostContainer>
+                );
+              })}
+          </div>
+        )}
       </S.DoneTodo>
     </S.CommentsWrap>
   );
