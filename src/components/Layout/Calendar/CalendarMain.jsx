@@ -26,12 +26,8 @@ function CalendarMain() {
 
     return {
       title: post.title,
-<<<<<<< HEAD
-      date: post.created_at.split(' ')[0].split('.').join('-'),
-=======
       start: post.fromDate,
       end: post.toDate,
->>>>>>> 4f78f5a9136720f5b582d75afee5923fdac626f0
       // 조건문을 주어 해당 영역을 수정 true/false로
     };
   });
@@ -48,15 +44,8 @@ function CalendarMain() {
             <Calendar
               defaultView='dayGridMonth'
               plugins={[dayGridPlugin]}
-<<<<<<< HEAD
-              events={[
-                { title: 'event', date: '2022-12-26' },
-                { title: 'event', date: '2022-12-27' },
-              ]}
-=======
               events={calendarEvents}
->>>>>>> 4f78f5a9136720f5b582d75afee5923fdac626f0
-              style={{ width: "285px" }}
+              style={{ width: '285px' }}
             />
           </S.StyleWrapper>
         </S.MainContainer>
