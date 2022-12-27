@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import uuid from 'react-uuid';
 import {
   __getPost,
   __deletePost,
   __updatePost,
 } from '../../redux/modules/posts';
-import { __addComment, __getComment } from '../../redux/modules/comments';
-import dayjs from 'dayjs';
+import { __getComment } from '../../redux/modules/comments';
 import * as S from './DetailPageStyle';
 import Sidebar from '../../components/Layout/Sidebar/Sidebar';
 import CommentContainer from '../../components/Layout/Container/CommentContainer';
+import { usePostEdit } from '../../hooks/usePostEdit';
+import { useCommentCreate } from '../../hooks/useCommentCreate';
 
 const DetailPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const param = useParams();
   const { posts } = useSelector((state) => state.posts);
   const { comments } = useSelector((state) => state.comments);
   const { user } = useSelector((state) => state.user);
-  const param = useParams();
   const post = posts.find((post) => post.id === param.id);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [{ title, content }, changeTitle, changeContent] = usePostEdit(''); //post 수정 커스텀 훅 적용
+  const [commentContent, changeCommentContent, onCommentSubmitHandler] =
+    useCommentCreate(''); //comment 생성 커스텀 훅 적용
   const [edit, setEdit] = useState(false);
-  const [commentContent, setCommentContent] = useState('');
   const [commentWindow, setCommentWindow] = useState(false);
 
   const DeletePost = () => {
@@ -46,35 +46,6 @@ const DetailPage = () => {
     dispatch(__updatePost(EditedPost));
   };
 
-  const changeTitle = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const changeContent = (event) => {
-    setContent(event.target.value);
-  };
-
-  //task 추가 버튼
-  const onCommentSubmitHandler = (e) => {
-    e.preventDefault();
-    if (commentContent === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
-    user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
-      ? dispatch(
-          __addComment({
-            userName: user[0].email.split('@')[0],
-            parentId: post.id,
-            created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
-            id: uuid(),
-            creator: user[0].id,
-            commentContent,
-          })
-        )
-      : alert('로그인해주세요');
-
-    setCommentContent('');
-    // navigate('/');
-  };
-
   useEffect(() => {
     dispatch(__getPost());
   }, [dispatch]);
@@ -82,15 +53,6 @@ const DetailPage = () => {
   useEffect(() => {
     dispatch(__getComment());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (posts.length < 1) {
-      return;
-    }
-    // const post = posts.find((post) => post.id === param.id);
-    setTitle(post.title);
-    setContent(post.content);
-  }, [post]);
 
   return (
     <>
@@ -190,9 +152,7 @@ const DetailPage = () => {
                     id='comment-input'
                     value={commentContent}
                     placeholder='댓글 내용을 입력해주세요'
-                    onChange={(e) => {
-                      setCommentContent(e.target.value);
-                    }}
+                    onChange={changeCommentContent}
                   ></input>
                   <button
                     onClick={onCommentSubmitHandler}

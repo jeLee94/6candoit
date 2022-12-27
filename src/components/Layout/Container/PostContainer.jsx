@@ -1,21 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-  __deletePost,
-  // togglePost,
-  __togglePost,
-} from '../../../redux/modules/posts';
+import { __deletePost, __togglePost } from '../../../redux/modules/posts';
 import * as S from './PostContainerStyle';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useSelector } from 'react-redux';
 import blankProfile from '../../../images/blankProfile.webp';
-// import {
-//   __deleteComment,
-//   __deleteAllComment,
-//   __getComment,
-// } from '../../redux/modules/comments';
+
 const PostContainer = ({ post }) => {
   const dispatch = useDispatch();
   dayjs.extend(relativeTime);
@@ -29,7 +21,6 @@ const PostContainer = ({ post }) => {
   const togglePostHandler = () => {
     // event.preventDefault();
     dispatch(__togglePost(post));
-    // console.log(dispatch(togglePost(post.id))); //동기적 기능 구현완료
   };
 
   const idList = allUserList.map((user) => user.id);
