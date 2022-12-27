@@ -26,9 +26,16 @@ export default function Sidebar() {
     await signOut(auth);
   };
 
+  window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    event.returnValue = '';
+    setTimeout(3000);
+  });
+
   window.addEventListener('unload', (event) => {
     event.preventDefault();
     dispatch(__deleteUser(auth.currentUser.uid)); //user로 하면 데이터 찾아올 수 없어서 삭제안됨
+    setTimeout(3000);
   });
   return (
     <>

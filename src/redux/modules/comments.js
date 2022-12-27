@@ -5,9 +5,7 @@ export const __getComment = createAsyncThunk(
   'comments/getComment',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/comments`
-      );
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -19,15 +17,8 @@ export const __addComment = createAsyncThunk(
   'comments/addComment',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
-      await axios.post(
-        `https://typhoon-pepper-baker.glitch.me/comments`,
-        payload
-      );
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/comments`
-      );
-      // console.log(data);
+      await axios.post(`${process.env.REACT_APP_localComments}`, payload);
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -39,13 +30,8 @@ export const __deleteComment = createAsyncThunk(
   'comments/deleteComment',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(
-        `https://typhoon-pepper-baker.glitch.me/comments/${payload}`
-      );
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/comments`
-      );
-      // console.log(data.data);
+      await axios.delete(`${process.env.REACT_APP_localComments}/${payload}`);
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -57,15 +43,11 @@ export const __updateComment = createAsyncThunk(
   'comments/updateComment',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `https://typhoon-pepper-baker.glitch.me/comments/${payload.id}`,
+        `${process.env.REACT_APP_localComments}/${payload.id}`,
         payload
       );
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/comments`
-      );
-      // console.log('update 이벤트의 서버 응답: ', data.data);
+      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -100,7 +82,6 @@ const commentsSlice = createSlice({
 
     updateComment: (state, action) => {
       let commentlist = state.comments.slice();
-      console.log(action.payload);
       // postlist.find((e) => e.id === action.payload.id) =
       //   action.payload;
       // state.comments = postlist;
@@ -157,7 +138,6 @@ const commentsSlice = createSlice({
   },
 });
 
-// console.log('commentsSlice.action:', commentsSlice.actions);
 export const { addComment, deleteComment, updateComment } =
   commentsSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.

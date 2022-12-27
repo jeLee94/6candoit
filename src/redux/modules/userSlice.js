@@ -5,9 +5,7 @@ export const __getUser = createAsyncThunk(
   'user/getUser',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/user`
-      );
+      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -19,11 +17,9 @@ export const __addUser = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
     try {
-      await axios.post(`https://typhoon-pepper-baker.glitch.me/user`, payload);
+      await axios.post(`${process.env.REACT_APP_localUser}`, payload);
 
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/user`
-      );
+      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -35,12 +31,8 @@ export const __deleteUser = createAsyncThunk(
   'user/deleteUser',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(
-        `https://typhoon-pepper-baker.glitch.me/user/${payload[0].id}`
-      );
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/user`
-      );
+      await axios.delete(`${process.env.REACT_APP_localUser}/${payload[0].id}`);
+      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -52,12 +44,10 @@ export const __updateUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       await axios.patch(
-        `https://typhoon-pepper-baker.glitch.me/user/${payload.id}`,
+        `${process.env.REACT_APP_localUser}/${payload.id}`,
         payload
       );
-      const data = await axios.get(
-        `https://typhoon-pepper-baker.glitch.me/user`
-      );
+      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

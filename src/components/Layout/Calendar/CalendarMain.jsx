@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Calendar from "@fullcalendar/react";
-import * as S from "./CalendarMainStyle";
-import { useSelector } from "react-redux";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import { __getPost } from "../../../redux/modules/posts";
-import { useDispatch } from "react-redux";
-// import Sidebar from '../Sidebar/Sidebar';
-import CalendarTodo from "./CalendarTodo";
+import React, { useEffect } from 'react';
+import Calendar from '@fullcalendar/react';
+import * as S from './CalendarMainStyle';
+import { useSelector } from 'react-redux';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { __getPost } from '../../../redux/modules/posts';
+import { useDispatch } from 'react-redux';
 
 function CalendarMain() {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
-  const [value, onChange] = useState(new Date());
 
   useEffect(() => {
     dispatch(__getPost());
@@ -30,7 +27,6 @@ function CalendarMain() {
     };
   });
 
-  console.log(CalendarTodo);
   return (
     <>
       <S.Wrapper>
@@ -40,10 +36,10 @@ function CalendarMain() {
           </S.Header>
           <S.StyleWrapper>
             <Calendar
-              defaultView="dayGridMonth"
+              defaultView='dayGridMonth'
               plugins={[dayGridPlugin]}
               events={calendarEvents}
-              style={{ width: "285px" }}
+              style={{ width: '285px' }}
             />
           </S.StyleWrapper>
         </S.MainContainer>
