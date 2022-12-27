@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import blankProfile from "../../../images/blankProfile.webp";
 import { auth } from "../../../firebase";
 import DateSellector from "./DateSellector";
+import { format } from "date-fns";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ const PostsContainer = () => {
   // const [imgUploaded, setImgUploaded] = useState(false);
   // const [user, setUser] = useState('anonymous');
   // console.log('2', imgDownloadUrl);
+  let isDateRange = new Date();
+  const [range, setRange] = useState(isDateRange);
+
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
 
   //task 추가 버튼
   const onSubmitHandler = (e) => {
@@ -44,6 +50,7 @@ const PostsContainer = () => {
             userId: user[0].id,
             imgUrl: imgDownloadUrl ?? blankProfile,
             invitedId: user[0].invitedUid ?? "",
+            // to, from 이 들어가야함!
           })
         )
       : alert("로그인해주세요");
@@ -95,8 +102,8 @@ const PostsContainer = () => {
             }}
           />
 
-          {/* CALENDAR */}
-          <DateSellector />
+          {/* {Calendar} */}
+          <DateSellector setFromDate={setFromDate} setToDate={setToDate} />
 
           <S.AddBtn disabled={title === "" || content === "" ? true : false}>
             추가

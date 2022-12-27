@@ -6,6 +6,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import { __getPost } from "../../../redux/modules/posts";
 import { useDispatch } from "react-redux";
 // import Sidebar from '../Sidebar/Sidebar';
+import CalendarTodo from "./CalendarTodo";
 
 function CalendarMain() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function CalendarMain() {
     };
   });
 
+  console.log(CalendarTodo);
   return (
     <>
       <S.Wrapper>
