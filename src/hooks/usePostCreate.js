@@ -8,7 +8,6 @@ import uuid from 'react-uuid';
 import dayjs from 'dayjs';
 
 export const usePostCreate = (initialValue) => {
-  //   console.log(initialValue);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
@@ -21,7 +20,7 @@ export const usePostCreate = (initialValue) => {
   );
 
   let isDateRange = new Date();
-  const [range, setRange] = useState(isDateRange);
+  // const [range, setRange] = useState(isDateRange);
 
   // const [fromDate, setFromDate] = useState("");
   // const [toDate, setToDate] = useState("");

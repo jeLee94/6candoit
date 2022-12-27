@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { auth, imgStorage } from '../../firebase';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
-// import google from './google.png';
 import * as S from './MyPageStyle';
 import Profile from './Profile.png';
 import { __getUser, __updateUser } from '../../redux/modules/userSlice';
@@ -18,12 +17,7 @@ function MyPage() {
   const [nickName, setNickName] = useState('');
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
-  console.log(auth);
-  // console.log(user);
-  // Todo 회원가입 완료 시 alert 뜨고 3초 후에 로그인으로 넘어가도록 수정
-  // Todo2 로그인 ↔ 회원가입 왔다갔다 할 때 input창 데이터 안지워지는 부분 수정
-  // Todo3 메인, 디테일 페이지에서 로그인 정보 보여주기 세션?쿠키?
-  // Todo4 마이페이지 구현(닉네임 수정)
+
   useEffect(() => {
     dispatch(__getUser());
   }, [dispatch]);
@@ -81,10 +75,20 @@ function MyPage() {
       <img
         alt='이미지'
         src={Profile}
-        style={{ width: '45%', margin: '200px 50px 200px 100px' }}
+        style={{ width: '40%', margin: '200px 50px 200px 100px' }}
       ></img>
       <S.Outer>
-        <Link to={'/'}>돌아가기</Link>
+        <Link
+          style={{
+            marginBottom: '15px',
+            textDecoration: 'none',
+            color: 'black',
+            fontWeight: 'bold',
+          }}
+          to={'/'}
+        >
+          돌아가기
+        </Link>
         <S.Align>
           <S.Box>
             <S.Form
@@ -115,7 +119,7 @@ function MyPage() {
                   />
                   {attachment && <S.ProfileImg src={attachment} />}
                   <div>
-                    <span>이메일 </span>
+                    <p>이메일</p>
                     <S.Input
                       type='email'
                       placeholder={user[0].email}
@@ -123,7 +127,7 @@ function MyPage() {
                     />
                   </div>
                   <div>
-                    <span>닉네임 </span>
+                    <p>닉네임</p>
                     <S.Input
                       type='text'
                       placeholder={auth.currentUser.displayName || '닉네임'}

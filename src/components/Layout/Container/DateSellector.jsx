@@ -9,7 +9,6 @@ const DateSellector = ({ setFromDate, setToDate }) => {
     setOpen(true);
   };
   const handleOk = (e) => {
-    console.log(e);
     setModalText('등록완료 ദ്ദി ᵔ∇ᵔ )!!');
     setConfirmLoading(true);
     setTimeout(() => {
@@ -18,18 +17,12 @@ const DateSellector = ({ setFromDate, setToDate }) => {
     }, 200);
   };
   const handleCancel = () => {
-    console.log('취소');
     setOpen(false);
   };
-  // console.log();
   return (
     <>
       <p>일정</p>
-      <Button
-        type='primary'
-        onClick={showModal}
-        //   style={{ backgroundColor }}
-      >
+      <Button type='primary' onClick={showModal} style={{ width: '285px' }}>
         일정등록
       </Button>
       <Modal

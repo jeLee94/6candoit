@@ -17,7 +17,7 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
-  // console.log(auth.currentUser);
+
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
@@ -26,6 +26,17 @@ export default function Sidebar() {
     await signOut(auth);
   };
 
+  window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    event.returnValue = '';
+    setTimeout(3000);
+  });
+
+  window.addEventListener('unload', (event) => {
+    event.preventDefault();
+    dispatch(__deleteUser(auth.currentUser.uid)); //user로 하면 데이터 찾아올 수 없어서 삭제안됨
+    setTimeout(3000);
+  });
   return (
     <>
       <S.SideBar>
@@ -41,7 +52,16 @@ export default function Sidebar() {
                 <S.ProfileDetail>
                   <S.AppLogo src={Ellipse} />
                   <div>환영합니다!</div>
-                  <Link to='/login'>Login</Link>
+                  <Link
+                    style={{
+                      marginBottom: '15px',
+                      textDecoration: 'none',
+                      color: 'black',
+                    }}
+                    to='/login'
+                  >
+                    LOGIN
+                  </Link>
                 </S.ProfileDetail>
               ) : (
                 <S.ProfileDetail>
