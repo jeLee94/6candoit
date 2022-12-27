@@ -102,12 +102,12 @@
   ],
   "user": [
     {
-      "id": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "email": "222@naver.com",
-      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/qH0dfOYhi3aza3Ob0OTXgbqjjM92%2FprofileUrl%2F7ae68887-249d-453b-899c-16937634fd78?alt=media&token=6cdb0af4-5ced-45c3-a0ab-f66632c026d4",
-      "displayName": "11122",
-      "invitedUid": "CVhf698UXWP9ODzKDPAp1H3TETs2",
-      "invitedEmail": "jungwn9494@gmail.com"
+      "id": "8yuA8RB9lcTWcPU49SVIH5ckI5h2",
+      "email": "gongdonglee@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5yvNKiX0_4sIQac84vUXGlqoaLCkmEjL3gS7nK=s96-c",
+      "displayName": "LEE공동",
+      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "invitedEmail": "222@naver.com"
     }
   ],
   "comments": [
@@ -236,6 +236,14 @@
       "email": "jhye4@test.com",
       "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "invitedEmail": "jhye2@test.com"
+    },
+    {
+      "id": "8yuA8RB9lcTWcPU49SVIH5ckI5h2",
+      "email": "gongdonglee@gmail.com",
+      "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5yvNKiX0_4sIQac84vUXGlqoaLCkmEjL3gS7nK=s96-c",
+      "displayName": "LEE공동",
+      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "invitedEmail": "222@naver.com"
     }
   ]
 }
