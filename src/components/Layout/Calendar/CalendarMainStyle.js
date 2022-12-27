@@ -1,15 +1,6 @@
 import styled from "styled-components";
 import { Calendar } from "@fullcalendar/react";
 
-export const dot = styled.div`
-  height: 8px;
-  width: 8px;
-  background-color: #f87171;
-  border-radius: 50%;
-  display: flex;
-  margin-left: 1px;
-`;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

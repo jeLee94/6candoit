@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Calendar from '@fullcalendar/react';
-import * as S from './CalendarMainStyle';
-import { useSelector } from 'react-redux';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import { __getPost } from '../../../redux/modules/posts';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import Calendar from "@fullcalendar/react";
+import * as S from "./CalendarMainStyle";
+import { useSelector } from "react-redux";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import { __getPost } from "../../../redux/modules/posts";
+import { useDispatch } from "react-redux";
 // import Sidebar from '../Sidebar/Sidebar';
 
 function CalendarMain() {
@@ -17,9 +17,14 @@ function CalendarMain() {
   }, [dispatch]);
 
   const calendarEvents = posts.map((post) => {
+    // if (finished.at == true){
+    // 객체반환 title,created_at:post.created_at start,end 넣기
+    //} else
+
     return {
       title: post.title,
-      date: post.created_at.split(' ')[0].split('.').join('-'),
+      date: post.created_at.split(" ")[0].split(".").join("-"),
+      // 조건문을 주어 해당 영역을 수정 true/false로
     };
   });
 
@@ -32,9 +37,12 @@ function CalendarMain() {
           </S.Header>
           <S.StyleWrapper>
             <Calendar
-              defaultView='dayGridMonth'
+              defaultView="dayGridMonth"
               plugins={[dayGridPlugin]}
-              events={calendarEvents}
+              events={[
+                { title: "event", date: "2022-12-26" },
+                { title: "event", date: "2022-12-27" },
+              ]}
             />
           </S.StyleWrapper>
         </S.MainContainer>
