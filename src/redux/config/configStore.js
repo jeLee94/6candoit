@@ -32,7 +32,7 @@ const store = configureStore({
   // << development 환경에서만 redux devtool이 활성화 되도록 처리 >>
 
   //방법 1
-  // devTools: false,
+  devTools: false,
 
   //방법 2
   // devTools: process.env.NODE_ENV === 'production',

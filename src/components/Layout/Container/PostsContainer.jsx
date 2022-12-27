@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PostContainer from './PostContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { __addPost, __getPost } from '../../../redux/modules/posts';
+import { __getPost } from '../../../redux/modules/posts';
 import * as S from './PostsContainerStyle';
-import dayjs from 'dayjs';
 import blankProfile from '../../../images/blankProfile.webp';
 import DateSellector from './DateSellector';
-import { format } from 'date-fns';
 import { usePostCreate } from '../../../hooks/usePostCreate';
 
 const PostsContainer = () => {
@@ -18,7 +16,8 @@ const PostsContainer = () => {
 
   //post 생성 커스텀 훅 적용
   const [
-    { title, content, imgUrl, imgDownloadUrl },
+    // { title, content, imgUrl, imgDownloadUrl },
+    { title, content },
     changeTitle,
     changeContent,
     onSubmitHandler,
@@ -73,14 +72,14 @@ const PostsContainer = () => {
         {/* <div style={{ marginBottom: 10 }}>Doing</div> */}
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
-            {Object.value(posts)
-              ?.filter(
+            {posts
+              .filter(
                 (post) =>
                   (user[0].id === post.userId ||
                     user[0].id === post.invitedId) &&
                   post.isDone === false
               )
-              ?.map((post) => {
+              .map((post) => {
                 return (
                   <PostContainer key={post.id} post={post}></PostContainer>
                 );
@@ -96,14 +95,14 @@ const PostsContainer = () => {
 
         {user.length > 0 && ( //로그인 했을 때만 보이도록
           <div>
-            {Object.value(posts)
-              ?.filter(
+            {posts
+              .filter(
                 (post) =>
                   (user[0].id === post.userId ||
                     user[0].id === post.invitedId) &&
                   post.isDone === true
               )
-              ?.map((post) => {
+              .map((post) => {
                 return (
                   <PostContainer key={post.id} post={post}></PostContainer>
                 );
