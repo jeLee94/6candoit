@@ -11,8 +11,9 @@ export default function CalendarTodo({ setFromDate, setToDate }) {
     // console.log(range);
     // state에 저장
     // console.log(format(range.from, "P"));
-    // setFromDate(format(range.from, "P"));
-    // setToDate(format(range.to, "P"));
+    setFromDate(range.from);
+    setToDate(range.to);
+    console.log(range);
   }, [range]);
 
   let footer = <p>일정을 지정해주세요</p>;
@@ -28,7 +29,7 @@ export default function CalendarTodo({ setFromDate, setToDate }) {
     }
   }
 
-  // console.log(range);
+  console.log(range);
   return (
     <>
       <DayPicker

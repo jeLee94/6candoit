@@ -21,6 +21,7 @@ const DateSellector = ({ setFromDate, setToDate }) => {
     console.log("취소");
     setOpen(false);
   };
+  // console.log();
   return (
     <>
       <p>일정</p>
