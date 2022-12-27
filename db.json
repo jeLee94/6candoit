@@ -61,7 +61,7 @@
       "id": "9f6cd1da-6a8a-51eb-e330-bd655dcada4b",
       "title": "jhye3의 글2",
       "content": "asdfasdf",
-      "isDone": false,
+      "isDone": true,
       "userId": "9HyuQ1EvMFhCJtalif4U8m8l9cQ2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1"
@@ -122,16 +122,7 @@
       "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
     }
   ],
-  "user": [
-    {
-      "id": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
-      "email": "jhye4@test.com",
-      "photoURL": null,
-      "displayName": null,
-      "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
-      "invitedEmail": "jhye2@test.com"
-    }
-  ],
+  "user": [],
   "comments": [
     {
       "userName": "jhye",
@@ -226,6 +217,14 @@
       "id": "28457ec8-88dd-96f9-84a0-99d8b5da4109",
       "creator": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
       "commentContent": "댓글 수정 커스텀 훅 적용되나?"
+    },
+    {
+      "userName": "jhye2",
+      "parentId": "c465603f-56bc-85f3-0a75-827613b47ef6",
+      "created_at": "2022.12.27 14:15:25",
+      "id": "df96ca03-9d31-d67c-ef50-78c5ba03e580",
+      "creator": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
+      "commentContent": "ㅇㅇㅇㅇ"
     }
   ],
   "allUserList": [
