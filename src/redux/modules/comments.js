@@ -5,7 +5,9 @@ export const __getComment = createAsyncThunk(
   'comments/getComment',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/comments`
+      );
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -18,8 +20,13 @@ export const __addComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.post(`${process.env.REACT_APP_localComments}`, payload);
-      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
+      await axios.post(
+        `https://typhoon-pepper-baker.glitch.me/comments`,
+        payload
+      );
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/comments`
+      );
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -32,8 +39,12 @@ export const __deleteComment = createAsyncThunk(
   'comments/deleteComment',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_localComments}/${payload}`);
-      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
+      await axios.delete(
+        `https://typhoon-pepper-baker.glitch.me/comments/${payload}`
+      );
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/comments`
+      );
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -48,10 +59,12 @@ export const __updateComment = createAsyncThunk(
     try {
       // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `${process.env.REACT_APP_localComments}/${payload.id}`,
+        `https://typhoon-pepper-baker.glitch.me/comments/${payload.id}`,
         payload
       );
-      const data = await axios.get(`${process.env.REACT_APP_localComments}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/comments`
+      );
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {

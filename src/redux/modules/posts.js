@@ -1,11 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const __getPost = createAsyncThunk(
-  "posts/getPost",
+  'posts/getPost',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/posts`
+      );
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -14,12 +16,14 @@ export const __getPost = createAsyncThunk(
 );
 
 export const __addPost = createAsyncThunk(
-  "posts/addPost",
+  'posts/addPost',
   async (payload, thunkAPI) => {
     try {
       console.log(payload);
-      await axios.post(`${process.env.REACT_APP_localPosts}`, payload);
-      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
+      await axios.post(`https://typhoon-pepper-baker.glitch.me/posts`, payload);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/posts`
+      );
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -29,11 +33,15 @@ export const __addPost = createAsyncThunk(
 );
 
 export const __deletePost = createAsyncThunk(
-  "posts/deletePost",
+  'posts/deletePost',
   async (payload, thunkAPI) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_localPosts}/${payload}`);
-      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
+      await axios.delete(
+        `https://typhoon-pepper-baker.glitch.me/posts/${payload}`
+      );
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/posts`
+      );
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -43,15 +51,20 @@ export const __deletePost = createAsyncThunk(
 );
 
 export const __togglePost = createAsyncThunk(
-  "posts/togglePost",
+  'posts/togglePost',
   //   'posts/togglepost',
   async (payload, thunkAPI) => {
     try {
       // console.log('비동기 toggle payload값:', payload);
-      await axios.patch(`${process.env.REACT_APP_localPosts}/${payload.id}`, {
-        isDone: !payload.isDone,
-      });
-      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
+      await axios.patch(
+        `https://typhoon-pepper-baker.glitch.me/posts/${payload.id}`,
+        {
+          isDone: !payload.isDone,
+        }
+      );
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/posts`
+      );
       // console.log('toggle: server로부터 받은 응답', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -61,15 +74,17 @@ export const __togglePost = createAsyncThunk(
 );
 
 export const __updatePost = createAsyncThunk(
-  "posts/updatePost",
+  'posts/updatePost',
   async (payload, thunkAPI) => {
     try {
       // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `${process.env.REACT_APP_localPosts}/${payload.id}`,
+        `https://typhoon-pepper-baker.glitch.me/posts/${payload.id}`,
         payload
       );
-      const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/posts`
+      );
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -91,7 +106,7 @@ const initialState = {
 };
 
 const postsSlice = createSlice({
-  name: "posts",
+  name: 'posts',
   initialState,
   reducers: {
     addPost: (state, action) => {

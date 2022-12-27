@@ -5,7 +5,9 @@ export const __getUser = createAsyncThunk(
   'user/getUser',
   async (payload, thunkAPI) => {
     try {
-      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/user`
+      );
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -18,9 +20,11 @@ export const __addUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.post(`${process.env.REACT_APP_localUser}`, payload);
+      await axios.post(`https://typhoon-pepper-baker.glitch.me/user`, payload);
 
-      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/user`
+      );
       // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -34,8 +38,12 @@ export const __deleteUser = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.delete(`${process.env.REACT_APP_localUser}/${payload[0].id}`);
-      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
+      await axios.delete(
+        `https://typhoon-pepper-baker.glitch.me/user/${payload[0].id}`
+      );
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/user`
+      );
       // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
@@ -49,10 +57,12 @@ export const __updateUser = createAsyncThunk(
     try {
       // console.log('update 페이로드: ', payload);
       await axios.patch(
-        `${process.env.REACT_APP_localUser}/${payload.id}`,
+        `https://typhoon-pepper-baker.glitch.me/user/${payload.id}`,
         payload
       );
-      const data = await axios.get(`${process.env.REACT_APP_localUser}`);
+      const data = await axios.get(
+        `https://typhoon-pepper-baker.glitch.me/user`
+      );
       // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
