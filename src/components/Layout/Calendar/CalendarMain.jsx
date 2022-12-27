@@ -45,6 +45,7 @@ function CalendarMain() {
                 { title: "event", date: "2022-12-26" },
                 { title: "event", date: "2022-12-27" },
               ]}
+              style={{ width: "285px" }}
             />
           </S.StyleWrapper>
         </S.MainContainer>
