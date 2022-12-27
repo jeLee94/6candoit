@@ -67,10 +67,13 @@ export const usePostCreate = (initialValue) => {
   };
 
   useEffect(() => {
+    console.log('posts', posts);
     if (posts.length < 1) {
       return;
     }
-    posts.map((post) => setImgUrl(post.imgUrl));
+    if (posts) {
+      posts.map((post) => setImgUrl(post.imgUrl));
+    }
   }, [posts]);
 
   return [
