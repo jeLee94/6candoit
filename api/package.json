@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "vercel": "vercel dev",
+    "deploy": "vercel deploy"
+  }
+}
