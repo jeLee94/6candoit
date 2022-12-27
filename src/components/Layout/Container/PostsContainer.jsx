@@ -7,11 +7,14 @@ import dayjs from "dayjs";
 import blankProfile from "../../../images/blankProfile.webp";
 import DateSellector from "./DateSellector";
 import { format } from "date-fns";
+import { usePostCreate } from "../../../hooks/usePostCreate";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.user);
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
 
   //post 생성 커스텀 훅 적용
   const [
@@ -42,9 +45,7 @@ const PostsContainer = () => {
             className="title"
             type="text"
             value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
+            onChange={changeTitle}
           />
           <S.TitleCommentText>내용</S.TitleCommentText>
 
@@ -53,9 +54,7 @@ const PostsContainer = () => {
             rows="10"
             type="text"
             value={content}
-            onChange={(e) => {
-              setContent(e.target.value);
-            }}
+            onChange={changeContent}
           />
 
           {/* {Calendar} */}
