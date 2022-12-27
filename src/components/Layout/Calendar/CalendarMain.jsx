@@ -7,6 +7,7 @@ import { __getPost } from "../../../redux/modules/posts";
 import { useDispatch } from "react-redux";
 // import Sidebar from '../Sidebar/Sidebar';
 import CalendarTodo from "./CalendarTodo";
+import dayjs from "dayjs";
 
 function CalendarMain() {
   const dispatch = useDispatch();
@@ -18,15 +19,10 @@ function CalendarMain() {
   }, [dispatch]);
 
   const calendarEvents = posts.map((post) => {
-    // if (finished.at == true){
-    // 객체반환 title,created_at:post.created_at start,end 넣기
-    //} else
-
     return {
       title: post.title,
       start: post.fromDate,
       end: post.toDate,
-      // 조건문을 주어 해당 영역을 수정 true/false로
     };
   });
 
@@ -43,6 +39,7 @@ function CalendarMain() {
               defaultView="dayGridMonth"
               plugins={[dayGridPlugin]}
               events={calendarEvents}
+              displayEventTime={false}
               style={{ width: "285px" }}
             />
           </S.StyleWrapper>

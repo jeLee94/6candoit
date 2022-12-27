@@ -41,6 +41,7 @@ export const usePostCreate = (initialValue) => {
     if (title === "" || content === "") return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
     // console.log(user[0].invitedUid);
+    console.log(initialValue);
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
