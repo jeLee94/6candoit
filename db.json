@@ -111,6 +111,32 @@
       "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "fromDate": "2022-12-27T15:00:00.000Z",
       "toDate": "2022-12-28T15:00:00.000Z"
+    },
+    {
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:00",
+      "id": "b13c9bd9-04f2-3983-156f-ee690b8bf718",
+      "title": "테스트입니다",
+      "content": "입력이 잘 되는지 확인이 필요",
+      "isDone": false,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-22T15:00:00.000Z",
+      "toDate": "2022-12-30T15:00:00.000Z"
+    },
+    {
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:38",
+      "id": "36d23f17-fe06-eb4d-eff5-14151979b7a9",
+      "title": "테스트",
+      "content": "일정공유",
+      "isDone": false,
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
+      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-05T15:00:00.000Z",
+      "toDate": "2022-12-09T15:00:00.000Z"
     }
   ],
   "user": [
