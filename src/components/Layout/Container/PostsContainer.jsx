@@ -27,6 +27,8 @@ const PostsContainer = () => {
     content: "",
     imgUrl: blankProfile,
     imgDownloadUrl: null,
+    toDate: toDate,
+    fromDate: fromDate,
   });
 
   useEffect(() => {

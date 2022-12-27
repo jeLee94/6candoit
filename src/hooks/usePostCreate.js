@@ -8,6 +8,7 @@ import uuid from "react-uuid";
 import dayjs from "dayjs";
 
 export const usePostCreate = (initialValue) => {
+  console.log(initialValue);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
@@ -22,8 +23,8 @@ export const usePostCreate = (initialValue) => {
   let isDateRange = new Date();
   const [range, setRange] = useState(isDateRange);
 
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
+  // const [fromDate, setFromDate] = useState("");
+  // const [toDate, setToDate] = useState("");
 
   const changeTitle = (e) => {
     // e.preventDefault();
@@ -54,7 +55,9 @@ export const usePostCreate = (initialValue) => {
             userId: user[0].id,
             imgUrl: imgDownloadUrl ?? blankProfile,
             invitedId: user[0].invitedUid ?? "",
-            // to, from 값 추가
+            // 캘린더 to, from 값 추가
+            fromDate: initialValue.fromDate,
+            toDate: initialValue.toDate,
           })
         )
       : alert("로그인해주세요");
