@@ -8,6 +8,7 @@ import * as S from "./PostsContainerStyle";
 import dayjs from "dayjs";
 import blankProfile from "../../../images/blankProfile.webp";
 import { auth } from "../../../firebase";
+import DateSellector from "./DateSellector";
 
 const PostsContainer = () => {
   const dispatch = useDispatch();
@@ -93,6 +94,10 @@ const PostsContainer = () => {
               setContent(e.target.value);
             }}
           />
+
+          {/* CALENDAR */}
+          <DateSellector />
+
           <S.AddBtn disabled={title === "" || content === "" ? true : false}>
             추가
           </S.AddBtn>
