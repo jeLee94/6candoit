@@ -19,13 +19,11 @@ export const __addUser = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
       await axios.post(`https://typhoon-pepper-baker.glitch.me/user`, payload);
 
       const data = await axios.get(
         `https://typhoon-pepper-baker.glitch.me/user`
       );
-      // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -37,14 +35,12 @@ export const __deleteUser = createAsyncThunk(
   'user/deleteUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
       await axios.delete(
         `https://typhoon-pepper-baker.glitch.me/user/${payload[0].id}`
       );
       const data = await axios.get(
         `https://typhoon-pepper-baker.glitch.me/user`
       );
-      // console.log(data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -55,7 +51,6 @@ export const __updateUser = createAsyncThunk(
   'user/updateUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
       await axios.patch(
         `https://typhoon-pepper-baker.glitch.me/user/${payload.id}`,
         payload
@@ -63,7 +58,6 @@ export const __updateUser = createAsyncThunk(
       const data = await axios.get(
         `https://typhoon-pepper-baker.glitch.me/user`
       );
-      // console.log('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -146,7 +140,6 @@ const userSlice = createSlice({
   },
 });
 
-console.log('userSlice.action:', userSlice.actions);
 export const { addUser, deleteUser } = userSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default userSlice.reducer;

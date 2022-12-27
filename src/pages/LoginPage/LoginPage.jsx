@@ -61,8 +61,7 @@ function LoginPage() {
       setRegisterEmail(''); //state 초기화
       setRegisterPassword(''); // state 초기화
     } catch (err) {
-      console.log(err.code);
-      switch (err.code) {
+      switch (err?.code) {
         case 'auth/weak-password':
           setErrorMsg('비밀번호는 6자리 이상이어야 합니다');
           alert(errorMsg);
@@ -109,8 +108,7 @@ function LoginPage() {
       navigate('/');
     } catch (err) {
       // setIsAppropriate(false);
-      console.log(err);
-      switch (err.code) {
+      switch (err?.code) {
         case 'auth/wrong-password':
           setErrorMsg('비밀번호를 확인해 주세요.');
           alert(errorMsg);
@@ -161,9 +159,7 @@ function LoginPage() {
           })
         );
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   return (
