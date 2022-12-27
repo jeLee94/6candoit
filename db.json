@@ -113,30 +113,30 @@
       "toDate": "2022-12-28T15:00:00.000Z"
     },
     {
-      "userName": null,
-      "created_at": "2022.12.27 20:13:10",
-      "id": "dfcd4c60-a5c5-e72e-2c2c-0823c63e663f",
-      "title": "자바스크립트 공부하기",
-      "content": "자바스크립트 강의 완강하기",
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:00",
+      "id": "b13c9bd9-04f2-3983-156f-ee690b8bf718",
+      "title": "테스트입니다",
+      "content": "입력이 잘 되는지 확인이 필요",
       "isDone": false,
-      "userId": "EGP36yqxW6VWhE1zqKSQxPptHB23",
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "",
-      "fromDate": "",
-      "toDate": ""
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-22T15:00:00.000Z",
+      "toDate": "2022-12-30T15:00:00.000Z"
     },
     {
-      "userName": "da in jung",
-      "created_at": "2022.12.27 20:26:53",
-      "id": "3eb6bc61-e7fa-9adc-ff4c-49ec42d81dcc",
-      "title": "ㅈㄴㅇㄴ",
-      "content": "ㅇㄴㄹㅇㄴ",
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:38",
+      "id": "36d23f17-fe06-eb4d-eff5-14151979b7a9",
+      "title": "테스트",
+      "content": "일정공유",
       "isDone": false,
-      "userId": "y7HiBfI49gMaplWbMNj8RLbdqPl1",
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "",
-      "fromDate": "",
-      "toDate": ""
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-05T15:00:00.000Z",
+      "toDate": "2022-12-09T15:00:00.000Z"
     }
   ],
   "user": [
