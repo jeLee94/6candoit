@@ -20,9 +20,8 @@ export const usePostCreate = (initialValue) => {
     initialValue.imgDownloadUrl
   );
 
-  let isDateRange = new Date();
-  const [range, setRange] = useState(isDateRange);
-
+  // let isDateRange = new Date();
+  // const [range, setRange] = useState(isDateRange);
   // const [fromDate, setFromDate] = useState("");
   // const [toDate, setToDate] = useState("");
 

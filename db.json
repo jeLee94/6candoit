@@ -111,39 +111,30 @@
       "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
     },
     {
-      "userName": null,
-      "created_at": "2022.12.27 15:35:12",
-      "id": "eb90fb3e-2817-9e7c-2a29-dd283296213b",
-      "title": "일정 등록 테스트",
-      "content": "일정 등록 테스트",
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:00",
+      "id": "b13c9bd9-04f2-3983-156f-ee690b8bf718",
+      "title": "테스트입니다",
+      "content": "입력이 잘 되는지 확인이 필요",
       "isDone": false,
-      "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-22T15:00:00.000Z",
+      "toDate": "2022-12-30T15:00:00.000Z"
     },
     {
-      "userName": "jaehyun ye",
-      "created_at": "2022.12.27 16:40:53",
-      "id": "ae45a657-5651-cfdd-8012-2d0d160782cc",
-      "title": "구글로 글쓰기",
-      "content": "구글로 내용쓰기ㄴㄴㄴ",
-      "isDone": true,
-      "userId": "8zUqM8iwsKSmojzC79Isjt7enot2",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": ""
-    },
-    {
-      "userName": null,
-      "created_at": "2022.12.27 20:51:52",
-      "id": "19b6eaac-e5aa-94a7-eaca-8f8aec422720",
-      "title": "jhye1의 첫 글입니다",
-      "content": "안녕하세요?",
+      "userName": "222",
+      "created_at": "2022.12.27 21:55:38",
+      "id": "36d23f17-fe06-eb4d-eff5-14151979b7a9",
+      "title": "테스트",
+      "content": "일정공유",
       "isDone": false,
-      "userId": "Zu5HG9uv7ZZx1TcGa4f4dN3oHJg1",
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "",
-      "fromDate": "",
-      "toDate": ""
+      "invitedId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
+      "fromDate": "2022-12-05T15:00:00.000Z",
+      "toDate": "2022-12-09T15:00:00.000Z"
     }
   ],
   "user": [],
