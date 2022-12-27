@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Calendar from "@fullcalendar/react";
 import * as S from "./CalendarMainStyle";
 import { useSelector } from "react-redux";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import { __getPost } from "../../../redux/modules/posts";
 import { useDispatch } from "react-redux";
-// import Sidebar from '../Sidebar/Sidebar';
-import CalendarTodo from "./CalendarTodo";
-import dayjs from "dayjs";
 
 function CalendarMain() {
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.posts);
-  const [value, onChange] = useState(new Date());
 
   useEffect(() => {
     dispatch(__getPost());
@@ -45,7 +41,6 @@ function CalendarMain() {
     };
   });
 
-  console.log(CalendarTodo);
   return (
     <>
       <S.Wrapper>

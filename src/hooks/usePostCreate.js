@@ -8,7 +8,6 @@ import uuid from "react-uuid";
 import dayjs from "dayjs";
 
 export const usePostCreate = (initialValue) => {
-  console.log(initialValue);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
@@ -21,7 +20,7 @@ export const usePostCreate = (initialValue) => {
   );
 
   let isDateRange = new Date();
-  const [range, setRange] = useState(isDateRange);
+  // const [range, setRange] = useState(isDateRange);
 
   // const [fromDate, setFromDate] = useState("");
   // const [toDate, setToDate] = useState("");
@@ -48,10 +47,7 @@ export const usePostCreate = (initialValue) => {
     e.preventDefault();
 
     if (title === "" || content === "") return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
-    // console.log('imgUrl값은?', imgUrl);
-    // console.log(user[0].invitedUid);
-    console.log(initialValue);
-    console.log(getFormatDate(initialValue.fromDate));
+
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
@@ -82,7 +78,9 @@ export const usePostCreate = (initialValue) => {
     if (posts.length < 1) {
       return;
     }
-    posts.map((post) => setImgUrl(post.imgUrl));
+    if (posts) {
+      posts.map((post) => setImgUrl(post.imgUrl));
+    }
   }, [posts]);
 
   return [

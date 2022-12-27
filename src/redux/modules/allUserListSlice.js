@@ -17,11 +17,9 @@ export const __addUserList = createAsyncThunk(
   'allUserList/addUser',
   async (payload, thunkAPI) => {
     try {
-      console.log(payload);
       await axios.post(`${process.env.REACT_APP_allUserList}`, payload);
 
       const data = await axios.get(`${process.env.REACT_APP_allUserList}`);
-      // console.log(data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -32,13 +30,12 @@ export const __updateUserList = createAsyncThunk(
   'allUserList/updateUser',
   async (payload, thunkAPI) => {
     try {
-      // console.log('update 페이로드: ', payload);
       await axios.patch(
         `${process.env.REACT_APP_allUserList}/${payload.id}`,
         payload
       );
       const data = await axios.get(`${process.env.REACT_APP_allUserList}`);
-      // console.log('update 이벤트의 서버 응답: ', data.data);
+      // ('update 이벤트의 서버 응답: ', data.data);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -47,13 +44,7 @@ export const __updateUserList = createAsyncThunk(
 );
 
 const initialState = {
-  allUserList: [
-    // {
-    //   id: 1,
-    //   title: '제목1',
-    //   content: '내용1',
-    // },
-  ],
+  allUserList: [],
   isLoading: false,
   error: null,
 };
@@ -105,7 +96,6 @@ const allUserListSlice = createSlice({
   },
 });
 
-// console.log('userSlice.action:', allUserListSlice.actions);
 export const { addUser } = allUserListSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default allUserListSlice.reducer;

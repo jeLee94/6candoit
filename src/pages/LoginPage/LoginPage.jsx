@@ -56,13 +56,12 @@ function LoginPage() {
           email: createdUser.user.email,
         })
       ); // user data 설정
-      alert(`${createdUser.user.email}님 안녕하세요!`);
+      alert("회원가입 완료! 로그인해주세요.");
       setIsRegistered(!isRegistered); //로그인 창으로 돌아가기
       setRegisterEmail(""); //state 초기화
       setRegisterPassword(""); // state 초기화
     } catch (err) {
-      console.log(err.code);
-      switch (err.code) {
+      switch (err?.code) {
         case "auth/weak-password":
           setErrorMsg("비밀번호는 6자리 이상이어야 합니다");
           alert(errorMsg);
@@ -94,8 +93,6 @@ function LoginPage() {
         LoginPassword
       );
       const idx = idList.indexOf(curUserInfo.user.uid);
-      alert("로그인완료!");
-      navigate("/");
 
       dispatch(
         __addUser({
@@ -103,14 +100,15 @@ function LoginPage() {
           email: auth.currentUser.email,
           photoURL: auth.currentUser.photoURL,
           displayName: auth.currentUser.displayName,
-          invitedUid: allUserList[idx].invitedUid,
-          invitedEmail: allUserList[idx].invitedEmail,
+          invitedUid: allUserList?.[idx]?.invitedUid,
+          invitedEmail: allUserList?.[idx]?.invitedEmail,
         })
       );
+      alert(`${auth.currentUser.email}님 안녕하세요!`);
+      navigate("/");
     } catch (err) {
       // setIsAppropriate(false);
-      console.log(err.code);
-      switch (err.code) {
+      switch (err?.code) {
         case "auth/wrong-password":
           setErrorMsg("비밀번호를 확인해 주세요.");
           alert(errorMsg);
@@ -161,9 +159,7 @@ function LoginPage() {
           })
         );
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   return (
@@ -183,7 +179,6 @@ function LoginPage() {
                   marginBottom: "15px",
                   textDecoration: "none",
                   color: "black",
-                  fontWeight: "bold",
                 }}
                 to={"/"}
               >
@@ -269,7 +264,6 @@ function LoginPage() {
                 marginBottom: "15px",
                 textDecoration: "none",
                 color: "black",
-                fontWeight: "bold",
               }}
               to={"/"}
             >
@@ -322,7 +316,6 @@ function LoginPage() {
               height: "30px",
               borderRadius: "10px",
               border: "1px solid #eee",
-              fontWeight: "bold",
             }}
           >
             로그인 페이지로 돌아가기

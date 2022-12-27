@@ -28,8 +28,18 @@ const store = configureStore({
   // 다음이 middleware 추가 코드이다.
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware({ serializableCheck: false }),
-  // 기본 값이 true지만 배포할때 코드를 숨기기 위해서 false로 변환하기 쉽게 설정에 넣어놨다.
-  // devTools: true,
+
+  // << development 환경에서만 redux devtool이 활성화 되도록 처리 >>
+
+  //방법 1
+  // devTools: false,
+
+  //방법 2
+  // devTools: process.env.NODE_ENV === 'production',
+
+  // 방법 3
+  // 개발모드일 때만 리덕스 개발자도구를 사용하도록 설정
+  // devTools: process.env.NODE_ENV === 'development',
 });
 
 export default store;
