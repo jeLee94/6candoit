@@ -17,7 +17,7 @@
       "id": "f79ce77e-4cf2-a0d8-2ba5-6d80107971ac",
       "title": "하윙",
       "content": "하이",
-      "isDone": false,
+      "isDone": true,
       "userId": "CVhf698UXWP9ODzKDPAp1H3TETs2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
@@ -28,7 +28,7 @@
       "id": "13e2946f-87de-ef67-dc44-4652795f7655",
       "title": "운동하기",
       "content": "상체",
-      "isDone": true,
+      "isDone": false,
       "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92"
@@ -292,6 +292,18 @@
       "email": "jhye4@test.com",
       "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "invitedEmail": "jhye2@test.com"
+    },
+    {
+      "id": "EGP36yqxW6VWhE1zqKSQxPptHB23",
+      "email": "o100ente@gmail.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/EGP36yqxW6VWhE1zqKSQxPptHB23%2FprofileUrl%2Fb9916569-fe17-4cbf-9da0-f1bf5bc490db?alt=media&token=7300d37b-5831-4ba0-8375-c4bcae19cfb5",
+      "displayName": null
+    },
+    {
+      "id": "y7HiBfI49gMaplWbMNj8RLbdqPl1",
+      "email": "o100ente@gmail.com",
+      "photoURL": "https://firebasestorage.googleapis.com/v0/b/candoit-cc12d.appspot.com/o/y7HiBfI49gMaplWbMNj8RLbdqPl1%2FprofileUrl%2F3cc2a151-aa6c-4a18-bcdc-7d1acc85537e?alt=media&token=d87a7385-58f6-4e04-a3ed-bd552ca58714",
+      "displayName": "츄키러버"
     }
   ]
 }
