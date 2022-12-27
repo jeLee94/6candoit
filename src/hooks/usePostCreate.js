@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { __addPost } from '../redux/modules/posts';
-import blankProfile from '../images/blankProfile.webp';
-import { auth } from '../firebase';
-import uuid from 'react-uuid';
-import dayjs from 'dayjs';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { __addPost } from "../redux/modules/posts";
+import blankProfile from "../images/blankProfile.webp";
+import { auth } from "../firebase";
+import uuid from "react-uuid";
+import dayjs from "dayjs";
 
 export const usePostCreate = (initialValue) => {
   const dispatch = useDispatch();
@@ -19,6 +19,12 @@ export const usePostCreate = (initialValue) => {
     initialValue.imgDownloadUrl
   );
 
+  let isDateRange = new Date();
+  const [range, setRange] = useState(isDateRange);
+
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+
   const changeTitle = (e) => {
     // e.preventDefault();
     setTitle(e.target.value);
@@ -31,7 +37,7 @@ export const usePostCreate = (initialValue) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (title === '' || content === '') return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
+    if (title === "" || content === "") return; // 아무것도 입력하지 않았을 때 dispatch 하지 않음
     // console.log('imgUrl값은?', imgUrl);
     // console.log(user[0].invitedUid);
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
@@ -39,22 +45,23 @@ export const usePostCreate = (initialValue) => {
           __addPost({
             userName: auth.currentUser
               ? auth.currentUser.displayName
-              : user[0].email.split('@')[0],
-            created_at: dayjs().format('YYYY.MM.DD HH:mm:ss'),
+              : user[0].email.split("@")[0],
+            created_at: dayjs().format("YYYY.MM.DD HH:mm:ss"),
             id: uuid(),
             title,
             content,
             isDone: false,
             userId: user[0].id,
             imgUrl: imgDownloadUrl ?? blankProfile,
-            invitedId: user[0].invitedUid ?? '',
+            invitedId: user[0].invitedUid ?? "",
+            // to, from 값 추가
           })
         )
-      : alert('로그인해주세요');
+      : alert("로그인해주세요");
 
-    setTitle('');
-    setContent('');
-    navigate('/');
+    setTitle("");
+    setContent("");
+    navigate("/");
   };
 
   useEffect(() => {

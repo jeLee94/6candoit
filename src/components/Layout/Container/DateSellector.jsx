@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Button, Modal } from "antd";
 import CalendarTodo from "./../Calendar/CalendarTodo";
-const DateSellector = () => {
+const DateSellector = ({ setFromDate, setToDate }) => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
   const showModal = () => {
     setOpen(true);
   };
-  const handleOk = () => {
+  const handleOk = (e) => {
+    console.log(e);
     setModalText("등록완료 ദ്ദി ᵔ∇ᵔ )!!");
     setConfirmLoading(true);
     setTimeout(() => {
@@ -36,9 +37,8 @@ const DateSellector = () => {
         onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
-        style={{}}
       >
-        <CalendarTodo />
+        <CalendarTodo setFromDate={setFromDate} setToDate={setToDate} />
       </Modal>
     </>
   );
