@@ -34,6 +34,15 @@ export const usePostCreate = (initialValue) => {
     // e.preventDefault();
     setContent(e.target.value);
   };
+  function getFormatDate(date) {
+    let year = date.getFullYear(); //yyyy
+    let month = 1 + date.getMonth(); //M
+    month = month >= 10 ? month : "0" + month; //month 두자리로 저장
+    let day = date.getDate(); //d
+    day = day >= 10 ? day : "0" + day; //day 두자리로 저장
+    return year + "" + month + "" + day; //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+  }
+
   //task 추가 버튼
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -42,6 +51,7 @@ export const usePostCreate = (initialValue) => {
     // console.log('imgUrl값은?', imgUrl);
     // console.log(user[0].invitedUid);
     console.log(initialValue);
+    console.log(getFormatDate(initialValue.fromDate));
     user.length > 0 //로그인 해야만 디스패치 되도록 조건 처리
       ? dispatch(
           __addPost({
@@ -57,8 +67,8 @@ export const usePostCreate = (initialValue) => {
             imgUrl: imgDownloadUrl ?? blankProfile,
             invitedId: user[0].invitedUid ?? "",
             // 캘린더 to, from 값 추가
-            fromDate: initialValue.fromDate,
-            toDate: initialValue.toDate,
+            fromDate: getFormatDate(initialValue.fromDate),
+            toDate: getFormatDate(initialValue.toDate),
           })
         )
       : alert("로그인해주세요");

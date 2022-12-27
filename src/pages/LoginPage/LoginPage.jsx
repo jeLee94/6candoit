@@ -109,6 +109,7 @@ function LoginPage() {
       );
     } catch (err) {
       // setIsAppropriate(false);
+      console.log(err.code);
       switch (err.code) {
         case "auth/wrong-password":
           setErrorMsg("비밀번호를 확인해 주세요.");
