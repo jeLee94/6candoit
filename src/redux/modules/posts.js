@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const __getPost = createAsyncThunk(
-  'posts/getPost',
+  "posts/getPost",
   async (payload, thunkAPI) => {
     try {
       const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
@@ -14,10 +14,10 @@ export const __getPost = createAsyncThunk(
 );
 
 export const __addPost = createAsyncThunk(
-  'posts/addPost',
+  "posts/addPost",
   async (payload, thunkAPI) => {
     try {
-      // console.log(payload);
+      console.log(payload);
       await axios.post(`${process.env.REACT_APP_localPosts}`, payload);
       const data = await axios.get(`${process.env.REACT_APP_localPosts}`);
       // console.log(data);
@@ -29,7 +29,7 @@ export const __addPost = createAsyncThunk(
 );
 
 export const __deletePost = createAsyncThunk(
-  'posts/deletePost',
+  "posts/deletePost",
   async (payload, thunkAPI) => {
     try {
       await axios.delete(`${process.env.REACT_APP_localPosts}/${payload}`);
@@ -43,7 +43,7 @@ export const __deletePost = createAsyncThunk(
 );
 
 export const __togglePost = createAsyncThunk(
-  'posts/togglePost',
+  "posts/togglePost",
   //   'posts/togglepost',
   async (payload, thunkAPI) => {
     try {
@@ -61,7 +61,7 @@ export const __togglePost = createAsyncThunk(
 );
 
 export const __updatePost = createAsyncThunk(
-  'posts/updatePost',
+  "posts/updatePost",
   async (payload, thunkAPI) => {
     try {
       // console.log('update 페이로드: ', payload);
@@ -91,7 +91,7 @@ const initialState = {
 };
 
 const postsSlice = createSlice({
-  name: 'posts',
+  name: "posts",
   initialState,
   reducers: {
     addPost: (state, action) => {

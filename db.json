@@ -27,7 +27,7 @@
       "created_at": "2022.12.26 17:34:13",
       "id": "13e2946f-87de-ef67-dc44-4652795f7655",
       "title": "운동하기",
-      "content": "벤치프레스, 렛풀다운",
+      "content": "상체",
       "isDone": true,
       "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
@@ -38,7 +38,7 @@
       "created_at": "2022.12.26 19:11:26",
       "id": "c465603f-56bc-85f3-0a75-827613b47ef6",
       "title": "ㅁㄴㅇㅍㅁㄴ",
-      "content": "ㅍasdvㄴㄴㄴ",
+      "content": "ㅁㅈㄷㅍㅁㅈㅇㅍㅁㅈㄴ",
       "isDone": false,
       "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
@@ -70,9 +70,9 @@
       "userName": null,
       "created_at": "2022.12.26 22:04:13",
       "id": "2abc3959-65fc-fec5-c988-7801b1806108",
-      "title": "jhye4의 첫 글입낟",
-      "content": "ㄷㄷㄷㄷㄷㄷㄷㄷ",
-      "isDone": true,
+      "title": "jhye4의 첫 글",
+      "content": "ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ",
+      "isDone": false,
       "userId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": ""
@@ -100,24 +100,13 @@
       "invitedId": "ZvwaGlTSLecJrrFHaruea0JAH9W2"
     },
     {
-      "userName": null,
-      "created_at": "2022.12.27 11:55:45",
-      "id": "88985cab-6894-bed0-fe8c-cfdb7449205d",
-      "title": "post 생성 커스텀 훅 적용 테스트",
-      "content": "과연?",
-      "isDone": true,
-      "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
-      "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
-      "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
-    },
-    {
-      "userName": null,
-      "created_at": "2022.12.27 11:56:50",
-      "id": "6d2fa620-dfd5-2d9b-6c3a-5c7d73c1e712",
-      "title": "커스텀 훅 적용",
-      "content": "테스트",
+      "userName": "222",
+      "created_at": "2022.12.27 17:51:34",
+      "id": "6ada4bd9-ccac-c63f-9e3c-52089934eff9",
+      "title": "ㅁㄴㅇ",
+      "content": "ㅁㄴㅇ",
       "isDone": false,
-      "userId": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
+      "userId": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
       "imgUrl": "/static/media/blankProfile.7a6a6c54279a54d1977c.webp",
       "invitedId": "mn9pMAbSS4Sl2XnubWrgD5LkYej2"
     },
@@ -144,7 +133,16 @@
       "invitedId": ""
     }
   ],
-  "user": [],
+  "user": [
+    {
+      "id": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
+      "email": "jhye4@test.com",
+      "photoURL": null,
+      "displayName": null,
+      "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
+      "invitedEmail": "jhye2@test.com"
+    }
+  ],
   "comments": [
     {
       "userName": "jhye",
@@ -206,7 +204,7 @@
       "created_at": "2022.12.26 22:08:25",
       "id": "2aabba4e-e9bd-ec54-c640-138007f68312",
       "creator": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
-      "commentContent": "jhye4의 첫 댓글입니다"
+      "commentContent": "jhye4의 첫 댓글"
     },
     {
       "userName": "jhye2",
@@ -214,7 +212,7 @@
       "created_at": "2022.12.26 22:36:22",
       "id": "bc9716c0-d0c6-fef9-6034-f0a549cb1d15",
       "creator": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
-      "commentContent": "초대하면 초대한 계정이 초대한 시점부터의 글을 볼 수 있게 구현되어있네요!"
+      "commentContent": "초대하면 초대한 계정이 초대한 시점부터의 글을 볼 수 있게 구현되어있네요"
     },
     {
       "userName": "222",
@@ -303,14 +301,6 @@
       "email": "jhye4@test.com",
       "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
       "invitedEmail": "jhye2@test.com"
-    },
-    {
-      "id": "8yuA8RB9lcTWcPU49SVIH5ckI5h2",
-      "email": "gongdonglee@gmail.com",
-      "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5yvNKiX0_4sIQac84vUXGlqoaLCkmEjL3gS7nK=s96-c",
-      "displayName": "LEE공동",
-      "invitedUid": "qH0dfOYhi3aza3Ob0OTXgbqjjM92",
-      "invitedEmail": "222@naver.com"
     }
   ]
 }
