@@ -133,16 +133,7 @@
       "invitedId": ""
     }
   ],
-  "user": [
-    {
-      "id": "mn9pMAbSS4Sl2XnubWrgD5LkYej2",
-      "email": "jhye4@test.com",
-      "photoURL": null,
-      "displayName": null,
-      "invitedUid": "9eAwuAOhogOZfWmzm3lZ4PBSSus1",
-      "invitedEmail": "jhye2@test.com"
-    }
-  ],
+  "user": [],
   "comments": [
     {
       "userName": "jhye",
