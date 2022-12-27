@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import * as S from "./SidebarStyle.js";
-import candylogo from "./candylogo.png";
-import Ellipse from "./Ellipse.png";
-import { signOut } from "firebase/auth";
-import { useDispatch, useSelector } from "react-redux";
-import { __getUser, __deleteUser } from "../../../redux/modules/userSlice.js";
-import { auth } from "../../../firebase.js";
-import CustomButton from "../../Tools/CustomButton.jsx";
-import blankProfile from "../../../images/blankProfile.webp";
+import React, { useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import * as S from './SidebarStyle.js';
+import candylogo from './candylogo.png';
+import Ellipse from './Ellipse.png';
+import { signOut } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { __getUser, __deleteUser } from '../../../redux/modules/userSlice.js';
+import { auth } from '../../../firebase.js';
+import CustomButton from '../../Tools/CustomButton.jsx';
+import blankProfile from '../../../images/blankProfile.webp';
 export default function Sidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -17,21 +17,25 @@ export default function Sidebar() {
     dispatch(__getUser());
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
-  // console.log(auth.currentUser);
+
   const handleLogout = async () => {
     //세션 or 쿠기 삭제
     dispatch(__deleteUser(user));
     // dispatch(__getUser());
-    navigate("/");
+    navigate('/');
     await signOut(auth);
   };
 
+  window.addEventListener('unload', (event) => {
+    event.preventDefault();
+    dispatch(__deleteUser(auth.currentUser.uid)); //user로 하면 데이터 찾아올 수 없어서 삭제안됨
+  });
   return (
     <>
       <S.SideBar>
         <S.ProfileDetail>
-          <Link to={"/"}>
-            <S.SideBarLogo alt="로고" src={candylogo}></S.SideBarLogo>
+          <Link to={'/'}>
+            <S.SideBarLogo alt='로고' src={candylogo}></S.SideBarLogo>
           </Link>
         </S.ProfileDetail>
         <S.SideWrapper>
@@ -43,11 +47,11 @@ export default function Sidebar() {
                   <div>환영합니다!</div>
                   <Link
                     style={{
-                      marginBottom: "15px",
-                      textDecoration: "none",
-                      color: "black",
+                      marginBottom: '15px',
+                      textDecoration: 'none',
+                      color: 'black',
                     }}
-                    to="/login"
+                    to='/login'
                   >
                     LOGIN
                   </Link>
@@ -56,11 +60,11 @@ export default function Sidebar() {
                 <S.ProfileDetail>
                   <Link
                     style={{
-                      textDecoration: "none",
-                      color: "#696969",
-                      fontSize: "20px",
+                      textDecoration: 'none',
+                      color: '#696969',
+                      fontSize: '20px',
                     }}
-                    to={"/mypage"}
+                    to={'/mypage'}
                   >
                     {user?.[0]?.photoURL !== null ? (
                       <S.AppLogo src={user?.[0]?.photoURL ?? blankProfile} />
@@ -76,23 +80,23 @@ export default function Sidebar() {
           <S.ContentsWrapper>
             <S.SideTitle>MENU</S.SideTitle>
             <S.SideMenu>
-              {location?.pathname !== "/" && (
+              {location?.pathname !== '/' && (
                 <Link
                   style={{
-                    textDecoration: "none",
-                    color: "#696969",
+                    textDecoration: 'none',
+                    color: '#696969',
                   }}
-                  to="/"
+                  to='/'
                 >
                   <S.MenuList>Main</S.MenuList>
                 </Link>
               )}
               <Link
                 style={{
-                  textDecoration: "none",
-                  color: "#696969",
+                  textDecoration: 'none',
+                  color: '#696969',
                 }}
-                to="/Calendar"
+                to='/Calendar'
               >
                 <S.MenuList>Calendar</S.MenuList>
               </Link>
