@@ -21,11 +21,11 @@
     "firestore": "^1.1.6",
     "fullcalendar": "^6.0.1",
     "json-server": "^0.17.1",
-    "react": "^18.2.0",
+    "react": "^18.3.0-next-de7d1c907-20221223",
     "react-calendar": "^4.0.0",
     "react-cookie": "^4.1.1",
     "react-day-picker": "^8.4.1",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.0-next-de7d1c907-20221223",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
@@ -60,6 +60,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "vercel": "^28.10.1"
   }
 }
